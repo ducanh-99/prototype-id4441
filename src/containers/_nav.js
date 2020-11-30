@@ -27,7 +27,7 @@ export default [
   {
     _tag: "CSidebarNavItem",
     name: "Thi đấu",
-    to: "/theme/typography",
+    to: "/fight",
     icon: "cil-star",
   },
   // {
