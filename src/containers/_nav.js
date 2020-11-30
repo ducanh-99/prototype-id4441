@@ -15,7 +15,7 @@ export default [
   {
     _tag: "CSidebarNavItem",
     name: "Học Gõ",
-    to: "/theme/colors",
+    to: "/learn",
     icon: "cil-pencil",
   },
   {
