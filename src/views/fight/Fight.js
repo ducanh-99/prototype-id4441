@@ -9,8 +9,12 @@ import {
   CCol,
   CInput,
   CLabel,
-  CButton
+  CButton,
+  CDataTable
 } from "@coreui/react";
+
+const Charts = React.lazy(() => import('./Charts'))
+
 function Fight() {
   return (
     <>
@@ -45,7 +49,9 @@ function Fight() {
                 Thi đấu
               </CButton>
             </CCardHeader>
-            <CCardBody></CCardBody>
+            <CCardBody>
+              <Charts />
+            </CCardBody>
           </CCard>
         </CCol>
       </CRow>
