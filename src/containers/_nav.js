@@ -21,7 +21,7 @@ export default [
   {
     _tag: "CSidebarNavItem",
     name: "Xem bộ quy tắc",
-    to: "/theme/typography",
+    to: "/watch",
     icon: "cil-puzzle",
   },
   {
