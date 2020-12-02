@@ -27,16 +27,8 @@ const TheSidebar = () => {
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">
-        <CIcon
-          className="c-sidebar-brand-full"
-          name="logo-negative"
-          height={35}
-        />
-        <CIcon
-          className="c-sidebar-brand-minimized"
-          name="sygnet"
-          height={35}
-        />
+        {/* Logo */}
+        <h6>Day la Logo</h6>
       </CSidebarBrand>
       <CSidebarNav>
 

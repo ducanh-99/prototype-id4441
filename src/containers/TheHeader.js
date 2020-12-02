@@ -54,15 +54,11 @@ const TheHeader = () => {
       </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none mr-auto">
-        <CHeaderNavItem className="px-3" >
-          <CHeaderNavLink to="/dashboard">Dashboard</CHeaderNavLink>
+        {/* <h4>Hệ thống hỗ trợ gõ tốc ký</h4> */}
+        <CHeaderNavItem className="px-3" size="lg">
+          <CHeaderNavLink to="/dashboard">Hệ thống hỗ trợ gõ tốc ký</CHeaderNavLink>
         </CHeaderNavItem>
-        <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/users">Users</CHeaderNavLink>
-        </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
-        </CHeaderNavItem>
+        
       </CHeaderNav>
 
       <CHeaderNav className="px-3">

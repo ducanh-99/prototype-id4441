@@ -10,10 +10,10 @@ import {
   CInput,
   CLabel,
   CButton,
-  CDataTable
+  CLink,
 } from "@coreui/react";
 
-const Charts = React.lazy(() => import('./Charts'))
+const Charts = React.lazy(() => import("./Charts"));
 
 function Fight() {
   return (
@@ -23,31 +23,33 @@ function Fight() {
           <CCard>
             <CCardHeader></CCardHeader>
             <CCardBody>
-              <CLabel>
-                Mời nhập tên
-              </CLabel>
+              <CLabel>Mời nhập tên</CLabel>
               <CInput />
-              <CButton color="primary">
-                Tham gia
-              </CButton>
+              <CLink to="/race">
+                <CButton
+                  color="primary"
+                  style={{ marginTop: "10px" }}
+                  size="lg"
+                >
+                  Tham gia
+                </CButton>
+              </CLink>
             </CCardBody>
           </CCard>
         </CCol>
         <CCol sm="6">
           <CCard>
             <CCardHeader>
-            <CButton color="primary">
+              <CButton color="primary" style={{ marginRight: "10px" }}>
                 Điểm cao mới nhất
               </CButton>
-              <CButton color="primary">
+              <CButton color="primary" style={{ marginRight: "10px" }}>
                 Điểm của bạn
               </CButton>
-              <CButton color="primary">
-                Hall of Fame 
+              <CButton color="primary" style={{ marginRight: "10px" }}>
+                Hall of Fame
               </CButton>
-              <CButton color="primary">
-                Thi đấu
-              </CButton>
+              <CButton color="primary">Thi đấu</CButton>
             </CCardHeader>
             <CCardBody>
               <Charts />
