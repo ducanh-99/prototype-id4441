@@ -12,6 +12,9 @@ import {
   CProgress,
   CButton,
 } from "@coreui/react";
+// import Keyboard from "react-virtual-keyboard";
+import Keyboard from 'react-simple-keyboard';
+import 'react-simple-keyboard/build/css/index.css';
 
 const Player = () => {
   return (
@@ -29,7 +32,10 @@ const Player = () => {
   );
 };
 
+
+
 function Race() {
+
   return (
     <>
       <CContainer>
@@ -46,7 +52,9 @@ function Race() {
       <CRow>
         <CCol sm="8">
           <CCard>
-            <CCardBody style={{ height: "300px" }}></CCardBody>
+            <CCardBody style={{ height: "300px" }}>
+              <Keyboard />
+            </CCardBody>
           </CCard>
         </CCol>
         <CCol sm="4">
