@@ -13,6 +13,7 @@ import {
   CAlert,
   CInputGroup,
   CInputGroupAppend,
+  CModal,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 const dictionary = {
@@ -46,10 +47,12 @@ class Search extends Component {
   search = () => {
     console.log(this.state.keyword);
     this.setState({
+      result: dictionary[this.state.keyword],
       showResult: true,
     });
+    console.log(this.state.result)
   };
-  onCloseButton = () => {};
+  onCloseButton = () => { };
   render() {
     return (
       <div>
@@ -74,23 +77,25 @@ class Search extends Component {
             <CIcon name={"cil-magnifying-glass"} size="sm" />
             Tìm kiếm
           </CButton>
-        </CForm>
-        {this.state.showResult ? (
-          <CAlert
+        </CForm>      
+        <CModal show={this.state.showResult} onClose={() => {
+          this.setState({
+            showResult: false
+          })
+        }}>
+          {this.state.result == null ?<CAlert
+            color="warning"
+          >
+            Trong từ điển chưa có thông tin về từ bạn tìm kiếm
+          </CAlert>
+          :<CAlert
             color="info"
-            onClick={() => {
-              this.setState({
-                showResult: false,
-              });
-            }}
-            closeButton
           >
             Từ mà bạn muốn tìm được gõ bằng cách: -
             {dictionary[this.state.keyword]}
-          </CAlert>
-        ) : (
-          ""
-        )}
+          </CAlert>}
+          
+        </CModal>
       </div>
     );
   }
