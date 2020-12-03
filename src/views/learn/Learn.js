@@ -45,7 +45,7 @@ function Learn() {
               </CCardText>
             </CCardBody>
             <CCardFooter className="text-black bg-secondary">
-              <CLink to="/learn/word">Bắt đầu vào học</CLink>
+              <CLink to="/learn/keys">Bắt đầu vào học</CLink>
               <CIcon size={"xl"} name={"cil-arrow-right"} />
             </CCardFooter>
           </CCard>
@@ -61,7 +61,7 @@ function Learn() {
               </CCardText>
             </CCardBody>
             <CCardFooter className="bg-info">
-              <CLink to="/learn/word" className="text-white">
+              <CLink to="/learn/sound" className="text-white">
                 Bắt đầu vào học
                 <CIcon size={"xl"} name={"cil-arrow-right"} />
               </CLink>
@@ -117,7 +117,7 @@ function Learn() {
               </CCardText>
             </CCardBody>
             <CCardFooter className="bg-success">
-              <CLink to="/learn/word" className="text-white">
+              <CLink to="/learn/sentences" className="text-white">
                 Bắt đầu vào học
                 <CIcon size={"xl"} name={"cil-arrow-right"} />
               </CLink>

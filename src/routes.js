@@ -3,8 +3,13 @@ import React from 'react';
 
 
 const learn = React.lazy(()=> import('./views/learn/Learn'));
-const learnWord = React.lazy(()=> import('./views/learn/LearnWord'));
 const yourWord = React.lazy (() => import('./views/learn/YourWord'))
+
+const learnWord = React.lazy(()=> import('./views/learn/LearnWord'));
+const learnSentences = React.lazy(()=> import('./views/learn/LearnSentences'));
+const learnSound = React.lazy(()=> import('./views/learn/LearnSound'));
+const learnKeys = React.lazy(()=> import('./views/learn/LearnKeys'));
+
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
@@ -21,9 +26,13 @@ const routes = [
   { path: "/race", exact: true, name: "xep hang", component: Rank },
   // learn
   { path: '/learn', exact: true, name: 'Học', component: learn },
-  { path: '/learn/word', exact: true, name: 'Học gõ từ', component: learnWord },
   { path: '/learn/your_word', exact: true, name: 'Từ của bạn', component: yourWord },
   { path: '/watch', exact: true, name: 'Xem quy tắc gõ', component: Watch },
+
+  { path: '/learn/word', exact: true, name: 'Học gõ từ', component: learnWord },
+  { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: learnSentences },
+  { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: learnSound },
+  { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: learnKeys },
 ];
 
 export default routes;
