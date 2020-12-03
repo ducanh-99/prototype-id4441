@@ -14,7 +14,9 @@ import {
   CCallout,
   CContainer
 } from '@coreui/react'
-const Chart = React.lazy(() => import("./chart"));
+const ChartWord = React.lazy(() => import("./chartWord"));
+const ChartSpeed = React.lazy(() => import("./chartSpeed"));
+const ChartRating = React.lazy(() => import("./chartRating"));
 
 
 
@@ -23,13 +25,6 @@ const Dashboard = () => {
     <CContainer fluid>
       <CRow>
         <CCol sm="4">
-          <CRow>
-            <CCol sm="12">
-            <CButton color="danger active" style={{ margin: "10px", width: "200px" }}>
-                Select
-              </CButton>
-            </CCol>
-          </CRow>
           <CRow>
             <CCol sm="12">
             <CButton color="danger" style={{ margin: "10px", width: "200px" }}>
@@ -54,7 +49,9 @@ const Dashboard = () => {
         </CCol>
         <CCol sm="8">
           <CRow>
-            <Chart />
+            <ChartWord />
+            <ChartSpeed />
+            <ChartRating />
           </CRow>
         </CCol>
       </CRow>

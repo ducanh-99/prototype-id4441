@@ -24,16 +24,17 @@ const options = {
     // },
     maintainAspectRatio: false
 }
-function Chart(){
-    return (
-        <div className="col-md-12">
-        <h4>Số lượng từ</h4>
-        <div className="chart-wrapper">
-          <CChart style={{ height: "500px" }} type="bar" datasets={bar.datasets} options={options} labels="months"/>
-        </div>
-        <hr />
+
+function ChartRating(){
+  return (
+      <div className="col-md-12">
+      <h4>Độ chính xác</h4>
+      <div className="chart-wrapper">
+        <CChart style={{ height: "500px" }} type="bar" datasets={bar.datasets} options={options} labels="months"/>
       </div>
-    )
+      <hr />
+    </div>
+  )
 }
 
-export default Chart;
+export default ChartRating;
