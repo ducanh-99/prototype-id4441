@@ -27,9 +27,16 @@ import {
   CNavLink,
   CTabContent,
   CTabPane,
+  CProgress,
   CWidgetBrand,
-  CSelect
+  CSelect,
+  CBadge,
+  CAlert,
+  CFormText,
+  CSwitch
 } from "@coreui/react";
+import Keyboard from 'react-simple-keyboard';
+import 'react-simple-keyboard/build/css/index.css';
 import { icons } from "src/assets/icons";
 function LearnWord() {
   return (
@@ -49,14 +56,61 @@ function LearnWord() {
         </CCol>
       </CRow>
       <CRow>
-      <CContainer>
-      <CCol sm="2">
-          <CContainer >
-OA
-          </CContainer>
+        <CCol sm="8">
+          <CContainer style={{ marginTop: '2em' }}>
+            OA
+            </CContainer>
         </CCol>
-      </CContainer>
+        <CCol sm="4">
+          <CRow>
+            <CContainer style={{ marginTop: '2em' }}>
+              <CRow>Tỉ lệ gõ đúng</CRow>
+
+              <CProgress
+                animated
+                striped
+                showValue
+                color="success"
+                value={80}
+                className="mb-1 bg-white"
+              />
+            </CContainer>
+          </CRow>
+          <CRow>
+            <CContainer style={{ marginTop: '2em' }}>
+              <CRow>Thời gian còn lại</CRow>
+
+              <CProgress
+                animated
+                striped
+                showValue
+                color="warning"
+                value={65}
+                className="mb-1 bg-white"
+              />
+            </CContainer>
+          </CRow>
+        </CCol>
       </CRow>
+      <CRow>
+        <CCol sm="1"></CCol>
+        <CCol sm="6">
+          <CAlert color="success">
+            Chính xác
+        </CAlert>
+        </CCol>
+      </CRow>
+      <CRow>
+        <CCol sm="1"></CCol>
+        <CCol sm="6">
+          <CInput></CInput>
+        </CCol>
+        <CCol sm="4" style={{ marginTop: '0.5em'},{textAlign: "right"}}>
+          <CSwitch shape="pill" color="success"></CSwitch>
+          <CLabel style={{ marginBottom: '1em'}}>Hiển thị gợi ý</CLabel>
+        </CCol>
+      </CRow>
+      <Keyboard />
     </CContainer>
   );
 }
