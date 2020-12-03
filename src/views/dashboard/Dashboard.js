@@ -7,20 +7,58 @@ import {
   CCardBody,
   CCardFooter,
   CCardHeader,
+  // CChart,
   CCol,
   CProgress,
   CRow,
-  CCallout
+  CCallout,
+  CContainer
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+const Chart = React.lazy(() => import("./chart"));
 
 
 
 const Dashboard = () => {
   return (
-    <>
-      Dashboard
-    </>
+    <CContainer fluid>
+      <CRow>
+        <CCol sm="4">
+          <CRow>
+            <CCol sm="12">
+            <CButton color="danger active" style={{ margin: "10px", width: "200px" }}>
+                Select
+              </CButton>
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol sm="12">
+            <CButton color="danger" style={{ margin: "10px", width: "200px" }}>
+                Số lượng từ
+              </CButton>
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol sm="12">
+            <CButton color="danger" style={{ margin: "10px", width: "200px" }}>
+                Tốc độ
+              </CButton>
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol sm="12">
+            <CButton color="danger" style={{ margin: "10px", width: "200px" }}>
+                Độ chính xác
+              </CButton>
+            </CCol>
+          </CRow>
+        </CCol>
+        <CCol sm="8">
+          <CRow>
+            <Chart />
+          </CRow>
+        </CCol>
+      </CRow>
+    </CContainer>
   )
 }
 
