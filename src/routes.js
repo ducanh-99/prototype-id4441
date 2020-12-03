@@ -23,7 +23,7 @@ const routes = [
   // fight
   { path: "/fight", exact: true, name: "Thi Đấu", component: Fight },
   { path: "/race", exact: true, name: "Cuoc dua", component: Race },
-  { path: "/race", exact: true, name: "xep hang", component: Rank },
+  { path: "/fight/rank", exact: true, name: "xep hang", component: Rank },
   // learn
   { path: '/learn', exact: true, name: 'Học', component: learn },
   { path: '/learn/your_word', exact: true, name: 'Từ của bạn', component: yourWord },

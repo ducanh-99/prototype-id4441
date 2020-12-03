@@ -26,11 +26,6 @@ function LearnKeys() {
   return (
     <CContainer fluid>
       <CCard>
-        <CCardHeader>
-          <CLink to="/learn/your_word">
-            <CButton color="primary">Từ của bạn</CButton>
-          </CLink>
-        </CCardHeader>
         <CCardBody>
           <CRow>
             <CCol sm="8">
@@ -39,13 +34,17 @@ function LearnKeys() {
               <CCardBody>
                 <CRow>
                   <CCol sm="5">
+                    <CLabel>Phím cần gõ</CLabel>
                     <CWidgetSimple text="OA"></CWidgetSimple>
                   </CCol>
                   <CCol sm="5">
+                    <CLabel>Phím tốc ký tương ứng</CLabel>
                     <CWidgetSimple text="-C"></CWidgetSimple>
                   </CCol>
                   <CCol sm="2">
                     <CButton color="info">Tiếp</CButton>
+                    <br />
+                    <CButton color="info">Thêm mới từ của bạn</CButton>
                   </CCol>
                 </CRow>
               </CCardBody>

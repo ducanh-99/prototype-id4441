@@ -49,7 +49,7 @@ function Fight() {
               <CButton color="primary" style={{ marginRight: "10px" }}>
                 Hall of Fame
               </CButton>
-              <CButton color="primary">Thi đấu</CButton>
+              {/* <CButton color="primary">Thi đấu</CButton> */}
             </CCardHeader>
             <CCardBody>
               <Charts />

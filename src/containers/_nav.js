@@ -13,9 +13,38 @@ export default [
   //   _children: ['Theme']
   // },
   {
-    _tag: "CSidebarNavItem",
+    _tag: "CSidebarNavDropdown",
     name: "Học Gõ",
     to: "/learn",
+    icon: "cil-pencil",
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học gõ phím",
+        to: "/learn/keys",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học gõ âm",
+        to: "/learn/sound",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học gõ từ",
+        to: "/learn/word",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học gõ câu",
+        to: "/learn/sentences",
+      },
+
+    ],
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Luyện tập",
+    to: "/review",
     icon: "cil-pencil",
   },
   {
