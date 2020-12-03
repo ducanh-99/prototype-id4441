@@ -16,7 +16,7 @@ import {
   CLabel,
   CCallout,
   CWidgetSimple,
-  CAlert
+  CAlert,
 } from "@coreui/react";
 import { icons } from "src/assets/icons";
 
@@ -34,25 +34,26 @@ function LearnKeys() {
         <CCardBody>
           <CRow>
             <CCol sm="8">
-              <CCard>
-                <CCardBody>
-                  <CCardBody>
-                    <CRow>
-                      <CCol sm="5">
-                        <CWidgetSimple text="OA"></CWidgetSimple>
-                      </CCol>
-                      <CCol sm="5">
-                        <CWidgetSimple text="-C"></CWidgetSimple>
-                      </CCol>
-                      <CCol sm="2">
-                        <CButton color="info">Tiếp</CButton>
-                      </CCol>
-                    </CRow>
-                  </CCardBody>
-                  <CAlert color="success">Chính xác</CAlert>
-                  <CInput />
-                </CCardBody>
-              </CCard>
+              {/* <CCard> */}
+              {/* <CCardBody> */}
+              <CCardBody>
+                <CRow>
+                  <CCol sm="5">
+                    <CWidgetSimple text="OA"></CWidgetSimple>
+                  </CCol>
+                  <CCol sm="5">
+                    <CWidgetSimple text="-C"></CWidgetSimple>
+                  </CCol>
+                  <CCol sm="2">
+                    <CButton color="info">Tiếp</CButton>
+                  </CCol>
+                </CRow>
+              </CCardBody>
+              <CAlert color="success">Chính xác</CAlert>
+              <CInput />
+              <br />
+              {/* </CCardBody> */}
+              {/* </CCard> */}
             </CCol>
             <CCol sm="4">
               <CCard>
