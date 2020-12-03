@@ -127,7 +127,8 @@ import {
   cilUserUnfollow,
   cilX,
   cilXCircle,
-  cilWarning
+  cilWarning,
+  cilSearch
 } from '@coreui/icons'
 
 export const icons = Object.assign({}, {

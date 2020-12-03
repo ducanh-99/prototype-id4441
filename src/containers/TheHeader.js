@@ -22,6 +22,7 @@ import {
   TheHeaderDropdownNotif,
   TheHeaderDropdownTasks
 }  from './index'
+import Search from 'src/views/watch/Search'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
@@ -60,7 +61,9 @@ const TheHeader = () => {
         </CHeaderNavItem>
         
       </CHeaderNav>
-
+      <CHeaderNav>
+        <Search/>
+      </CHeaderNav>
       <CHeaderNav className="px-3">
         <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
