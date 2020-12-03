@@ -1,4 +1,3 @@
-// import { CCard } from "@coreui/react";
 import { func } from "prop-types";
 import React from "react";
 import {
