@@ -10,6 +10,8 @@ const learnSentences = React.lazy(()=> import('./views/learn/LearnSentences'));
 const learnSound = React.lazy(()=> import('./views/learn/LearnSound'));
 const learnKeys = React.lazy(()=> import('./views/learn/LearnKeys'));
 
+const listKeys = React.lazy(() => import('./views/learn/ListKeys'))
+
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
@@ -32,7 +34,7 @@ const routes = [
   { path: '/learn/word', exact: true, name: 'Học gõ từ', component: learnWord },
   { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: learnSentences },
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: learnSound },
-  { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: learnKeys },
+  { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: listKeys },
 ];
 
 export default routes;

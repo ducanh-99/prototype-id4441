@@ -10,25 +10,10 @@ import {
   CContainer,
   CCardText,
   CLink,
-  CCardSubtitle,
   CCardTitle,
   CRow,
   CCol,
-  CInput,
-  CLabel,
-  CButton,
-  CCarousel,
-  CCarouselCaption,
-  CCarouselInner,
-  CCarouselIndicators,
-  CCarouselItem,
-  CCarouselControl,
-  CTabs,
-  CNav,
-  CNavItem,
-  CNavLink,
-  CTabContent,
-  CTabPane,
+
 } from "@coreui/react";
 function Learn() {
   return (
