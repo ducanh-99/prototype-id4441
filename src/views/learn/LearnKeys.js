@@ -18,9 +18,11 @@ import {
   CAlert,
 } from "@coreui/react";
 import { icons } from "src/assets/icons";
+import CIcon from "@coreui/icons-react";
 
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+
 function LearnKeys() {
   return (
     <CContainer fluid>

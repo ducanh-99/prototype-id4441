@@ -71,7 +71,6 @@ const Lesson = (props) => {
         ) : (
           <Progress text={props.progress} progress="warning" />
         )}
-        {/* <Progress /> */}
         <Star />
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
@@ -98,122 +97,35 @@ const Nav = () => {
         <CTabPane data-tab="learn">
           <br />
           <CRow>
-<<<<<<< HEAD
-            <CCol sm="6">
-              <CCard
-                className="text-black bg-secondary  "
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 1: Giới thiệu </CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 3: các phím N,H,S,U, O</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 5: các phím J,N,G,T,K</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol sm="6">
-              <CCard
-                className="text-black bg-secondary  "
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 2: các phím S,T,K,P,R,H</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 4: các phím E ,A,*,W,I,Y</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>
-                    Bài học thứ 6: các phím ghi nhớ trật tự các phím
-                  </CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-
-=======
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học các phím tay trái"
+                text="Bài 1: Học gõ các câu đơn giản"
                 progress="40"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 2: Học các phím tay trái P2"
+                text="Bài 2: Học gõ các câu trung bình"
                 progress="40"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 3: Học các phím tay phải"
+                text="Bài 3: Học gõ các câu khó"
                 progress="100"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 4: Học các phím tay phải P2"
+                text="Bài 4: Học gõ các câu rất khó"
                 progress="0"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 5: Học trật tự các phím"
-                progress="0"
-                link="/learn/word#/learn/sound"
-              />
->>>>>>> a295b384f2b449427241647d84b3feb42e807735
-            </CCol>
+            
           </CRow>
         </CTabPane>
         <CTabPane data-tab="purpose">456</CTabPane>
@@ -222,20 +134,18 @@ const Nav = () => {
   );
 };
 
-function ListKeys() {
+function ListSentences() {
   return (
     <>
       <CContainer>
         <CCard>
-          <CCardHeader>Học gõ phím</CCardHeader>
+          <CCardHeader>Học gõ câu</CCardHeader>
           <CCardBody>
             <CRow>
               <CCol sm="8">
-                <CCardTitle>Học gõ phím tốc ký</CCardTitle>
+                <CCardTitle>Học gõ câu tốc ký</CCardTitle>
                 <CCardText>
-                  Học gõ phím tốc ký giúp bạn làm quen với bàn phím tốc ký tiếng
-                  Việt để có thể gõ được tốc ký Tiếng Việt
-                </CCardText>
+                  Học gõ câu tốc ký giúp bạn gõ được các câu từ dễ đến khó và tăng tốc gõ các từ                </CCardText>
                 <CRow>
                   <CCol sm="4">
                     <CCardText>
@@ -244,8 +154,8 @@ function ListKeys() {
                     <CCardText>- Số lượng bài học </CCardText>
                   </CCol>
                   <CCol sm="4">
-                    <CCardText>10 giờ</CCardText>
-                    <CCardText>5 bài học</CCardText>
+                    <CCardText>20 giờ</CCardText>
+                    <CCardText>4 bài học</CCardText>
                   </CCol>
                 </CRow>
               </CCol>
@@ -267,4 +177,4 @@ function ListKeys() {
   );
 }
 
-export default ListKeys;
+export default ListSentences;

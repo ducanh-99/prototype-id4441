@@ -1,21 +1,49 @@
 import React, { lazy } from 'react'
 import {CChart} from '@coreui/react-chartjs'
+import ApexCharts from 'apexcharts'
 
 
 const bar = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'Dataset',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [65, 59, 80, 81, 56, 55, 40],
+  series: [
+    {
+      name: "series1",
+      data: [31, 40, 28, 51, 42, 109, 100],
+    },
+    {
+      name: "series2",
+      data: [11, 32, 45, 32, 34, 52, 41],
+    },
+  ],
+  options: {
+    chart: {
+      height: 350,
+      type: "area",
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "smooth",
+    },
+    xaxis: {
+      type: "datetime",
+      categories: [
+        "2018-09-19T00:00:00.000Z",
+        "2018-09-19T01:30:00.000Z",
+        "2018-09-19T02:30:00.000Z",
+        "2018-09-19T03:30:00.000Z",
+        "2018-09-19T04:30:00.000Z",
+        "2018-09-19T05:30:00.000Z",
+        "2018-09-19T06:30:00.000Z",
+      ],
+    },
+    tooltip: {
+      x: {
+        format: "dd/MM/yy HH:mm",
       },
-    ],
-  };
+    },
+  },
+};
 
 const options = {
     // tooltips: {
@@ -26,13 +54,13 @@ const options = {
 }
 function ChartWord(){
     return (
-        <div className="col-md-12">
-        <h4>Số lượng từ</h4>
-        <div className="chart-wrapper">
-          <CChart style={{ height: "500px" }} type="bar" datasets={bar.datasets} options={options} labels="months"/>
-        </div>
-        <hr />
-      </div>
+        // <div className="col-md-12">
+        // <h4>Số lượng từ</h4>
+        // <div className="chart-wrapper">
+          <ApexCharts style={{ height: "500px" }} type="area" series={bar.series}  options={bar.options}/>
+      //   </div>
+      //   <hr />
+      // </div>
     )
 }
 
