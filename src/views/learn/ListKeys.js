@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   CCard,
@@ -67,7 +67,19 @@ const Nav = () => {
                 style={{ textAlign: "center" }}
               >
                 <CCardHeader>
-                  <CCardText>Bài học thứ 1: các phím S,T,K,P,R,H</CCardText>
+                  <CCardText>Bài học thứ 1: Giới thiệu </CCardText>
+                  <Progress />
+                </CCardHeader>
+                <CCardBody>
+                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
+                </CCardBody>
+              </CCard>
+              <CCard
+                className="text-black bg-secondary"
+                style={{ textAlign: "center" }}
+              >
+                <CCardHeader>
+                  <CCardText>Bài học thứ 3: các phím N,H,S,U, O</CCardText>
                   <Progress />
                 </CCardHeader>
                 <CCardBody>
@@ -79,7 +91,33 @@ const Nav = () => {
                 style={{ textAlign: "center" }}
               >
                 <CCardHeader>
-                  <CCardText>Bài học thứ 3: các phím E ,A,*,W,I,Y</CCardText>
+                  <CCardText>Bài học thứ 5: các phím J,N,G,T,K</CCardText>
+                  <Progress />
+                </CCardHeader>
+                <CCardBody>
+                  <CButton color="primary">Học ngay</CButton>
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol sm="6">
+              <CCard
+                className="text-black bg-secondary  "
+                style={{ textAlign: "center" }}
+              >
+                <CCardHeader>
+                  <CCardText>Bài học thứ 2: các phím S,T,K,P,R,H</CCardText>
+                  <Progress />
+                </CCardHeader>
+                <CCardBody>
+                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
+                </CCardBody>
+              </CCard>
+              <CCard
+                className="text-black bg-secondary"
+                style={{ textAlign: "center" }}
+              >
+                <CCardHeader>
+                  <CCardText>Bài học thứ 4: các phím E ,A,*,W,I,Y</CCardText>
                   <Progress />
                 </CCardHeader>
                 <CCardBody>
@@ -92,7 +130,7 @@ const Nav = () => {
               >
                 <CCardHeader>
                   <CCardText>
-                    Bài học thứ 5: các phím ghi nhớ trật tự các phím
+                    Bài học thứ 6: các phím ghi nhớ trật tự các phím
                   </CCardText>
                   <Progress />
                 </CCardHeader>
@@ -100,32 +138,7 @@ const Nav = () => {
                   <CButton color="primary">Học ngay</CButton>
                 </CCardBody>
               </CCard>
-            </CCol>
-            <CCol sm="6">
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 2: các phím N,H,S,U, O</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 4: các phím J,N,G,T,K</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
+
             </CCol>
           </CRow>
         </CTabPane>
