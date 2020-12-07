@@ -18,15 +18,18 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import ApexCharts from 'apexcharts'
+import ApexChart from "./chart";
+import ReactApexChart from 'apexcharts';
+import Chart from 'react-apexcharts';
 const ChartWord = React.lazy(() => import("./chartWord"));
 const ChartSpeed = React.lazy(() => import("./chartSpeed"));
 const ChartRating = React.lazy(() => import("./chartRating"));
 
-const TimeChart = ()=>{
-  return(
+const TimeChart = () => {
+  return (
     <div id="chart">
-</div>
-);
+    </div>
+  );
 }
 const Star = (props) => {
   return (
@@ -69,66 +72,106 @@ const LessonShort = (props) => {
   );
 };
 
-const Dashboard = () => {
-  return (
-    <CContainer fluid>
-      <CRow>
-        <CCol sm="8">
-          <CRow>
-            <CCard>
-              <CCardHeader></CCardHeader>
-              <CCardTitle></CCardTitle>
-              <CCardBody>
-                {/* <ChartWord/> */}
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+      series: [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }, {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      }],
+      options: {
+        chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+      },
+
+
+    };
+  }
+  render() {
+    return (
+      <CContainer fluid>
+        <CRow>
+          <CCol sm="8">
+            <CRow>
+              <CCard>
+                <CCardHeader></CCardHeader>
+                <CCardTitle></CCardTitle>
+                <CCardBody>
+                  {/* <ChartWord/> */}
                 </CCardBody>
-              <CCardFooter></CCardFooter>
-            </CCard>
-          </CRow>
-          <CRow>
-            {/* <ApexCharts></ApexCharts> */}
-          </CRow>
-        </CCol>
-        <CCol sm="4">
-          <CRow>
-            {/* <ChartWord />
-            <ChartSpeed />
-            <ChartRating /> */}
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Các bài đã học gần đây</CCardTitle>
-              </CCardHeader>
-              <CCardBody>
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <CContainer>
-                  <CLink>Xem thêm</CLink>
-                </CContainer>
-              </CCardBody>
-              <CCardFooter></CCardFooter>
-            </CCard>
-          </CRow>
-        </CCol>
-      </CRow>
-    </CContainer>
-  );
+                <CCardFooter></CCardFooter>
+              </CCard>
+            </CRow>
+            <CRow>
+                <Chart options={this.state.options} series={this.state.series} type="area" height={350} />
+            </CRow>
+          </CCol>
+          <CCol sm="4">
+            <CRow>
+              {/* <ChartWord />
+              <ChartSpeed />
+              <ChartRating /> */}
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle>Các bài đã học gần đây</CCardTitle>
+                </CCardHeader>
+                <CCardBody>
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <CContainer>
+                    <CLink>Xem thêm</CLink>
+                  </CContainer>
+                </CCardBody>
+                <CCardFooter></CCardFooter>
+              </CCard>
+            </CRow>
+          </CCol>
+        </CRow>
+      </CContainer>
+    );
+  }
+
 };
 
 export default Dashboard;

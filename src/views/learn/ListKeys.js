@@ -98,86 +98,6 @@ const Nav = () => {
         <CTabPane data-tab="learn">
           <br />
           <CRow>
-<<<<<<< HEAD
-            <CCol sm="6">
-              <CCard
-                className="text-black bg-secondary  "
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 1: Giới thiệu </CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 3: các phím N,H,S,U, O</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 5: các phím J,N,G,T,K</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol sm="6">
-              <CCard
-                className="text-black bg-secondary  "
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 2: các phím S,T,K,P,R,H</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary" href="/#/learn/keys/lesson1">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>Bài học thứ 4: các phím E ,A,*,W,I,Y</CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-black bg-secondary"
-                style={{ textAlign: "center" }}
-              >
-                <CCardHeader>
-                  <CCardText>
-                    Bài học thứ 6: các phím ghi nhớ trật tự các phím
-                  </CCardText>
-                  <Progress />
-                </CCardHeader>
-                <CCardBody>
-                  <CButton color="primary">Học ngay</CButton>
-                </CCardBody>
-              </CCard>
-
-=======
             <CCol sm="4">
               <Lesson
                 text="Bài 1: Học các phím tay trái"
@@ -212,7 +132,6 @@ const Nav = () => {
                 progress="0"
                 link="/learn/word#/learn/sound"
               />
->>>>>>> a295b384f2b449427241647d84b3feb42e807735
             </CCol>
           </CRow>
         </CTabPane>

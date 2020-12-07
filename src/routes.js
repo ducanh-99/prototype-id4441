@@ -11,17 +11,13 @@ const learnSentences = React.lazy(()=> import('./views/learn/LearnSentences'));
 const learnSound = React.lazy(()=> import('./views/learn/LearnSound'));
 const learnKeys = React.lazy(()=> import('./views/learn/LearnKeys'));
 
-<<<<<<< HEAD
 const listKeys = React.lazy(() => import('./views/learn/ListKeys'))
 const lesson1 = React.lazy(() => import('./views/learn/Lesson/Lesson1'))
-=======
-const listKeys = React.lazy(() => import('./views/learn/ListKeys'));
 const listWords = React.lazy(() => import('./views/learn/ListWords'));
 const listSounds = React.lazy(() => import('./views/learn/ListSounds'));
 const listSentences = React.lazy(() => import('./views/learn/ListSentences'));
 const practice = React.lazy(() => import('./views/learn/Practice'));
 
->>>>>>> a295b384f2b449427241647d84b3feb42e807735
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
