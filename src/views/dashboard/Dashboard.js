@@ -17,15 +17,17 @@ import {
   CLink,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
+import ApexCharts from 'apexcharts'
 const ChartWord = React.lazy(() => import("./chartWord"));
 const ChartSpeed = React.lazy(() => import("./chartSpeed"));
 const ChartRating = React.lazy(() => import("./chartRating"));
 
-// const timeChart = ()=>{
-//   return(
-//
-// );
-// }
+const TimeChart = ()=>{
+  return(
+    <div id="chart">
+</div>
+);
+}
 const Star = (props) => {
   return (
     <CRow style={{ textAlign: "center" }}>
@@ -76,8 +78,14 @@ const Dashboard = () => {
             <CCard>
               <CCardHeader></CCardHeader>
               <CCardTitle></CCardTitle>
+              <CCardBody>
+                {/* <ChartWord/> */}
+                </CCardBody>
               <CCardFooter></CCardFooter>
             </CCard>
+          </CRow>
+          <CRow>
+            {/* <ApexCharts></ApexCharts> */}
           </CRow>
         </CCol>
         <CCol sm="4">
