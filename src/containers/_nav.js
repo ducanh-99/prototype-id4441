@@ -38,13 +38,18 @@ export default [
         name: "Học gõ câu",
         to: "/learn/sentences",
       },
-
+      {
+        _tag: "CSidebarNavItem",
+        name: "Từ của bạn",
+        to: "/learn/your_word",
+        icon: "cil-home"
+      }
     ],
   },
   {
     _tag: "CSidebarNavItem",
     name: "Luyện tập",
-    to: "/review",
+    to: "/practice",
     icon: "cil-pencil",
   },
   {

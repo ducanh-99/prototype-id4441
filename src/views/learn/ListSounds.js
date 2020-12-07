@@ -71,7 +71,6 @@ const Lesson = (props) => {
         ) : (
           <Progress text={props.progress} progress="warning" />
         )}
-        {/* <Progress /> */}
         <Star />
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
@@ -100,39 +99,33 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học các phím tay trái"
+                text="Bài 1: Học gõ âm đầu"
                 progress="40"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 2: Học các phím tay trái P2"
+                text="Bài 2: Học gõ âm chính"
                 progress="40"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 3: Học các phím tay phải"
+                text="Bài 3: Học gõ âm cuối"
                 progress="100"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 4: Học các phím tay phải P2"
+                text="Bài 4: Học gõ âm xóa + số"
                 progress="0"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 5: Học trật tự các phím"
-                progress="0"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
+            
           </CRow>
         </CTabPane>
         <CTabPane data-tab="purpose">456</CTabPane>
@@ -141,19 +134,18 @@ const Nav = () => {
   );
 };
 
-function ListKeys() {
+function ListSounds() {
   return (
     <>
       <CContainer>
         <CCard>
-          <CCardHeader>Học gõ phím</CCardHeader>
+          <CCardHeader>Học gõ âm</CCardHeader>
           <CCardBody>
             <CRow>
               <CCol sm="8">
-                <CCardTitle>Học gõ phím tốc ký</CCardTitle>
+                <CCardTitle>Học gõ âm tốc ký</CCardTitle>
                 <CCardText>
-                  Học gõ phím tốc ký giúp bạn làm quen với bàn phím tốc ký tiếng
-                  Việt để có thể gõ được tốc ký Tiếng Việt
+                  Học gõ âm tốc ký giúp bạn gõ được các âm cơ bản trong tiếng Việt để gõ tốc ký
                 </CCardText>
                 <CRow>
                   <CCol sm="4">
@@ -163,8 +155,8 @@ function ListKeys() {
                     <CCardText>- Số lượng bài học </CCardText>
                   </CCol>
                   <CCol sm="4">
-                    <CCardText>10 giờ</CCardText>
-                    <CCardText>5 bài học</CCardText>
+                    <CCardText>20 giờ</CCardText>
+                    <CCardText>4 bài học</CCardText>
                   </CCol>
                 </CRow>
               </CCol>
@@ -186,4 +178,4 @@ function ListKeys() {
   );
 }
 
-export default ListKeys;
+export default ListSounds;
