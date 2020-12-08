@@ -100,9 +100,16 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
+                text="Bài 0: Giới thiệu bàn phím tốc ký"
+                progress="100"
+                link="/#/learn/keys/lesson1"
+              />
+            </CCol>
+            <CCol sm="4">
+              <Lesson
                 text="Bài 1: Học các phím tay trái"
                 progress="40"
-                link="#/learn/keys/lesson1"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
