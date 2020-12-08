@@ -6,7 +6,7 @@ class ApexChart extends React.Component {
     super(props);
 
     this.state = {
-    
+
       series: [{
         name: 'series1',
         data: [31, 40, 28, 51, 42, 109, 100]
@@ -35,8 +35,8 @@ class ApexChart extends React.Component {
           },
         },
       },
-    
-    
+
+
     };
   }
 
@@ -44,13 +44,9 @@ class ApexChart extends React.Component {
 
   render() {
     return (
-      
-
-<div id="chart">
-<ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
-</div>
-
-
+      <div id="chart">
+        <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
+      </div>
     );
   }
 }
