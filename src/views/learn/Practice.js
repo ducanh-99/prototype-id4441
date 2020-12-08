@@ -64,9 +64,9 @@ const Lesson = (props) => {
     <CCard className="text-black bg-secondary" style={{ textAlign: "center" }}>
       <CCardHeader>
         <CCardTitle>{props.text}</CCardTitle>
-        {props.progress == "0" ? (
+        {props.progress === "0" ? (
           ""
-        ) : props.progress == "100" ? (
+        ) : props.progress === "100" ? (
           <Progress text={props.progress} progress="success" />
         ) : (
           <Progress text={props.progress} progress="warning" />
@@ -75,8 +75,8 @@ const Lesson = (props) => {
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
       <CCardBody>
-        <CButton color={props.progress == 0 ? "danger" : "primary"} href={props.link}>
-          {props.progress == 0 ? "Vào học ngay" : "Học lại"}
+        <CButton color={props.progress === 0 ? "danger" : "primary"} href={props.link}>
+          {props.progress === 0 ? "Vào học ngay" : "Học lại"}
         </CButton>
       </CCardBody>
     </CCard>

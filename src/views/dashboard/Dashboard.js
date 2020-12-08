@@ -24,6 +24,7 @@ import Chart from "react-apexcharts";
 const ChartWord = React.lazy(() => import("./chartWord"));
 const ChartSpeed = React.lazy(() => import("./chartSpeed"));
 const ChartRating = React.lazy(() => import("./chartRating"));
+
 const Progress = (props) => {
   return (
     <CProgress
@@ -106,6 +107,7 @@ const LessonShort = (props) => {
   );
 };
 
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -183,6 +185,26 @@ class Dashboard extends React.Component {
                 <LearnResult></LearnResult>
               </CCardBody>
             </CCard>
+            <CCard>
+              <CCardHeader>
+                <CCardTitle>Thi đấu gõ tốc ký</CCardTitle>
+              </CCardHeader>
+
+              <CCardBody>
+                <LearnResult></LearnResult>
+                <LearnResult></LearnResult>
+                <LearnResult></LearnResult>
+                <LearnResult></LearnResult>
+                {/* <ChartRating/> */}
+                {/* <Chart
+                  options={this.state.options}
+                  series={this.state.series}
+                  type="area"
+                  height={400}
+                /> */}
+                <ChartWord></ChartWord>
+              </CCardBody>
+            </CCard>
           </CCol>
           <CCol sm="4">
             {/* <ChartWord />
@@ -190,7 +212,38 @@ class Dashboard extends React.Component {
               <ChartRating /> */}
             <CCard>
               <CCardHeader>
-                <CCardTitle>Các bài đã học gần đây</CCardTitle>
+                <CCardTitle color="success">Các bài đã học gần đây</CCardTitle>
+              </CCardHeader>
+              <CCardBody>
+                <LessonShort
+                  text="Bài 1: Học các phím tay trái"
+                  linkLearn=""
+                  linkPractice=""
+                />
+                <LessonShort
+                  text="Bài 1: Học các phím tay trái"
+                  linkLearn=""
+                  linkPractice=""
+                />
+                <LessonShort
+                  text="Bài 1: Học các phím tay trái"
+                  linkLearn=""
+                  linkPractice=""
+                />
+                <LessonShort
+                  text="Bài 1: Học các phím tay trái"
+                  linkLearn=""
+                  linkPractice=""
+                />
+                <CContainer>
+                  <CLink>Xem thêm</CLink>
+                </CContainer>
+              </CCardBody>
+              <CCardFooter></CCardFooter>
+            </CCard>
+            <CCard>
+              <CCardHeader>
+                <CCardTitle>Các bài học tiếp theo</CCardTitle>
               </CCardHeader>
               <CCardBody>
                 <LessonShort
