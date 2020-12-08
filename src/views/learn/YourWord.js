@@ -13,10 +13,16 @@ import {
   CProgress,
   CButton,
   CDataTable,
+  CInputCheckbox,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 
 const fields = [
+  {
+    key: "select",
+    label: "",
+    _style: { width: "2%" },
+  },
   { key: "key", label: "STT" },
   { key: "word", label: "Danh sách từ câu", _style: { width: "70%" } },
   {
@@ -66,6 +72,10 @@ function YourWord() {
               hover
               tableFilter
               scopedSlots={{
+                select: (item) => (
+                  <input type="checkbox" />
+                  // <CInputCheckbox name="checkbox1" value="option1" />
+                ),
                 action: (item) => (
                   <td className="py-2">
                     <CButton color="primary">
