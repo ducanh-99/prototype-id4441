@@ -102,7 +102,7 @@ const Nav = () => {
               <Lesson
                 text="Bài 1: Học các phím tay trái"
                 progress="40"
-                link="/learn/word#/learn/sound"
+                link="#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">

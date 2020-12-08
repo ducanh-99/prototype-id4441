@@ -17,7 +17,7 @@ const listWords = React.lazy(() => import('./views/learn/ListWords'));
 const listSounds = React.lazy(() => import('./views/learn/ListSounds'));
 const listSentences = React.lazy(() => import('./views/learn/ListSentences'));
 const practice = React.lazy(() => import('./views/learn/Practice'));
-
+const keyboard = React.lazy(() => import('./views/learn/keyboard'));
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
@@ -37,7 +37,7 @@ const routes = [
   { path: '/practice', exact: true, name: 'Luyện tập', component: practice },
   { path: '/learn/your_word', exact: true, name: 'Từ của bạn', component: yourWord },
   { path: '/watch', exact: true, name: 'Xem quy tắc gõ', component: Watch },
-
+  { path: '/keyboard', exact: true, name: 'Ban phim', component: keyboard },
   { path: '/learn/word', exact: true, name: 'Học gõ từ', component: listWords},
   { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: listSentences },
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: listSounds },
