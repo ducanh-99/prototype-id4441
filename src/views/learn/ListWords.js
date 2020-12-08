@@ -101,7 +101,7 @@ const Nav = () => {
               <Lesson
                 text="Bài 1: Học gõ các từ đơn giản"
                 progress="40"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/word/lessonWord1"
               />
             </CCol>
             <CCol sm="4">
