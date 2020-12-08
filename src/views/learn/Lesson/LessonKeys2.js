@@ -102,7 +102,7 @@ class LessonLeys2 extends Component {
               2. Học các phím tay trái P2{" "}
             </h2>
             <CContainer>
-              
+              <StopWatch></StopWatch>
             </CContainer>
             <KeyboardSteno></KeyboardSteno>
           </CCardBody>
