@@ -10,11 +10,11 @@ const usersData = [
 ];
 
 const fields = [
-  { key: "id", _style: { width: "10%" } },
-  { key: "name", _style: { width: "40%" } },
+  { key: "id",  _style: { width: "10%" } },
+  { key: "name",label:"Tên" , _style: { width: "40%" } },
 
-  { key: "speed", _style: { width: "25%" } },
-  { key: "time", _style: { width: "25%" } },
+  { key: "speed",label:"tốc độ" , _style: { width: "25%" } },
+  { key: "time",label: "cách đây" , _style: { width: "25%" } },
 ];
 
 function Charts() {

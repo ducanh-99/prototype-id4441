@@ -24,6 +24,8 @@ const keyboard = React.lazy(() => import('./views/learn/keyboard'));
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
+const Practice = React.lazy(() => import("./views/fight/Practice"));
+const RaceFriend = React.lazy(() => import("./views/fight/RaceFriend"));
 const Rank = React.lazy(() => import("./views/fight/Rank"));
 
 const Watch = React.lazy(() => import("./views/watch/Watch"));
@@ -33,8 +35,11 @@ const routes = [
   { path: '/dashboard', exact: true, name: 'Trang chủ', component: Home },
   // fight
   { path: "/fight", exact: true, name: "Thi Đấu", component: Fight },
-  { path: "/race", exact: true, name: "Cuoc dua", component: Race },
-  { path: "/fight/rank", exact: true, name: "xep hang", component: Rank },
+  { path: "/fight/race", exact: true, name: "Cuộc đua", component: Race },
+  { path: "/fight/rank", exact: true, name: "Xếp hạng", component: Rank },
+  { path: "/fight/race_friend", exact: true, name: "Thi đấu với bạn", component: RaceFriend },
+  { path: "/fight/practice", exact: true, name: "Tự luyện tập", component: Practice },
+
   // learn
   { path: '/learn', exact: true, name: 'Học', component: learn },
   { path: '/practice', exact: true, name: 'Luyện tập', component: practice },
