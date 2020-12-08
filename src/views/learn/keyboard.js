@@ -197,7 +197,12 @@ class Keyboard extends Component {
     render() {
         return (
             <div>
-                <input style={{ textAlign: "center" }} type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
+                 <CCol>
+                        <CCard>
+                            <input type='text' style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
+                        </CCard>
+                    </CCol>
+                {/* <input style={{ textAlign: "center" }} type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} /> */}
                 <CRow>
                     <CCol xs="7" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div id="stdKeyboard">
