@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import $ from 'jquery'
+import $ from "jquery";
+import swal from "sweetalert";
+
 import {
   CCard,
   CCardBody,
@@ -24,10 +26,32 @@ import {
 import CIcon from "@coreui/icons-react";
 
 function onchangeSelect() {
-  $('#vnInput').on('change', function(){
-    console.log("hihi", $('#vnInput').val())
-    $('#stenoOutput').val($('#vnInput').val());
-  })
+  $("#vnInput").on("change", function () {
+    $("#stenoOutput").val($("#vnInput").val());
+    sweetAlert();
+  });
+}
+function sweetAlert() {
+  $("#add").on("click", function () {
+    let text = $("#vnInput option:selected").text();
+    swal({
+      title: "Thành công!",
+      text: "Bạn đã thêm từ '" + text + "' vào danh mục Từ của bạn",
+      icon: "success",
+    });
+  });
+}
+function deleteWord(item) {
+  console.log(item)
+  $("[id*='table']").on("click", function () {
+    console.log("hi 1")
+    let text = item.word;
+    swal({
+      title: "Cảnh báo!",
+      text: "Bạn muốn xóa từ '" + text + "' trong danh mục Từ của bạn?",
+      icon: "warning",
+    });
+  });
 }
 const Modal = (props) => {
   const [modal, setModal] = useState(false);
@@ -35,6 +59,7 @@ const Modal = (props) => {
   const toggle = () => {
     setModal(!modal);
   };
+
   return (
     <CContainer>
       <CButton onClick={toggle} color="info">
@@ -60,7 +85,9 @@ const Modal = (props) => {
           </CRow>
         </CModalBody>
         <CModalFooter>
-          <CButton color="primary" onClick={toggle}>Thêm</CButton>{" "}
+          <CButton color="primary" id="add" onClick={(toggle, sweetAlert)}>
+            Thêm
+          </CButton>{" "}
           <CButton color="secondary" onClick={toggle}>
             Hủy
           </CButton>
@@ -71,7 +98,8 @@ const Modal = (props) => {
 };
 const fields = [
   { key: "key", label: "STT" },
-  { key: "word", label: "Danh sách từ câu", _style: { width: "70%" } },
+  { key: "word", label: "Từ của bạn", _style: { width: "40%" } },
+  { key: "steno", label: "Tốc ký", _style: { width: "30%" } },
   {
     key: "action",
     label: "Hành động",
@@ -82,17 +110,9 @@ const fields = [
 ];
 
 const data = [
-  { key: 1, word: "Cộng hòa" },
-  { key: 2, word: "Xã Hội" },
-  { key: 3, word: "Chủ nghĩa" },
-  { key: 4, word: "Việt Nam" },
-  { key: 5, word: "Độc lập" },
-  { key: 6, word: "Tự do" },
-  { key: 7, word: "Hạnh phúc" },
-  { key: 8, word: "Dân chủ" },
-  { key: 9, word: "Bình đẳng" },
-  { key: 10, word: "" },
-  { key: 11, word: "Cộng hòa" },
+  { key: 1, word: "đẹp", steno: "TPN-ETK" },
+  { key: 2, word: "trai", steno: "TR-AJ" },
+  { key: 3, word: "rất", steno: "R-S*WNT" },
 ];
 
 function YourWord() {
@@ -124,13 +144,17 @@ function YourWord() {
               scopedSlots={{
                 action: (item) => (
                   <td className="py-2">
-                    <CButton color="primary">
+                    {/* <CButton color="primary">
                       <CIcon name="cil-list" />
                     </CButton>
-                    <CButton color="success">
+                    <CButton color="success" >
                       <CIcon name="cil-pencil" />
-                    </CButton>
-                    <CButton color="danger">
+                    </CButton> */}
+                    <CButton
+                      color="danger"
+                      id={"table" + item.key}
+                      onClick={(deleteWord(item))}
+                    >
                       <CIcon name="cil-trash" />
                     </CButton>
                   </td>
