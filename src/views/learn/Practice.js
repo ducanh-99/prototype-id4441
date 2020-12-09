@@ -72,7 +72,7 @@ const Lesson = (props) => {
           <Progress text={props.progress} progress="warning" />
         )}
         <Star />
-        <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
+        <CCardTitle>Thời gian: 00:10:00</CCardTitle>
       </CCardHeader>
       <CCardBody>
         <CButton color={props.progress === 0 ? "danger" : "primary"} href={props.link}>
@@ -101,7 +101,7 @@ const Nav = () => {
               <Lesson
                 text="Bài 1: Luyện gõ phím"
                 progress="40"
-                link="/learn/word#/learn/sound"
+                link="/learn/word#/practice/key"
               />
             </CCol>
             <CCol sm="4">

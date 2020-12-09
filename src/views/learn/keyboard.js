@@ -208,7 +208,7 @@ class Keyboard extends Component {
                 </CContainer>
                  {/* <CCol>
                         <CCard>
-                            <input type='text' style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
+                            <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
                         </CCard>
                     </CCol> */}
 {/* >>>>>>> f98eabff01ec30ddc846bcc238eba829c77ab982 */}

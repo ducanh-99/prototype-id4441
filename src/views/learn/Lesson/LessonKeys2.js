@@ -15,6 +15,7 @@ import {
   CModalBody,
   CModalFooter,
   CModalHeader,
+  CProgress,
   CRow,
   CSelect,
 } from "@coreui/react";
@@ -23,12 +24,51 @@ import $ from "jquery";
 import swal from "sweetalert";
 const StopWatch = React.lazy(() => import("./StopWatch"));
 const KeyboardSteno = React.lazy(() => import("../keyboard"));
+const keySteno = ["S", "T", "K", "P", "R", "H"];
+const keyQwerty = ["q", "a", "w", "s", "e", "d"];
+const key = [
+  {
+    steno: "S",
+    qwerty: "q",
+  },
+  {
+    steno: "T",
+    qwerty: "a",
+  },
+  {
+    steno: "K",
+    qwerty: "w",
+  },
+  {
+    steno: "P",
+    qwerty: "s",
+  },
+  {
+    steno: "R",
+    qwerty: "e",
+  },
+  {
+    steno: "H",
+    qwerty: "d",
+  },
+];
 function onchangeSelect() {
   $("#vnInput").on("change", function () {
     $("#stenoOutput").val($("#vnInput").val());
     sweetAlert();
   });
 }
+const Progress = (props) => {
+  return (
+    <CProgress
+      value={props.text}
+      showValue
+      className="mb-1 bg-grey"
+      color={props.progress}
+      style={{ width: "100%", margin: "auto" }}
+    />
+  );
+};
 function sweetAlert() {
   $("#add").on("click", function () {
     let text = $("#vnInput option:selected").text();
@@ -115,7 +155,7 @@ class LessonLeys2 extends Component {
             >
               <h2 style={{ textAlign: "center" }} steno="s" qwerty="q">
                 {" "}
-                S{" "}
+                {key[3].steno}{" "}
               </h2>
             </CAlert>
             <CContainer>
@@ -127,8 +167,10 @@ class LessonLeys2 extends Component {
                 <CCol sm="2">
                   <CCard>
                     <CCardBody>
-                      <CLabel>Số lần gõ: 4</CLabel>
-                      <CLabel>Số lần gõ đúng: 8</CLabel>
+                      {/* <CLabel>Số lần gõ: 4</CLabel>
+                      <CLabel>Số lần gõ đúng: 8</CLabel> */}
+                      <CLabel>Độ chính xác:</CLabel>
+                      <Progress text="50" progress="warning"></Progress>
                     </CCardBody>
                   </CCard>
                   {/* <h4 style={{ textAlign: "center" }}></h4> */}
@@ -152,6 +194,7 @@ class LessonLeys2 extends Component {
           </CCardFooter>
         </CCard>
       </CContainer>
+      
     );
   }
 }
