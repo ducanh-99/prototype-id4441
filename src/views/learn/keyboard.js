@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'src/scss/_custom.scss';
-import { CCard, CCol, CRow } from '@coreui/react';
+import { CCard, CCol, CContainer, CInput, CRow, CLabel } from '@coreui/react';
 class Keyboard extends Component {
     constructor(props) {
         super(props);
@@ -197,7 +197,12 @@ class Keyboard extends Component {
     render() {
         return (
             <div>
-                <input style={{ textAlign: "center" }} type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
+                <CContainer>
+                    <CLabel>Nơi gõ tốc ký</CLabel>
+                    <CInput  type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} placeholder="Gõ ở đây"/>
+                    <br /> 
+                </CContainer>
+                {/* <input style={{ textAlign: "center" }} type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} /> */}
                 <CRow>
                     <CCol xs="7" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div id="stdKeyboard">
