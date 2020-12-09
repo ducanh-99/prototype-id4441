@@ -21,7 +21,7 @@ const dictionary = {
     "K":"k",
 }
 
-class Keyboard extends Component {
+class KeyboardSteno extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,7 +55,9 @@ class Keyboard extends Component {
             mapvalue: ""
         };
     }
-
+    handleOnChange = (event) => {
+        this.props._input(event.target.value)
+    }
     handlePressKey = (event) => {
         let setPress = this.state.setPress
         let mapvalue = this.state.mapvalue
@@ -256,7 +258,7 @@ class Keyboard extends Component {
                     </CCol>
                     <CCol xs="4">
                         <CLabel> Đặt con trỏ vào đây để gõ</CLabel>
-                        <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey}  value={this.state.mapvalue}/>
+                        <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} onChange={this.handleOnChange}  value={this.state.mapvalue}/>
                     </CCol>
                 </CRow>
                 {/* banphim */}
@@ -500,4 +502,4 @@ class Keyboard extends Component {
     }
 }
 
-export default Keyboard;
+export default KeyboardSteno;

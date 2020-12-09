@@ -22,6 +22,7 @@ const practiceKeys = React.lazy(() => import('./views/learn/Practice/PracticeKey
 const lesson1 = React.lazy(() => import('./views/learn/Lesson/Lesson1'));
 const lessonKeys2 = React.lazy(() => import('./views/learn/Lesson/LessonKeys2'));
 const keyboard = React.lazy(() => import('./views/learn/keyboard'));
+const KeyboardSteno = React.lazy(() => import('./views/learn/keyboard_steno'));
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
@@ -47,6 +48,7 @@ const routes = [
   { path: '/learn/your_word', exact: true, name: 'Từ của bạn', component: yourWord },
   { path: '/watch', exact: true, name: 'Xem quy tắc gõ', component: Watch },
   { path: '/keyboard', exact: true, name: 'Ban phim', component: keyboard },
+  { path: '/keyboardsteno', exact: true, name: 'Ban phim', component: KeyboardSteno },
   { path: '/learn/word', exact: true, name: 'Học gõ từ', component: listWords},
   { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: listSentences },
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: listSounds },
