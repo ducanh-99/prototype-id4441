@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   CCard,
   CCardBody,
@@ -13,11 +13,11 @@ import {
   CButton,
   CInput,
   CLink,
+  CCardText,
 } from "@coreui/react";
-// import Keyboard from "react-virtual-keyboard";
-import Keyboard from "react-simple-keyboard";
-import "react-simple-keyboard/build/css/index.css";
 
+
+const KeyboardSteno = React.lazy(() => import("../learn/keyboard"));
 const Player = () => {
   return (
     <>
@@ -41,41 +41,55 @@ const Player = () => {
   );
 };
 
-function Race() {
+function Race(props) {
+  const text = "Cộng hòa xã hội Việt Nam, độc lập tự do Hạnh phúc";
+  const [inputText, setInputText] = useState("");
+  const [current_index, setCurrentIndex] = useState(0);
+  const [objectText, setObjectText] = useState(
+    Object.assign({}, text.split(" "))
+  );
+  var started = true;
+
+  useEffect(() => {});
+
+  const input_keyboard = (value) => {
+    setInputText(value);
+
+    if (value.slice(-1) == " ") {
+      let index = current_index;
+      setCurrentIndex(++index);
+    }
+  };
+
+  const text_span = Object.keys(objectText).map((items, key) => {
+    let _color = "black";
+    if (current_index > key) {
+      _color = "green";
+    }
+    // if(current_index )
+    let style = {
+      color: _color,
+    };
+    return <span style={style}>{objectText[key] + " "} </span>;
+  });
+
   return (
     <>
       <CContainer>
         <CCard>
-          <CCardBody style={{ height: "400px" }}>
+          <CCardHeader></CCardHeader>
+          <CCardBody>
             <Player />
             <Player />
             <Player />
             <Player />
-            <br />
-            <CCardBody>Cộng hòa xã hội chủ nghĩa việt nam</CCardBody>
           </CCardBody>
-
           <CCardFooter style={{ height: "50px" }}>
-            <CInput />
+            <div>{text_span}</div>
           </CCardFooter>
         </CCard>
       </CContainer>
-      <CRow>
-        <CCol sm="8">
-          <CCard>
-            <CCardBody style={{ height: "300px" }}>
-              <Keyboard />
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol sm="4">
-          <CCard>
-            <CCardBody style={{ height: "300px" }}>
-              <CLink to="/fight/rank">Hoàn thành</CLink>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
+      <KeyboardSteno _input={input_keyboard} />
     </>
   );
 }

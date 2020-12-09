@@ -55,6 +55,9 @@ class Keyboard extends Component {
             mapvalue: ""
         };
     }
+    handleOnChange = (event) => {
+        this.props._input(event.target.value)
+    }
     handlePressKey = (event) => {
         let setPress = this.state.setPress
         let mapvalue = this.state.mapvalue
@@ -249,8 +252,12 @@ class Keyboard extends Component {
                 <CRow>
                     <CCol xs="8">
                         <CCard>
+<<<<<<< HEAD
                             <CLabel> Result </CLabel>
                             <p>{dictionary[this.state.mapvalue]?dictionary[this.state.mapvalue]:"..."}</p>
+=======
+                            <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} onChange={this.handleOnChange} />
+>>>>>>> 26be10eaca4ded410f743158f82741b440d78761
                         </CCard>
                     </CCol>
                     <CCol xs="4">

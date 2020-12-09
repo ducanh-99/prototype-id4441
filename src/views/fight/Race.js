@@ -13,10 +13,13 @@ import {
   CButton,
   CInput,
   CLink,
+  CTextarea,
 } from "@coreui/react";
 // import Keyboard from "react-virtual-keyboard";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+
+const KeyboardSteno = React.lazy(() => import("../learn/keyboard"));
 
 const Player = () => {
   return (
@@ -46,38 +49,20 @@ function Race() {
     <>
       <CContainer>
         <CCard>
-          <CCardBody style={{ height: "400px" }}>
+          <CCardBody>
             <Player />
             <Player />
             <Player />
             <Player />
             <br />
-            <CCardBody>
-              Cộng hòa xã hội chủ nghĩa việt nam
-            </CCardBody>
           </CCardBody>
 
-          <CCardFooter style={{ height: "50px" }}>
-            <CInput />
+          <CCardFooter style={{ height: "100px" }}>
+            <CTextarea />
           </CCardFooter>
         </CCard>
       </CContainer>
-      <CRow>
-        <CCol sm="8">
-          <CCard>
-            <CCardBody style={{ height: "300px" }}>
-              <Keyboard />
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol sm="4">
-          <CCard>
-            <CCardBody style={{ height: "300px" }}>
-              <CLink to="/fight/rank">Hoàn thành</CLink>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
+      <KeyboardSteno></KeyboardSteno>
     </>
   );
 }

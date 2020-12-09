@@ -16,7 +16,6 @@ import {
   CButton,
   CDataTable,
   CInputCheckbox,
-
   CModal,
   CModalHeader,
   CModalBody,
@@ -44,15 +43,48 @@ function sweetAlert() {
   });
 }
 function deleteWord(item) {
-  console.log(item)
-  $("[id*='table']").on("click", function () {
-    console.log("hi 1")
-    let text = item.word;
+  // console.log(item);
+  // $("[id*='table']").on("click", function () {
+    // $("#table"+).on("click", function () {
+    let text = "đẹp";
     swal({
       title: "Cảnh báo!",
       text: "Bạn muốn xóa từ '" + text + "' trong danh mục Từ của bạn?",
       icon: "warning",
+      buttons: {
+        cancel: "Hủy",
+        catch: {
+          text: "Xóa",
+          value: "catch",
+        },
+      },
+    }).then((value) => {
+      switch (value) {
+        case "catch":
+          swal("Thành công!", "Bạn đã xóa từ '" + text + "' trong danh mục Từ của bạn!", "success");
+          break;
+      }
     });
+  // });
+}
+function deleteSelectedWord(){
+  swal({
+    title: "Cảnh báo!",
+    text: "Bạn muốn xóa các từ đã chọn trong danh mục Từ của bạn?",
+    icon: "warning",
+    buttons: {
+      cancel: "Hủy",
+      catch: {
+        text: "Xóa",
+        value: "catch",
+      },
+    },
+  }).then((value) => {
+    switch (value) {
+      case "catch":
+        swal("Thành công!", "Bạn đã xóa các từ đã chọn trong danh mục Từ của bạn!", "success");
+        break;
+    }
   });
 }
 const Modal = (props) => {
@@ -132,13 +164,17 @@ function YourWord() {
               Thêm từ của bạn
             </CButton> */}
             <CRow>
-              <Modal text="Thêm từ của bạn"></Modal>
-              <CButton color="success" style={{ marginLeft: "10px" }}>
-                Luyện các từ đã chọn
-              </CButton>
-              <CButton color="danger" style={{ marginLeft: "10px" }}>
-                Xóa các từ đã chọn
-              </CButton>
+              <CCol sm="2">
+                <Modal text="Thêm từ của bạn"></Modal>
+              </CCol>
+              <CCol sm="6">
+                <CButton color="success" style={{ marginLeft: "10px" }}>
+                  Luyện các từ đã chọn
+                </CButton>
+                <CButton color="danger" style={{ marginLeft: "10px" }} onClick={deleteSelectedWord}>
+                  Xóa các từ đã chọn
+                </CButton>
+              </CCol>
             </CRow>
           </CCardHeader>
           <CCardBody>
@@ -150,7 +186,9 @@ function YourWord() {
               tableFilter
               scopedSlots={{
                 select: (item) => (
-                  <input type="checkbox" />
+                  <td>
+                    <input type="checkbox" style={{ display: "flex" }} />
+                  </td>
                   // <CInputCheckbox name="checkbox1" value="option1" />
                 ),
                 action: (item) => (
@@ -164,7 +202,7 @@ function YourWord() {
                     <CButton
                       color="danger"
                       id={"table" + item.key}
-                      onClick={(deleteWord(item))}
+                      onClick={deleteWord()}
                     >
                       <CIcon name="cil-trash" />
                     </CButton>

@@ -54,7 +54,7 @@ export default [
   },
   {
     _tag: "CSidebarNavItem",
-    name: "Xem bộ quy tắc",
+    name: "Xem bộ từ điển",
     to: "/watch",
     icon: "cil-puzzle",
   },
