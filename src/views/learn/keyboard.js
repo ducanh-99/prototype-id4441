@@ -34,6 +34,9 @@ class Keyboard extends Component {
             }
         };
     }
+    handleOnChange = (event) => {
+        this.props._input(event.target.value)
+    }
     handlePressKey = (event) => {
         let setPress = this.state.setPress
         switch (event.which) {
@@ -208,7 +211,7 @@ class Keyboard extends Component {
 {/*                </CContainer>*/}
                   <CCol>
                         <CCard>
-                            <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
+                            <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} onChange={this.handleOnChange} />
                         </CCard>
                     </CCol>
 {/* >>>>>>> f98eabff01ec30ddc846bcc238eba829c77ab982 */}
