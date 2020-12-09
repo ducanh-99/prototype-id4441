@@ -21,6 +21,7 @@ import ApexCharts from "apexcharts";
 import ApexChart from "./chart";
 import ReactApexChart from "apexcharts";
 import Chart from "react-apexcharts";
+import YourSoccer from "../fight/YourSoccer";
 const ChartWord = React.lazy(() => import("./chartWord"));
 const ChartSpeed = React.lazy(() => import("./chartSpeed"));
 const ChartRating = React.lazy(() => import("./chartRating"));
@@ -187,14 +188,14 @@ class Dashboard extends React.Component {
             </CCard>
             <CCard>
               <CCardHeader>
-                <CCardTitle>Thi đấu gõ tốc ký</CCardTitle>
+                <CCardTitle>Điểm của bạn trong Thi đấu gõ tốc ký</CCardTitle>
               </CCardHeader>
 
               <CCardBody>
+                {/* <LearnResult></LearnResult>
                 <LearnResult></LearnResult>
                 <LearnResult></LearnResult>
-                <LearnResult></LearnResult>
-                <LearnResult></LearnResult>
+                <LearnResult></LearnResult> */}
                 {/* <ChartRating/> */}
                 {/* <Chart
                   options={this.state.options}
@@ -202,7 +203,8 @@ class Dashboard extends React.Component {
                   type="area"
                   height={400}
                 /> */}
-                <ChartWord></ChartWord>
+                {/* <ChartWord></ChartWord> */}
+                <YourSoccer />
               </CCardBody>
             </CCard>
           </CCol>
