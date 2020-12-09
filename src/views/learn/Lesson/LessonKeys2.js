@@ -1,4 +1,5 @@
 import {
+  CAlert,
   CButton,
   CCard,
   CCardBody,
@@ -38,6 +39,7 @@ function sweetAlert() {
     });
   });
 }
+
 const Modal = (props) => {
   const [modal, setModal] = useState(false);
 
@@ -91,19 +93,57 @@ class LessonLeys2 extends Component {
       <CContainer>
         <CCard>
           <CCardHeader>
-            {" "}
-            <h5 style={{ color: "#321fdb" }}>
-              Bài 2: Học các phím tay trái P2
-            </h5>
+            <CRow>
+              <CCol sm="10">
+                {" "}
+                <h5 style={{ color: "#321fdb" }}>
+                  Bài 2: Học các phím tay trái P2: Bài học sẽ học các phím: S,
+                  T, K, P, R, H
+                </h5>
+              </CCol>
+              <CCol sm="2">
+                <Modal></Modal>
+              </CCol>
+            </CRow>
           </CCardHeader>
           <CCardBody>
-            <h2 style={{ textAlign: "center" }}>
-              {" "}
-              2. Học các phím tay trái P2{" "}
-            </h2>
+            {/* <h2 style={{ textAlign: "center" }}> S </h2> */}
+            <CAlert
+              id="alertWord"
+              color="info"
+              style={{ textAlign: "center", marginInline: "0px" }}
+            >
+              <h2 style={{ textAlign: "center" }} steno="s" qwerty="q">
+                {" "}
+                S{" "}
+              </h2>
+            </CAlert>
             <CContainer>
-              <StopWatch></StopWatch>
+              <CRow>
+                <CCol sm="3">
+                  <StopWatch></StopWatch>
+                </CCol>
+                <CCol sm="6"></CCol>
+                <CCol sm="2">
+                  <CCard>
+                    <CCardBody>
+                      <CLabel>Số lần gõ: 4</CLabel>
+                      <CLabel>Số lần gõ đúng: 8</CLabel>
+                    </CCardBody>
+                  </CCard>
+                  {/* <h4 style={{ textAlign: "center" }}></h4> */}
+                </CCol>
+              </CRow>
             </CContainer>
+            {/* <CInput
+              id="word" 
+              onKeyPress={function changeWord() {
+                $("#word").on("keydown", function () {
+                  console.log("pressssss");
+                  $("#alertWord").css({color: "info"});
+                });
+              }}
+            ></CInput> */}
             <KeyboardSteno></KeyboardSteno>
           </CCardBody>
           <CCardFooter>
