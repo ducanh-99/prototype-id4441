@@ -129,6 +129,18 @@ import {
     );
   };
   class PracticeKeys extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        time: 5
+      };
+      this.handleTime = this.handleTime.bind(this);
+    }
+    handleTime(){
+      this.setState({
+        time: 5
+      });
+    }
     render() {
       return (
         <CContainer>
@@ -163,7 +175,7 @@ import {
                 <CRow>
                   <CCol sm="3">
                     {/* <StopWatch></StopWatch> */}
-                    <CountdownTime time="2"></CountdownTime>
+                    <CountdownTime></CountdownTime>
                   </CCol>
                   <CCol sm="6"></CCol>
                   <CCol sm="2">
