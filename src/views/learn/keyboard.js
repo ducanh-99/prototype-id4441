@@ -198,19 +198,19 @@ class Keyboard extends Component {
         return (
             <div>
 {/* <<<<<<< HEAD */}
-                <CContainer>
-                    <CCard>
-                        <CCardBody>
-                        <CLabel>Nơi gõ tốc ký</CLabel>
-                        <CInput  type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} placeholder="Gõ ở đây"/>
-                        </CCardBody>
-                    </CCard>
-                </CContainer>
-                 {/* <CCol>
+{/*                <CContainer>*/}
+{/*                    <CCard>*/}
+{/*                        <CCardBody>*/}
+{/*                        <CLabel>Nơi gõ tốc ký</CLabel>*/}
+{/*                        <CInput  type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} placeholder="Gõ ở đây"/>*/}
+{/*                        </CCardBody>*/}
+{/*                    </CCard>*/}
+{/*                </CContainer>*/}
+                  <CCol>
                         <CCard>
                             <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} />
                         </CCard>
-                    </CCol> */}
+                    </CCol>
 {/* >>>>>>> f98eabff01ec30ddc846bcc238eba829c77ab982 */}
                 {/* <input style={{ textAlign: "center" }} type='text' onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} /> */}
                 <CRow>
