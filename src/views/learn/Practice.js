@@ -101,28 +101,28 @@ const Nav = () => {
               <Lesson
                 text="Bài 1: Luyện gõ phím"
                 progress="40"
-                link="/learn/word#/practice/key"
+                link="/#/practice/key"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
                 text="Bài 2: Luyện gõ âm"
                 progress="40"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
                 text="Bài 3: Luyện gõ từ"
                 progress="100"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
                 text="Bài 4: Luyện gõ câu"
                 progress="0"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/sound"
               />
             </CCol>
             
