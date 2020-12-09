@@ -48,7 +48,20 @@ var data = [
 
 function onchangeSelect() {
   $("#vnInput").on("change", function () {
-    $("#stenoOutput").val($("#vnInput").val());
+    let value = "không biết bạn ơi";
+    let valueVnInput = $("#vnInput").val();
+    switch (valueVnInput) {
+      case "hoa":
+        value = "H-U";
+        break;
+      case "xuân":
+        value = "ST*-YN";
+        break;
+      case "dương":
+        value = "SP-EWG";
+        break;
+    }
+    $("#stenoOutput").val(value);
     sweetAlert();
   });
 }
@@ -81,12 +94,13 @@ const Modal = (props) => {
           <CRow>
             <CCol sm="5">
               <CLabel>Từ tiếng Việt muốn thêm</CLabel>
-              <CSelect id="vnInput" onChange={onchangeSelect()}>
+              <CInput id="vnInput" onChange={onchangeSelect} />
+              {/* <CSelect id="vnInput" onChange={onchangeSelect()}>
                 <option>Chọn từ tiếng Việt</option>
                 <option value="H-U">hoa</option>
                 <option value="ST*-YN">xuân</option>
                 <option value="SP-EWG">dương</option>
-              </CSelect>
+              </CSelect> */}
             </CCol>
             <CCol sm="5">
               <CLabel>Từ tốc ký tương ứng</CLabel>
@@ -111,9 +125,7 @@ function YourWord() {
   const [word, setWord] = useState(data);
   const [selected, setSelected] = useState([]);
 
-  useEffect(() => {
-    
-  });
+  useEffect(() => {});
 
   const update_key = () => {
     let word_temp = word;
