@@ -3,22 +3,24 @@ import 'src/scss/_custom.scss';
 import { CCard, CCol, CLabel, CRow } from '@coreui/react';
 const dictionary = {
     "RHNAK": "mạnh",
-    "S":"s",
-    "T":"t",
-    "K":"k",
-    "KR":"ng",
-    "SK":"ch",
-    "TK":"nh",
-    "SPR":"v",
-    "HA":"à",
-    "SA":"á",
-    "HO":"ò",
-    "OE":"ê",
-    "UW":"ư",
-    "N":"k",
-    "K":"k",
-    "K":"k",
-    "K":"k",
+    "S": "s",
+    "T": "t",
+    "K": "k",
+    "KR": "ng",
+    "SK": "ch",
+    "TK": "nh",
+    "SPR": "v",
+    "HA": "à",
+    "SA": "á",
+    "HO": "ò",
+    "OE": "ê",
+    "UW": "ư",
+    "N": "n",
+    "NK": "C",
+    "SPEWG": "dương",
+    "HU": "hoa",
+    "TRAJ": "đẹp",
+    "TPNETK": "trai",
 }
 
 class Keyboard extends Component {
@@ -51,6 +53,7 @@ class Keyboard extends Component {
                 'n': { backgroundColor: "black" },
                 'm': { backgroundColor: "black" },
                 'u': { backgroundColor: "black" },
+                'Backspace': { backgroundColor: "black" }
             },
             mapvalue: ""
         };
@@ -64,23 +67,23 @@ class Keyboard extends Component {
         switch (event.which) {
             case 81:
                 setPress['q'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"S"
+                mapvalue = mapvalue + "S"
                 break
             case 87:
                 setPress['w'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"K"
+                mapvalue = mapvalue + "K"
                 break
             case 69:
                 setPress['e'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"R"
+                mapvalue = mapvalue + "R"
                 break
             case 82:
                 setPress['r'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"N"
+                mapvalue = mapvalue + "N"
                 break
             case 84:
                 setPress['t'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"H"
+                mapvalue = mapvalue + "H"
                 break
             case 85:
                 setPress['u'] = { backgroundColor: "red" }
@@ -88,75 +91,79 @@ class Keyboard extends Component {
                 break
             case 73:
                 setPress['i'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"W"
+                mapvalue = mapvalue + "W"
                 break
             case 79:
                 setPress['o'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"J"
+                mapvalue = mapvalue + "J"
                 break
             case 80:
                 setPress['p'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"N"
+                mapvalue = mapvalue + "N"
                 break
             case 219:
                 setPress['['] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"T"
+                mapvalue = mapvalue + "T"
                 break
             case 65:
                 setPress['a'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"T"
+                mapvalue = mapvalue + "T"
                 break
             case 83:
                 setPress['s'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"P"
+                mapvalue = mapvalue + "P"
                 break
             case 68:
                 setPress['d'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"H"
+                mapvalue = mapvalue + "H"
                 break
             case 70:
                 setPress['f'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"N"
+                mapvalue = mapvalue + "N"
                 break
             case 71:
                 setPress['g'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"S"
+                mapvalue = mapvalue + "S"
                 break
             case 74:
                 setPress['j'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"I"
+                mapvalue = mapvalue + "I"
                 break
             case 75:
                 setPress['k'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"Y"
+                mapvalue = mapvalue + "Y"
                 break
             case 76:
                 setPress['l'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"J"
+                mapvalue = mapvalue + "J"
                 break
             case 186:
                 setPress[';'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"G"
+                mapvalue = mapvalue + "G"
                 break
             case 222:
                 setPress["'"] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"K"
+                mapvalue = mapvalue + "K"
                 break
             case 67:
                 setPress['c'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"U"
+                mapvalue = mapvalue + "U"
                 break
             case 86:
                 setPress['v'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"O"
+                mapvalue = mapvalue + "O"
                 break
             case 78:
                 setPress['n'] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"E"
+                mapvalue = mapvalue + "E"
                 break
             case 77:
                 setPress["m"] = { backgroundColor: "red" }
-                mapvalue = mapvalue +"A"
+                mapvalue = mapvalue + "A"
+                break
+            case 8:
+                setPress["Backspace"] = { backgroundColor: "red" }
+                mapvalue = mapvalue + " "
                 break
         }
         this.setState({
@@ -240,25 +247,30 @@ class Keyboard extends Component {
             case 77:
                 setPress["m"] = { backgroundColor: "black" }
                 break
+            case 8:
+                setPress["Backspace"] = { backgroundColor: "black" }
+                break
         }
         this.setState({
             setPress: setPress,
-            mapvalue:mapvalue
+            mapvalue: mapvalue
         })
     }
     render() {
         return (
             <div >
                 <CRow>
-                    <CCol xs="8">
+                    <CCol xs="7">
                         <CCard>
                             <CLabel> Result </CLabel>
-                            <p>{dictionary[this.state.mapvalue]?dictionary[this.state.mapvalue]:"..."}</p>
+                            <p>{dictionary[this.state.mapvalue] ? dictionary[this.state.mapvalue] : "..."}</p>
                         </CCard>
                     </CCol>
-                    <CCol xs="4">
-                        <CLabel> Đặt con trỏ vào đây để gõ</CLabel>
-                        <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} onChange={this.handleOnChange} value={this.state.mapvalue}/>
+                    <CCol xs="5">
+                        <CCard>
+                            <CLabel> Đặt con trỏ vào đây để gõ</CLabel>
+                            <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey} onChange={this.handleOnChange} value={this.state.mapvalue} />
+                        </CCard>
                     </CCol>
                 </CRow>
                 {/* banphim */}
