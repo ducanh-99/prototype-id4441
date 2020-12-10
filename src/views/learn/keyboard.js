@@ -54,6 +54,7 @@ class Keyboard extends Component {
                 m: { backgroundColor: "black" },
                 u: { backgroundColor: "black" },
                 space: { backgroundColor: "black" },
+                backspace: { backgroundColor: "black" },
             },
             mapvalue: "",
         };
@@ -162,6 +163,10 @@ class Keyboard extends Component {
             case 32:
                 setPress["space"] = { backgroundColor: "red" };
                 break;
+            case 8:
+                setPress["backspace"] = { backgroundColor: "red" };
+                mapvalue = ""
+                break;
         }
         this.setState({
             setPress: setPress,
@@ -246,6 +251,9 @@ class Keyboard extends Component {
                 break;
             case 32:
                 setPress["space"] = { backgroundColor: "black" };
+                break;
+            case 8:
+                setPress["backspace"] = { backgroundColor: "black" };
                 break;
         }
         this.setState({
@@ -367,7 +375,7 @@ class Keyboard extends Component {
                                     <span class="upper">+</span>
                                     <span class="lower">=</span>
                                 </div>
-                                <div class="stdKey code8" id="stdKeyBackspace">
+                                <div class="stdKey code8" id="stdKeyBackspace" style={this.state.setPress['backspace']}>
                                     Backspace
                 </div>
                             </div>
@@ -640,8 +648,8 @@ class Keyboard extends Component {
                                 <div
                                     class="stenoKey numberBar code48 code49 code50 code51 code52 code53 code54 code55 code56 code57"
                                     id="stenoKeyNumberBar"
-                                    style={{ backgroundColor: "red" }}
-                                ></div>
+                                    style={{ backgroundColor: "black" }}
+                                >#</div>
                             </div>
                             <div class="stenoUpperBank">
                                 <div
