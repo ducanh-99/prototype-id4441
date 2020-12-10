@@ -47,33 +47,38 @@ var data = [
 ];
 
 function onchangeSelect() {
-  $("#vnInput").on("change", function () {
-    let value = "không biết bạn ơi";
-    let valueVnInput = $("#vnInput").val();
-    switch (valueVnInput) {
-      case "hoa":
-        value = "H-U";
-        break;
-      case "xuân":
-        value = "ST*-YN";
-        break;
-      case "dương":
-        value = "SP-EWG";
-        break;
-    }
-    $("#stenoOutput").val(value);
-    sweetAlert();
-  });
+  let value = "?";
+  let valueVnInput = $("#vnInput").val();
+  switch (valueVnInput) {
+    case "hoa":
+      value = "H-U";
+      break;
+    case "xuân":
+      value = "ST*-YN";
+      break;
+    case "dương":
+      value = "SP-EWG";
+      break;
+  }
+  $("#stenoOutput").val(value);
 }
 function sweetAlert() {
-  $("#add").on("click", function () {
-    let text = $("#vnInput option:selected").text();
+  // let text = $("#vnInput option:selected").text();
+  let text = $("#vnInput").val();
+  let textSteno = $("#stenoOutput").val();
+  if (textSteno !== "?") {
     swal({
       title: "Thành công!",
       text: "Bạn đã thêm từ '" + text + "' vào danh mục Từ của bạn",
       icon: "success",
     });
-  });
+  } else {
+    swal({
+      title: "Thất bại!",
+      text: "Bạn đã thêm từ không có trong từ điển, vui lòng chọn lại",
+      icon: "warning",
+    });
+  }
 }
 
 const Modal = (props) => {
@@ -94,7 +99,7 @@ const Modal = (props) => {
           <CRow>
             <CCol sm="5">
               <CLabel>Từ tiếng Việt muốn thêm</CLabel>
-              <CInput id="vnInput" onChange={onchangeSelect} />
+              <CInput id="vnInput" onKeyUp={onchangeSelect} />
               {/* <CSelect id="vnInput" onChange={onchangeSelect()}>
                 <option>Chọn từ tiếng Việt</option>
                 <option value="H-U">hoa</option>

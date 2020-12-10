@@ -55,10 +55,10 @@ const routes = [
   { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: listKeys },
 
   { path: '/learn/keys/lesson1', exact: true, name: 'Bài 1', component: lesson1 },
-  { path: '/learn/keys/lessonKeys2', exact: true, name: 'Bài 1', component: lessonKeys2 },
-  { path: '/learn/word/lessonWord1', exact: true, name: 'Bài 1', component: learnWord },
+  { path: '/learn/keys/lessonKeys2', exact: true, name: 'Bài học phím 2', component: lessonKeys2 },
+  { path: '/learn/word/lessonWord1', exact: true, name: 'Bài học từ 1', component: learnWord },
   //practice
-  { path: '/practice/key', exact: true, name: 'Bài 1', component: practiceKeys },
+  { path: '/practice/key', exact: true, name: 'Bài luyện tập phím', component: practiceKeys },
 ];
 
 export default routes;
