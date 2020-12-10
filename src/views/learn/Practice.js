@@ -75,8 +75,11 @@ const Lesson = (props) => {
         <CCardTitle>Thời gian: 00:10:00</CCardTitle>
       </CCardHeader>
       <CCardBody>
-        <CButton color={props.progress === 0 ? "danger" : "primary"} href={props.link}>
-          {props.progress === 0 ? "Vào học ngay" : "Học lại"}
+        <CButton
+          color={props.progress === 0 ? "danger" : "primary"}
+          href={props.link}
+        >
+          {props.progress === 0 ? "Luyện tập" : "Luyện tập"}
         </CButton>
       </CCardBody>
     </CCard>
@@ -87,10 +90,10 @@ const Nav = () => {
     <CTabs activeTab="learn">
       <CNav variant="tabs">
         <CNavItem>
-          <CNavLink data-tab="learn">Bài học</CNavLink>
+          <CNavLink data-tab="learn">Luyện tập</CNavLink>
         </CNavItem>
         <CNavItem>
-          <CNavLink data-tab="purpose">Mục đích</CNavLink>
+          <CNavLink data-tab="purpose">Giới thiệu</CNavLink>
         </CNavItem>
       </CNav>
       <CTabContent>
@@ -125,10 +128,35 @@ const Nav = () => {
                 link="/#/learn/sound"
               />
             </CCol>
-            
           </CRow>
         </CTabPane>
-        <CTabPane data-tab="purpose">456</CTabPane>
+        <CTabPane data-tab="purpose">
+          <CRow>
+            <br />
+            <CCol sm="8">
+              <CCardTitle>Luyện tập gõ tốc ký</CCardTitle>
+              <CCardText>
+                Luyện tập gõ tốc ký giúp bạn gõ tốc ký tiếng Việt thành thạo
+                hơn, cải thiện về độ chính xác, tốc độ gõ
+              </CCardText>
+              <CRow>
+                <CCol sm="4">
+                  <CCardText>
+                    <i class="cis-timer"></i>- Thời gian luyện tập:
+                  </CCardText>
+                  <CCardText>- Số lượng bài luyện tập </CCardText>
+                </CCol>
+                <CCol sm="4">
+                  <CCardText>20 giờ</CCardText>
+                  <CCardText>4 bài học</CCardText>
+                </CCol>
+              </CRow>
+            </CCol>
+            <CCol sm="4">
+              <CChart type="pie" datasets={pie.datasets} labels={pie.labels} />
+            </CCol>
+          </CRow>
+        </CTabPane>
       </CTabContent>
     </CTabs>
   );
@@ -141,37 +169,9 @@ function Practice() {
         <CCard>
           <CCardHeader>Luyện tập gõ tốc ký</CCardHeader>
           <CCardBody>
-            <CRow>
-              <CCol sm="8">
-                <CCardTitle>Luyện tập gõ tốc ký</CCardTitle>
-                <CCardText>
-                Luyện tập gõ tốc ký giúp bạn gõ tốc ký tiếng Việt thành thạo hơn, cải thiện về độ chính xác, tốc độ gõ
-                </CCardText>
-                <CRow>
-                  <CCol sm="4">
-                    <CCardText>
-                      <i class="cis-timer"></i>- Thời gian luyện tập:
-                    </CCardText>
-                    <CCardText>- Số lượng bài luyện tập </CCardText>
-                  </CCol>
-                  <CCol sm="4">
-                    <CCardText>20 giờ</CCardText>
-                    <CCardText>4 bài học</CCardText>
-                  </CCol>
-                </CRow>
-              </CCol>
-              <CCol sm="4">
-                <CChart
-                  type="pie"
-                  datasets={pie.datasets}
-                  labels={pie.labels}
-                />
-              </CCol>
-            </CRow>
-          </CCardBody>
-          <CCardFooter>
             <Nav />
-          </CCardFooter>
+          </CCardBody>
+          <CCardFooter></CCardFooter>
         </CCard>
       </CContainer>
     </>

@@ -75,7 +75,10 @@ const Lesson = (props) => {
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
       <CCardBody>
-        <CButton color={props.progress == 0 ? "danger" : "primary"} href={props.link}>
+        <CButton
+          color={props.progress == 0 ? "danger" : "primary"}
+          href={props.link}
+        >
           {props.progress == 0 ? "Vào học ngay" : "Học lại"}
         </CButton>
       </CCardBody>
@@ -90,7 +93,7 @@ const Nav = () => {
           <CNavLink data-tab="learn">Bài học</CNavLink>
         </CNavItem>
         <CNavItem>
-          <CNavLink data-tab="purpose">Mục đích</CNavLink>
+          <CNavLink data-tab="purpose">Giới thiệu</CNavLink>
         </CNavItem>
       </CNav>
       <CTabContent>
@@ -125,10 +128,34 @@ const Nav = () => {
                 link="/learn/word#/learn/sound"
               />
             </CCol>
-            
           </CRow>
         </CTabPane>
-        <CTabPane data-tab="purpose">456</CTabPane>
+        <CTabPane data-tab="purpose">
+          <CRow>
+            <CCol sm="8">
+              <CCardTitle>Học gõ câu tốc ký</CCardTitle>
+              <CCardText>
+                Học gõ câu tốc ký giúp bạn gõ được các câu từ dễ đến khó và tăng
+                tốc gõ các từ{" "}
+              </CCardText>
+              <CRow>
+                <CCol sm="4">
+                  <CCardText>
+                    <i class="cis-timer"></i>- Thời gian học tập:
+                  </CCardText>
+                  <CCardText>- Số lượng bài học </CCardText>
+                </CCol>
+                <CCol sm="4">
+                  <CCardText>20 giờ</CCardText>
+                  <CCardText>4 bài học</CCardText>
+                </CCol>
+              </CRow>
+            </CCol>
+            <CCol sm="4">
+              <CChart type="pie" datasets={pie.datasets} labels={pie.labels} />
+            </CCol>
+          </CRow>
+        </CTabPane>
       </CTabContent>
     </CTabs>
   );
@@ -141,36 +168,9 @@ function ListSentences() {
         <CCard>
           <CCardHeader>Học gõ câu</CCardHeader>
           <CCardBody>
-            <CRow>
-              <CCol sm="8">
-                <CCardTitle>Học gõ câu tốc ký</CCardTitle>
-                <CCardText>
-                  Học gõ câu tốc ký giúp bạn gõ được các câu từ dễ đến khó và tăng tốc gõ các từ                </CCardText>
-                <CRow>
-                  <CCol sm="4">
-                    <CCardText>
-                      <i class="cis-timer"></i>- Thời gian học tập:
-                    </CCardText>
-                    <CCardText>- Số lượng bài học </CCardText>
-                  </CCol>
-                  <CCol sm="4">
-                    <CCardText>20 giờ</CCardText>
-                    <CCardText>4 bài học</CCardText>
-                  </CCol>
-                </CRow>
-              </CCol>
-              <CCol sm="4">
-                <CChart
-                  type="pie"
-                  datasets={pie.datasets}
-                  labels={pie.labels}
-                />
-              </CCol>
-            </CRow>
-          </CCardBody>
-          <CCardFooter>
             <Nav />
-          </CCardFooter>
+          </CCardBody>
+          <CCardFooter></CCardFooter>
         </CCard>
       </CContainer>
     </>

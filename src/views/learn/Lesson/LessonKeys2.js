@@ -22,6 +22,8 @@ import {
 import React, { Component, useState } from "react";
 import $ from "jquery";
 import swal from "sweetalert";
+import CountdownTime from "../Practice/CountdownTime";
+import Keyboard from "../keyboard";
 const StopWatch = React.lazy(() => import("./StopWatch"));
 const KeyboardSteno = React.lazy(() => import("../keyboard"));
 const keySteno = ["S", "T", "K", "P", "R", "H"];
@@ -52,12 +54,12 @@ const key = [
     qwerty: "d",
   },
 ];
-function onchangeSelect() {
-  $("#vnInput").on("change", function () {
-    $("#stenoOutput").val($("#vnInput").val());
-    sweetAlert();
-  });
-}
+// function onchangeSelect() {
+//   $("#vnInput").on("change", function () {
+//     $("#stenoOutput").val($("#vnInput").val());
+//     sweetAlert();
+//   });
+// }
 const Progress = (props) => {
   return (
     <CProgress
@@ -70,14 +72,11 @@ const Progress = (props) => {
   );
 };
 function sweetAlert() {
-  $("#add").on("click", function () {
-    let text = $("#vnInput option:selected").text();
     swal({
       title: "Thành công!",
-      text: "Bạn đã thêm từ '" + text + "' vào danh mục Từ của bạn",
+      text: "Điểm của bạn: 50\nThời gian: 10s\n Tốc độ gõ: 10 từ/phút ",
       icon: "success",
     });
-  });
 }
 
 const Modal = (props) => {
@@ -92,7 +91,7 @@ const Modal = (props) => {
       <CButton onClick={toggle} color="info">
         Kết thúc bài học
       </CButton>
-      <CModal show={modal} onClose={toggle} size="lg">
+      <CModal show={modal} onClose={toggle} size="xl" >
         <CModalHeader closeButton>Đánh giá: Gõ từ sau bằng tốc ký</CModalHeader>
         <CModalBody style={{ textAlign: "center" }}>
           {/* <CRow>
@@ -110,18 +109,31 @@ const Modal = (props) => {
               <CInput disabled="true" id="stenoOutput"></CInput>
             </CCol>
           </CRow> */}
-          <CRow style={{ textAlign: "center" }}>
+          {/* <CRow style={{ textAlign: "center" }}>
             <CCardTitle>hoa</CCardTitle>
-            <CInput></CInput>
+          </CRow> */}
+          <CRow>
+            <CCol sm="3">
+              <CountdownTime time="10"></CountdownTime>
+            </CCol>
+            <CCol >
+              <CAlert color="primary">P</CAlert>
+            </CCol>
           </CRow>
+
+          <CCol>
+            {/* <CInput></CInput>
+             */}
+             <Keyboard></Keyboard>
+          </CCol>
         </CModalBody>
         <CModalFooter>
           <CButton color="primary" id="add" onClick={(toggle, sweetAlert)}>
-            Thêm
+            Nộp bài
           </CButton>{" "}
-          <CButton color="secondary" onClick={toggle}>
+          {/* <CButton color="secondary" onClick={toggle}>
             Hủy
-          </CButton>
+          </CButton> */}
         </CModalFooter>
       </CModal>
     </CContainer>
@@ -190,11 +202,10 @@ class LessonLeys2 extends Component {
           </CCardBody>
           <CCardFooter>
             {/* <CButton color="primary"> Kết thúc bài học</CButton> */}
-            <Modal></Modal>
+            {/* <Modal></Modal> */}
           </CCardFooter>
         </CCard>
       </CContainer>
-      
     );
   }
 }

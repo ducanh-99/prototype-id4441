@@ -22,6 +22,7 @@ const practiceKeys = React.lazy(() => import('./views/learn/Practice/PracticeKey
 const lesson1 = React.lazy(() => import('./views/learn/Lesson/Lesson1'));
 const lessonKeys2 = React.lazy(() => import('./views/learn/Lesson/LessonKeys2'));
 const keyboard = React.lazy(() => import('./views/learn/keyboard'));
+const KeyboardSteno = React.lazy(() => import('./views/learn/keyboard_steno'));
 
 const Fight = React.lazy(() => import("./views/fight/Fight"));
 const Race = React.lazy(() => import("./views/fight/Race"));
@@ -47,16 +48,17 @@ const routes = [
   { path: '/learn/your_word', exact: true, name: 'Từ của bạn', component: yourWord },
   { path: '/watch', exact: true, name: 'Xem quy tắc gõ', component: Watch },
   { path: '/keyboard', exact: true, name: 'Ban phim', component: keyboard },
+  { path: '/keyboardsteno', exact: true, name: 'Ban phim', component: KeyboardSteno },
   { path: '/learn/word', exact: true, name: 'Học gõ từ', component: listWords},
   { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: listSentences },
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: listSounds },
   { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: listKeys },
 
   { path: '/learn/keys/lesson1', exact: true, name: 'Bài 1', component: lesson1 },
-  { path: '/learn/keys/lessonKeys2', exact: true, name: 'Bài 1', component: lessonKeys2 },
-  { path: '/learn/word/lessonWord1', exact: true, name: 'Bài 1', component: learnWord },
+  { path: '/learn/keys/lessonKeys2', exact: true, name: 'Bài học phím 2', component: lessonKeys2 },
+  { path: '/learn/word/lessonWord1', exact: true, name: 'Bài học từ 1', component: learnWord },
   //practice
-  { path: '/practice/key', exact: true, name: 'Bài 1', component: practiceKeys },
+  { path: '/practice/key', exact: true, name: 'Bài luyện tập phím', component: practiceKeys },
 ];
 
 export default routes;
