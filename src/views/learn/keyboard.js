@@ -21,6 +21,16 @@ const dictionary = {
     HU: "hoa",
     TRAJ: "trai",
     TPNETK: "đẹp",
+    "#S":"1",
+    "#K":"2",
+    "#R":"3",
+    "#N":"4",
+    "#H":"5",
+    "#O":"0",
+    "#W":"6",
+    "#J":"7",
+    "#N":"8",
+    "#T":"9",
 };
 
 class Keyboard extends Component {
@@ -55,6 +65,17 @@ class Keyboard extends Component {
                 u: { backgroundColor: "black" },
                 space: { backgroundColor: "black" },
                 backspace: { backgroundColor: "black" },
+                num1: { backgroundColor: "black" },
+                num2: { backgroundColor: "black" },
+                num3: { backgroundColor: "black" },
+                num4: { backgroundColor: "black" },
+                num5: { backgroundColor: "black" },
+                num6: { backgroundColor: "black" },
+                num7: { backgroundColor: "black" },
+                num8: { backgroundColor: "black" },
+                num9: { backgroundColor: "black" },
+                num0: { backgroundColor: "black" },
+                "#": { backgroundColor: "black" },
             },
             mapvalue: "",
         };
@@ -167,6 +188,56 @@ class Keyboard extends Component {
                 setPress["backspace"] = { backgroundColor: "red" };
                 mapvalue = ""
                 break;
+            case 48:
+                setPress["num0"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 49:
+                setPress["num1"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 50:
+                setPress["num2"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 51:
+                setPress["num3"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 52:
+                setPress["num4"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 53:
+                setPress["num5"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 54:
+                setPress["num6"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 55:
+                setPress["num7"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 56:
+                setPress["num8"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
+            case 57:
+                setPress["num9"] = { backgroundColor: "red" };
+                setPress["#"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + "#"
+                break;
         }
         this.setState({
             setPress: setPress,
@@ -255,6 +326,46 @@ class Keyboard extends Component {
             case 8:
                 setPress["backspace"] = { backgroundColor: "black" };
                 break;
+            case 48:
+                setPress["num0"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 49:
+                setPress["num1"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 50:
+                setPress["num2"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 51:
+                setPress["num3"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 52:
+                setPress["num4"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 53:
+                setPress["num5"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 54:
+                setPress["num6"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 55:
+                setPress["num7"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 56:
+                setPress["num8"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
+            case 57:
+                setPress["num9"] = { backgroundColor: "black" };
+                setPress["#"] = { backgroundColor: "black" };
+                break;
         }
         this.setState({
             setPress: setPress,
@@ -323,47 +434,47 @@ class Keyboard extends Component {
                     >
                         <div id="stdKeyboard" style={{ backgroundColor: "skyblue" }}>
                             <div class="stdRow">
-                                <div class="stdKey code192" id="stdKeyGraveAccent">
+                                <div class="stdKey code192" id="stdKeyGraveAccent" >
                                     <span class="upper">~</span>
                                     <span class="lower">`</span>
                                 </div>
-                                <div class="stdKey code49" id="stdKey1">
+                                <div class="stdKey code49" id="stdKey1" style={this.state.setPress['num1']}>
                                     <span class="upper">!</span>
                                     <span class="lower">1</span>
                                 </div>
-                                <div class="stdKey code50" id="stdKey2">
+                                <div class="stdKey code50" id="stdKey2" style={this.state.setPress['num2']}>
                                     <span class="upper">@</span>
                                     <span class="lower">2</span>
                                 </div>
-                                <div class="stdKey code51" id="stdKey3">
+                                <div class="stdKey code51" id="stdKey3" style={this.state.setPress['num3']}>
                                     <span class="upper">#</span>
                                     <span class="lower">3</span>
                                 </div>
-                                <div class="stdKey code52" id="stdKey4">
+                                <div class="stdKey code52" id="stdKey4" style={this.state.setPress['num4']}>
                                     <span class="upper">$</span>
                                     <span class="lower">4</span>
                                 </div>
-                                <div class="stdKey code53" id="stdKey5">
+                                <div class="stdKey code53" id="stdKey5" style={this.state.setPress['num5']}>
                                     <span class="upper">%</span>
                                     <span class="lower">5</span>
                                 </div>
-                                <div class="stdKey code54" id="stdKey6">
+                                <div class="stdKey code54" id="stdKey6" style={this.state.setPress['num6']}>
                                     <span class="upper">^</span>
                                     <span class="lower">6</span>
                                 </div>
-                                <div class="stdKey code55" id="stdKey7">
+                                <div class="stdKey code55" id="stdKey7" style={this.state.setPress['num7']}>
                                     <span class="upper">&amp;</span>
                                     <span class="lower">7</span>
                                 </div>
-                                <div class="stdKey code56" id="stdKey8">
+                                <div class="stdKey code56" id="stdKey8" style={this.state.setPress['num8']}>
                                     <span class="upper">*</span>
                                     <span class="lower">8</span>
                                 </div>
-                                <div class="stdKey code57" id="stdKey9">
+                                <div class="stdKey code57" id="stdKey9" style={this.state.setPress['num9']}>
                                     <span class="upper">(</span>
                                     <span class="lower">9</span>
                                 </div>
-                                <div class="stdKey code48" id="stdKey0">
+                                <div class="stdKey code48" id="stdKey0" style={this.state.setPress['num0']}>
                                     <span class="upper">)</span>
                                     <span class="lower">0</span>
                                 </div>
@@ -648,7 +759,7 @@ class Keyboard extends Component {
                                 <div
                                     class="stenoKey numberBar code48 code49 code50 code51 code52 code53 code54 code55 code56 code57"
                                     id="stenoKeyNumberBar"
-                                    style={{ backgroundColor: "black" }}
+                                    style={this.state.setPress['#']}
                                 >#</div>
                             </div>
                             <div class="stenoUpperBank">
