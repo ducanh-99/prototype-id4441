@@ -78,12 +78,16 @@ class Keyboard extends Component {
                 "#": { backgroundColor: "black" },
             },
             mapvalue: "",
+            wordList: [],
+            result: ""
         };
     }
 
     handlePressKey = (event) => {
         let setPress = this.state.setPress;
         let mapvalue = this.state.mapvalue;
+        var wordList = this.state.wordList
+        let result = this.state.result
         switch (event.which) {
             case 81:
                 setPress["q"] = { backgroundColor: "red" };
@@ -183,10 +187,12 @@ class Keyboard extends Component {
                 break;
             case 32:
                 setPress["space"] = { backgroundColor: "red" };
+                mapvalue = mapvalue + " ";
                 break;
             case 8:
                 setPress["backspace"] = { backgroundColor: "red" };
-                mapvalue = ""
+                mapvalue = mapvalue.slice(0,mapvalue.length-1)
+                result=""
                 break;
             case 48:
                 setPress["num0"] = { backgroundColor: "red" };
@@ -238,10 +244,35 @@ class Keyboard extends Component {
                 setPress["#"] = { backgroundColor: "red" };
                 mapvalue = mapvalue + "#"
                 break;
+            default:    
+                break;
         }
+        console.log(mapvalue)
+        if(mapvalue != this.state.value){
+        
+        wordList = mapvalue.split(" ")
+        var arrayWord = [];
+        for (let index = 0; index < wordList.length; index++) {
+            const element = wordList[index];
+            if(dictionary[element] !== undefined){
+                arrayWord.push(dictionary[element])
+                console.log("defined")
+            }else{
+                result = ""
+                console.log("undefined")
+            }
+        }
+        for (let index = 0; index < arrayWord.length; index++) {
+            const element = arrayWord[index];
+            result=result +" "+element            
+        }
+        }
+        console.log(result)
         this.setState({
             setPress: setPress,
             mapvalue: mapvalue,
+            wordList:wordList,
+            result:result
         });
     };
     handleUnpressKey = (event) => {
@@ -367,6 +398,7 @@ class Keyboard extends Component {
                 setPress["#"] = { backgroundColor: "black" };
                 break;
         }
+        console.log(mapvalue)
         this.setState({
             setPress: setPress,
             mapvalue: mapvalue,
@@ -396,9 +428,7 @@ class Keyboard extends Component {
                             </CCol>
                             <CCol sm="8">
                                 <p>
-                                    {dictionary[this.state.mapvalue]
-                                        ? dictionary[this.state.mapvalue]
-                                        : "..."}
+                                    {this.state.result?this.state.result:""}
                                 </p>
                             </CCol>
                         </CRow>
