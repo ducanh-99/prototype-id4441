@@ -30,6 +30,21 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
+        name: "Học quy tắc gõ số",
+        to: "/learn/number",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học quy tắc xóa",
+        to: "/learn/delete",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học quy tắc gõ ký tự đặc biệt",
+        to: "/learn/special",
+      },
+      {
+        _tag: "CSidebarNavItem",
         name: "Học gõ từ",
         to: "/learn/word",
       },

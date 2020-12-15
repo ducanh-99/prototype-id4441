@@ -71,9 +71,9 @@ const Star = (props) => {
   return (
     <CRow style={{ textAlign: "center" }}>
       <CCardTitle style={{ marginRight: "10px" }}>Điểm số: </CCardTitle>
-      <CIcon size={"xl"} name={"cil-star"} />
-      <CIcon size={"xl"} name={"cil-star"} />
-      <CIcon size={"xl"} name={"cil-star"} />
+      <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+      <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+      <CIcon size={"xl"} name={"cil-star"} arn/>
       <CIcon size={"xl"} name={"cil-star"} />
       <CIcon size={"xl"} name={"cil-star"} />
     </CRow>
@@ -107,7 +107,6 @@ const LessonShort = (props) => {
     </CCard>
   );
 };
-
 
 class Dashboard extends React.Component {
   constructor(props) {
