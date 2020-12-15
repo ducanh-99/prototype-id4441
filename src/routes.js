@@ -12,7 +12,7 @@ const learnSentences = React.lazy(()=> import('./views/learn/LearnSentences'));
 const learnSound = React.lazy(()=> import('./views/learn/LearnSound'));
 const learnKeys = React.lazy(()=> import('./views/learn/LearnKeys'));
 const learnNumbers = React.lazy(() => import('./views/learn/LearnNumbers'))
-const learnDelete= React.lazy(() => import('./views/learn/LearnDelete'))
+const learnDelete= React.lazy(() => import('./views/learn/delete/LearnDelete'))
 const learnSpecial = React.lazy(() => import('./views/learn/LearnSpecial'))
 
 const listKeys = React.lazy(() => import('./views/learn/ListKeys'))

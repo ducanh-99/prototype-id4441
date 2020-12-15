@@ -130,32 +130,7 @@ const Nav = () => {
             </CCol>
           </CRow>
         </CTabPane>
-        <CTabPane data-tab="purpose">
-          <CRow>
-            <CCol sm="8">
-              <CCardTitle>Học gõ từ tốc ký</CCardTitle>
-              <CCardText>
-                Học gõ từ tốc ký giúp bạn biết cách ghép âm tiếng Việt để gõ tốc
-                ký
-              </CCardText>
-              <CRow>
-                <CCol sm="4">
-                  <CCardText>
-                    <i class="cis-timer"></i>- Thời gian học tập:
-                  </CCardText>
-                  <CCardText>- Số lượng bài học </CCardText>
-                </CCol>
-                <CCol sm="4">
-                  <CCardText>20 giờ</CCardText>
-                  <CCardText>4 bài học</CCardText>
-                </CCol>
-              </CRow>
-            </CCol>
-            <CCol sm="4">
-              <CChart type="pie" datasets={pie.datasets} labels={pie.labels} />
-            </CCol>
-          </CRow>
-        </CTabPane>
+        <CTabPane data-tab="purpose"></CTabPane>
       </CTabContent>
     </CTabs>
   );
@@ -166,7 +141,38 @@ function ListWords() {
     <>
       <CContainer>
         <CCard>
-          <CCardHeader>Học gõ từ</CCardHeader>
+          <CCardHeader>
+            {" "}
+            <CRow>
+              <CCol sm="8">
+                <CCardTitle>Học gõ từ tốc ký</CCardTitle>
+                <h5>
+                  Học gõ từ tốc ký giúp bạn biết cách ghép âm tiếng Việt để gõ
+                  tốc ký
+                </h5>
+
+                <CRow>
+                  <CCol sm="4">
+                    <CCardText>
+                      <i class="cis-timer"></i>- Thời gian học tập:
+                    </CCardText>
+                    <CCardText>- Số lượng bài học </CCardText>
+                  </CCol>
+                  <CCol sm="4">
+                    <CCardText>20 giờ</CCardText>
+                    <CCardText>4 bài học</CCardText>
+                  </CCol>
+                </CRow>
+              </CCol>
+              <CCol sm="4">
+                <CChart
+                  type="pie"
+                  datasets={pie.datasets}
+                  labels={pie.labels}
+                />
+              </CCol>
+            </CRow>
+          </CCardHeader>
           <CCardBody>
             <Nav />
           </CCardBody>

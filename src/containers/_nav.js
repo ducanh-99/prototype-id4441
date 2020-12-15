@@ -53,12 +53,6 @@ export default [
         name: "Học gõ câu",
         to: "/learn/sentences",
       },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Từ của bạn",
-        to: "/learn/your_word",
-        icon: "cil-home"
-      }
     ],
   },
   {
@@ -72,6 +66,12 @@ export default [
     name: "Xem bộ từ điển",
     to: "/watch",
     icon: "cil-puzzle",
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Từ của bạn",
+    to: "/learn/your_word",
+    icon: "cil-home",
   },
   {
     _tag: "CSidebarNavItem",

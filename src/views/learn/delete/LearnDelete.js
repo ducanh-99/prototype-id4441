@@ -103,74 +103,21 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
-                text="Bài 0: Giới thiệu bàn phím tốc ký"
+                text="Bài 0: Giới thiệu quy tắc xóa"
                 progress="100"
                 link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học các phím tay trái"
+                text="Bài 1: Thực hành quy tắc xóa"
                 progress="40"
                 link="/#/learn/keys/lesson1"
               />
             </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 2: Học các phím tay trái P2"
-                progress="40"
-                link="/#/learn/keys/lessonKeys2"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 3: Học các phím tay phải"
-                progress="100"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 4: Học các phím tay phải P2"
-                progress="0"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 5: Học trật tự các phím"
-                progress="0"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
           </CRow>
         </CTabPane>
-        <CTabPane data-tab="purpose">
-          <CRow>
-            <CCol sm="8">
-              <CCardTitle>Học gõ phím tốc ký</CCardTitle>
-              <CCardText>
-                Học gõ phím tốc ký giúp bạn làm quen với bàn phím tốc ký tiếng
-                Việt để có thể gõ được tốc ký Tiếng Việt
-              </CCardText>
-              <CRow>
-                <CCol sm="4">
-                  <CCardText>
-                    <i class="cis-timer"></i>- Thời gian học tập:
-                  </CCardText>
-                  <CCardText>- Số lượng bài học </CCardText>
-                </CCol>
-                <CCol sm="4">
-                  <CCardText>10 giờ</CCardText>
-                  <CCardText>5 bài học</CCardText>
-                </CCol>
-              </CRow>
-            </CCol>
-            <CCol sm="4">
-              <CChart type="pie" datasets={pie.datasets} labels={pie.labels} />
-            </CCol>
-          </CRow>
-        </CTabPane>
+        <CTabPane data-tab="purpose"></CTabPane>
       </CTabContent>
     </CTabs>
   );
@@ -181,7 +128,37 @@ function LearnDelete() {
     <>
       <CContainer>
         <CCard>
-          <CCardHeader>Học gõ phím</CCardHeader>
+          <CCardHeader>
+            <CRow>
+              <CCol sm="8">
+                <CCardTitle>Học quy tắc xóa</CCardTitle>
+                <CCardText>
+                  <h5>
+                    Xóa trong bàn phím tốc ký khác so với cách gõ thông thường
+                  </h5>
+                </CCardText>
+                <CRow>
+                  <CCol sm="4">
+                    <CCardText>
+                      <i class="cis-timer"></i>- Thời gian học tập:
+                    </CCardText>
+                    <CCardText>- Số lượng bài học </CCardText>
+                  </CCol>
+                  <CCol sm="4">
+                    <CCardText>20 phút</CCardText>
+                    <CCardText>2 bài học</CCardText>
+                  </CCol>
+                </CRow>
+              </CCol>
+              <CCol sm="4">
+                <CChart
+                  type="pie"
+                  datasets={pie.datasets}
+                  labels={pie.labels}
+                />
+              </CCol>
+            </CRow>
+          </CCardHeader>
           <CCardBody>
             <Nav />
           </CCardBody>
