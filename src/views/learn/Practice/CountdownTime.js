@@ -26,11 +26,15 @@ class CountdownTime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 3
+      time: props.time,
     };
     this.setState.bind(this);
     this.setTime = this.setTime.bind(this);
     this.notifiaction = this.notifiaction.bind(this);
+    console.log("Chlid" + this.state.time);
+  }
+  componentWillReceiveProps({time}) {
+    this.setState({...this.state,time})
   }
   setTime(){
     this.setState({

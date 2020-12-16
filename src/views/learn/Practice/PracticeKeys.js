@@ -132,14 +132,43 @@ class PracticeKeys extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 5,
+      time: 50,
     };
+    this.timer = null;
     this.handleTime = this.handleTime.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    // this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
   }
-  handleTime() {
+  // componentWillReceiveProps({time}) {
+  //   this.setState({...this.state,time})
+  // }
+  handleTime(event) {
+    if(event.key === "Enter"){
+      console.log("Hello");
+      this.setState({
+        time: parseInt($("#time").val()),
+      });
+      console.log(this.state.time);
+      // this.forceUpdate();
+    }
+  }
+  handleChange(event) {
     this.setState({
-      time: 5,
-    });
+      time: $("#time").val(),
+    })
+    // console.log("Hello")
+  }
+
+  componentDidMount() {
+    // setInterval after component did mount
+    this.timer = setInterval(this.incrementNumber, 1000);
+  }
+
+  componentWillUnmount() {
+    // clearInterval when component is going to unmount
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
   }
   render() {
     return (
@@ -182,7 +211,8 @@ class PracticeKeys extends Component {
               <CRow>
                 <CCol sm="3">
                   {/* <StopWatch></StopWatch> */}
-                  <CountdownTime></CountdownTime>
+                  <input id="time" type="text" value={this.state.time} onChange={this.handleChange} onKeyDown={this.handleTime}/>
+                  <CountdownTime time={this.state.time} ></CountdownTime>
                 </CCol>
                 <CCol sm="6"></CCol>
                 <CCol sm="2">
