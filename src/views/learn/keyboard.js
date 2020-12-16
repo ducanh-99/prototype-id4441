@@ -497,16 +497,21 @@ class Keyboard extends Component {
             <div>
                 {this.props.soanthao != undefined?
                 <div>
+                    <CContainer>
                     <label>Soạn thảo </label>
+
                 <CTextarea type="text"
                                 id="inputSteno"
-                                style={{ textAlign: "left" }}
+                                style={{ textAlign: "left" , height:"350px"}}
                                 autoFocus="true"
                                 onKeyDownCapture={this.handlePressKey}
                                 onKeyUp={this.handleUnpressKey}
                                 value={this.state.result}
                                 placeholder="Nơi để gõ"></CTextarea>
+                                </CContainer>
+                                <br /><br /><br />
                 </div>
+                
                 :<div>
                 <CRow style={{ textAlign: "center" }}>
                     <CCol sm="2">

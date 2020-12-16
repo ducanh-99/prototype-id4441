@@ -223,7 +223,7 @@ class Dashboard extends React.Component {
           <CCol xs="12" sm="6" lg="3">
             <CardWidget
               color="danger"
-              header="Thời gian sử dụng"
+              header="Thời gian sử dụng trong ngày"
               content="2 tiếng"
               custom="Bạn nên nghỉ ngơi sớm"
             />
@@ -231,7 +231,9 @@ class Dashboard extends React.Component {
         </CRow>
         <CContainer fluid>
           <CCard>
-            <CCardHeader>Lộ trình học tập</CCardHeader>
+            <CCardHeader>
+              <CCardTitle>Lộ trình học tập</CCardTitle>
+            </CCardHeader>
             <CCardBody>
               <Step />
             </CCardBody>
@@ -240,7 +242,7 @@ class Dashboard extends React.Component {
             <CCol sm="8">
               <CCard>
                 <CCardHeader>
-                  <CCardTitle>Đánh giá kết quả học gõ tốc ký</CCardTitle>
+                  <CCardTitle>Tần suất và tốc độ gõ</CCardTitle>
                 </CCardHeader>
 
                 <CCardBody>
@@ -252,7 +254,7 @@ class Dashboard extends React.Component {
                   />
                 </CCardBody>
               </CCard>
-              <CCard>
+              {/* <CCard>
                 <CCardHeader>
                   <CCardTitle>Đánh giá quá trình học gõ tốc ký</CCardTitle>
                 </CCardHeader>
@@ -263,7 +265,7 @@ class Dashboard extends React.Component {
                   <LearnResult></LearnResult>
                   <LearnResult></LearnResult>
                 </CCardBody>
-              </CCard>
+              </CCard> */}
               <CCard>
                 <CCardHeader>
                   <CCardTitle>Điểm của bạn trong Thi đấu gõ tốc ký</CCardTitle>

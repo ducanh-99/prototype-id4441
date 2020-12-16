@@ -21,6 +21,7 @@ import {
   CTabPane,
   CButton,
   CProgress,
+  CLabel,
 } from "@coreui/react";
 import { CChart } from "@coreui/react-chartjs";
 import CIcon from "@coreui/icons-react";
@@ -178,6 +179,7 @@ function ListKeys() {
                 </CRow>
               </CCol>
               <CCol sm="4">
+                <CLabel>Mức độ hoàn thành bài học</CLabel>
                 <CChart
                   type="pie"
                   datasets={pie.datasets}

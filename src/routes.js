@@ -60,7 +60,7 @@ const routes = [
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: listSounds },
   { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: listKeys },
   { path: '/learn/number', exact: true, name: 'Học quy tắc gõ số', component: learnNumbers },
-  { path: '/learn/delete', exact: true, name: 'Học quy tắc xóa', component: learnDelete },
+  { path: '/learn/delete', exact: true, name: 'Học quy tắc xóa, ký tự đặc biệt', component: learnDelete },
   { path: '/learn/special', exact: true, name: 'Học quy tắc gõ ký tự đặc biệt', component: learnSpecial },
 
   { path: '/learn/keys/lesson1', exact: true, name: 'Bài 1', component: lesson1 },

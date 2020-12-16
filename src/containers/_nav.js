@@ -35,13 +35,8 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Học quy tắc xóa",
+        name: "Học quy tắc xóa, ký tự đặc biệt",
         to: "/learn/delete",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Học quy tắc gõ ký tự đặc biệt",
-        to: "/learn/special",
       },
       {
         _tag: "CSidebarNavItem",

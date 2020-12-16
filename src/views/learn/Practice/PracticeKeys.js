@@ -18,7 +18,10 @@ import {
   CProgress,
   CRow,
   CSelect,
+  CLink,
+  CCardText,
 } from "@coreui/react";
+import CIcon from "@coreui/icons-react";
 import React, { Component, useState } from "react";
 import $ from "jquery";
 import swal from "sweetalert";
@@ -28,6 +31,54 @@ const KeyboardSteno = React.lazy(() => import("../keyboard"));
 const keySteno = ["S", "T", "K", "P", "R", "H"];
 const keyQwerty = ["q", "a", "w", "s", "e", "d"];
 const key = [
+  {
+    steno: "S",
+    qwerty: "q",
+  },
+  {
+    steno: "T",
+    qwerty: "a",
+  },
+  {
+    steno: "K",
+    qwerty: "w",
+  },
+  {
+    steno: "P",
+    qwerty: "s",
+  },
+  {
+    steno: "R",
+    qwerty: "e",
+  },
+  {
+    steno: "H",
+    qwerty: "d",
+  },
+  {
+    steno: "S",
+    qwerty: "q",
+  },
+  {
+    steno: "T",
+    qwerty: "a",
+  },
+  {
+    steno: "K",
+    qwerty: "w",
+  },
+  {
+    steno: "P",
+    qwerty: "s",
+  },
+  {
+    steno: "R",
+    qwerty: "e",
+  },
+  {
+    steno: "H",
+    qwerty: "d",
+  },
   {
     steno: "S",
     qwerty: "q",
@@ -133,6 +184,9 @@ class PracticeKeys extends Component {
     super(props);
     this.state = {
       time: 50,
+      index: 0,
+      value: 0,
+      finish: false,
     };
     this.timer = null;
     this.handleTime = this.handleTime.bind(this);
@@ -143,7 +197,7 @@ class PracticeKeys extends Component {
   //   this.setState({...this.state,time})
   // }
   handleTime(event) {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
       console.log("Hello");
       this.setState({
         time: parseInt($("#time").val()),
@@ -155,7 +209,7 @@ class PracticeKeys extends Component {
   handleChange(event) {
     this.setState({
       time: $("#time").val(),
-    })
+    });
     // console.log("Hello")
   }
 
@@ -170,22 +224,73 @@ class PracticeKeys extends Component {
       clearInterval(this.timer);
     }
   }
+  onChangeParent = () => {
+    this.setState((state) => ({
+      index: state.index + 1,
+    }));
+    this.setState((state) => ({
+      value: state.value + 10,
+    }));
+    if (this.state.value >= 100) {
+      this.toggle();
+    }
+  };
+
+  toggle = () => {
+    this.setState((state) => ({
+      finish: !state.finish,
+    }));
+  };
   render() {
     return (
       <CContainer>
+        <CModal show={this.state.finish}>
+          <CModalHeader>Đánh giá bài luyện tập của bạn</CModalHeader>
+          <CModalBody>
+            <CRow>
+              <CCol sm="8">
+                <h6> Độ chính xác: </h6>
+                <h6> Thời gian: </h6>
+                <h6> Tốc độ: </h6>
+              </CCol>
+              <CCol sm="4">
+                <h6>94%</h6>
+                <h6>0:20s</h6>
+                <h6>45 từ/phút</h6>
+              </CCol>
+            </CRow>
+            <br />
+            <h5 style={{ textAlign: "center" }}>
+              Chúc mừng bạn đã hoàn thành bài luyện tập
+              <br />
+              <CContainer style={{ alignItems: "center" }}>
+                <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+                <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+                <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+                <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
+                <CIcon size={"xl"} name={"cil-star"} />
+              </CContainer>
+            </h5>
+          </CModalBody>
+          <CModalFooter>
+              <CButton color="primary">Bài luyện tập tiếp theo</CButton>{" "}
+            <CButton color="secondary" onClick={this.toggle}>
+              Luyện tập lại
+            </CButton>
+          </CModalFooter>
+        </CModal>
         <CCard>
           <CCardHeader>
             <CRow>
               <CCol sm="2">
                 <CButton href="" color="info">
-                Bài trước
+                  Bài trước
                 </CButton>
               </CCol>
-              <CCol sm="8"  style={{ textAlign: "center" }}>
+              <CCol sm="8" style={{ textAlign: "center" }}>
                 {" "}
                 <h5 style={{ color: "#321fdb" }}>
-                  Bài 2: Luyện tập các phím: S,
-                  T, K, P, R, H
+                  Bài 2: Luyện tập các phím: S, T, K, P, R, H
                 </h5>
               </CCol>
               <CCol sm="2" style={{ textAlign: "end" }}>
@@ -197,6 +302,10 @@ class PracticeKeys extends Component {
           </CCardHeader>
           <CCardBody>
             {/* <h2 style={{ textAlign: "center" }}> S </h2> */}
+            <CContainer>
+              <CProgress value={this.state.value} />
+            </CContainer>
+            <br />
             <CAlert
               id="alertWord"
               color="info"
@@ -204,15 +313,21 @@ class PracticeKeys extends Component {
             >
               <h2 style={{ textAlign: "center" }} steno="s" qwerty="q">
                 {" "}
-                {key[3].steno}{" "}
+                {key[this.state.index].steno}{" "}
               </h2>
             </CAlert>
             <CContainer>
               <CRow>
                 <CCol sm="3">
                   {/* <StopWatch></StopWatch> */}
-                  <input id="time" type="text" value={this.state.time} onChange={this.handleChange} onKeyDown={this.handleTime}/>
-                  <CountdownTime time={this.state.time} ></CountdownTime>
+                  <input
+                    id="time"
+                    type="text"
+                    value={this.state.time}
+                    onChange={this.handleChange}
+                    onKeyDown={this.handleTime}
+                  />
+                  <CountdownTime time={this.state.time}></CountdownTime>
                 </CCol>
                 <CCol sm="6"></CCol>
                 <CCol sm="2">
@@ -237,7 +352,7 @@ class PracticeKeys extends Component {
                   });
                 }}
               ></CInput> */}
-            <KeyboardSteno></KeyboardSteno>
+            <KeyboardSteno onChangeParent={this.onChangeParent}></KeyboardSteno>
           </CCardBody>
         </CCard>
       </CContainer>

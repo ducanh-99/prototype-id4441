@@ -24,10 +24,9 @@ function getSteps() {
     "Gõ phím ",
     "Gõ âm",
     "gõ số",
-    "Quy tắc xóa",
-    "ký tự đặc biệt",
-    "Từ",
-    "Câu"
+    "Quy tắc xóa, ký tự đặc biệt",
+    "Gõ từ",
+    "Gõ câu"
   ];
 }
 
