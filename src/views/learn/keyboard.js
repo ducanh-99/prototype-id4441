@@ -2,35 +2,27 @@ import React, { Component } from "react";
 import "src/scss/_custom.scss";
 import { CCard, CCardBody, CCol, CContainer, CInput, CLabel, CRow } from "@coreui/react";
 const dictionary = {
-    RHNAK: "mạnh",
-    S: "s",
-    T: "t",
-    K: "k",
-    KR: "ng",
-    SK: "ch",
-    TK: "nh",
-    SPR: "v",
-    HA: "à",
-    SA: "á",
-    HO: "ò",
-    OE: "ê",
-    UW: "ư",
-    N: "n",
-    NK: "C",
-    SPEWG: "dương",
-    HU: "hoa",
-    TRAJ: "trai",
-    TPNETK: "đẹp",
-    "#S":"1",
-    "#K":"2",
-    "#R":"3",
-    "#N":"4",
-    "#H":"5",
-    "#O":"0",
-    "#W":"6",
-    "#J":"7",
-    "#N":"8",
-    "#T":"9",
+    "S-P-R--S-A": "vá", SPEWG: "dương", HU: "hoa", "T-R--A-J": "trai", TPNETK: "đẹp",
+    //amdau
+    "S-": "s", "T-": "t", "K-": "k", "H-": "h", "R-": "r", "P-": "p", "T-H-": "th", "K-H-": "kh", "P-H-": "ph", "T-R-": "tr",
+    "K-R-": "ng", "K-P-": "g", "S-H-": "gi", "S-P-": "d", "P-R-": "n", "S-R-": "l",
+    "S-K-": "ch", "T-K-": "nh", "S-P-": "d", "T-P-": "đ", "R-H-": "m", "P-R-": "n",
+    "S-P-H-": "q", "S-T-K-": "p", "S-P-R-": "v",
+    //amchinh
+    "-A": "a", "-H-A": "à", "-S-A": "á", "N--A": "ạ", "N--S-A": "ã", "-H-S-A": "ả",
+    "*-A": "ă", "-H*-A": "ằ", "S*A": "ắ", "N-*-A": "ặ", "N--S*-A": "ẵ", "-H-S*A": "ẳ",
+    "-O": "o", "-H-O": "ò", "-S-O": "ó", "N--O": "ọ", "N--S-O": "õ", "-H-S-O": "ỏ",
+    "-E": "e", "-H-E": "è", "-S-E": "é", "N--E": "ẹ", "N--S-E": "ẽ", "-H-S-E": "ẻ",
+    "-O-E": "ê", "-U-W": "ư",
+    //amcuoi
+    "-J-K": "o", "-J-G": "u", "-J": "i", "-J-N": "y",
+    "-N-K": "c", "-G-K": "ch",
+    "-T-K": "p", "-N-T": "t", "-G": "ng", "-K": "nh", "-T": "m",
+    //so
+    "#S-": "1", "#K-": "2", "#R-": "3", "#N-": "4", "#-H": "5",
+    "#-W": "6", "#-J": "7", "#-N": "8", "#-T": "9", "#-O": "0",
+    "#T-": "-1", "#P-": "-2", "#H-": "-3", "#-S": "-4", "#-I": "-5",
+    "#-Y": "-6", "#-G": "-7", "#-K": "-8", "#-E": "-9",
 };
 
 class Keyboard extends Component {
@@ -38,241 +30,307 @@ class Keyboard extends Component {
         super(props);
         this.state = {
             setPress: {
-                q: { backgroundColor: "black" },
-                w: { backgroundColor: "black" },
-                e: { backgroundColor: "black" },
-                r: { backgroundColor: "black" },
-                t: { backgroundColor: "black" },
-                u: { backgroundColor: "black" },
-                i: { backgroundColor: "black" },
-                o: { backgroundColor: "black" },
-                p: { backgroundColor: "black" },
-                "[": { backgroundColor: "black" },
-                a: { backgroundColor: "black" },
-                s: { backgroundColor: "black" },
-                d: { backgroundColor: "black" },
-                f: { backgroundColor: "black" },
-                g: { backgroundColor: "black" },
-                j: { backgroundColor: "black" },
-                k: { backgroundColor: "black" },
-                l: { backgroundColor: "black" },
-                ";": { backgroundColor: "black" },
-                "'": { backgroundColor: "black" },
-                c: { backgroundColor: "black" },
-                v: { backgroundColor: "black" },
-                n: { backgroundColor: "black" },
-                m: { backgroundColor: "black" },
-                u: { backgroundColor: "black" },
+                q: { backgroundColor: "#fccacb", color: "black" },
+                w: { backgroundColor: "#fcd7a2", color: "black" },
+                e: { backgroundColor: "#f8f8a2", color: "black" },
+                r: { backgroundColor: "#b3f9a3", color: "black" },
+                t: { backgroundColor: "#b3f9a3", color: "black" },
+                u: { backgroundColor: "#b3f9a3", color: "black" },
+                i: { backgroundColor: "#b3f9a3", color: "black" },
+                o: { backgroundColor: "#f8f8a2", color: "black" },
+                p: { backgroundColor: "#fcd7a2", color: "black" },
+                "[": { backgroundColor: "#fccacb", color: "black" },
+                a: { backgroundColor: "#fccacb", color: "black" },
+                s: { backgroundColor: "#fcd7a2", color: "black" },
+                d: { backgroundColor: "#f8f8a2", color: "black" },
+                f: { backgroundColor: "#b3f9a3", color: "black" },
+                g: { backgroundColor: "#b3f9a3", color: "black" },
+                j: { backgroundColor: "#b3f9a3", color: "black" },
+                k: { backgroundColor: "#b3f9a3", color: "black" },
+                l: { backgroundColor: "#f8f8a2", color: "black" },
+                ";": { backgroundColor: "#fcd7a2", color: "black" },
+                "'": { backgroundColor: "#fccacb", color: "black" },
+                c: { backgroundColor: "#bacffa", color: "black" },
+                v: { backgroundColor: "#bacffa", color: "black" },
+                n: { backgroundColor: "#bacffa", color: "black" },
+                m: { backgroundColor: "#bacffa", color: "black" },
+                u: { backgroundColor: "#ffcc00", color: "black" },
                 space: { backgroundColor: "black" },
                 backspace: { backgroundColor: "black" },
-                num1: { backgroundColor: "black" },
-                num2: { backgroundColor: "black" },
-                num3: { backgroundColor: "black" },
-                num4: { backgroundColor: "black" },
-                num5: { backgroundColor: "black" },
-                num6: { backgroundColor: "black" },
-                num7: { backgroundColor: "black" },
-                num8: { backgroundColor: "black" },
-                num9: { backgroundColor: "black" },
-                num0: { backgroundColor: "black" },
-                "#": { backgroundColor: "black" },
+                num1: { backgroundColor: "#71787d", color: "black" },
+                num2: { backgroundColor: "#71787d", color: "black" },
+                num3: { backgroundColor: "#71787d", color: "black" },
+                num4: { backgroundColor: "#71787d", color: "black" },
+                num5: { backgroundColor: "#71787d", color: "black" },
+                num6: { backgroundColor: "#71787d", color: "black" },
+                num7: { backgroundColor: "#71787d", color: "black" },
+                num8: { backgroundColor: "#71787d", color: "black" },
+                num9: { backgroundColor: "#71787d", color: "black" },
+                num0: { backgroundColor: "#71787d", color: "black" },
+                "#": { backgroundColor: "#71787d", color: "black" },
             },
             mapvalue: "",
             wordList: [],
-            result: ""
+            result: "",
+            resultWordList: [],
+            numberOfWords: 0,
+            numberOfFirstLetter: [0],
+            numberOfMainLetter: [0],
+            numberOfLastLetter: [0],
+            tempstring: ""
         };
     }
-
     handlePressKey = (event) => {
         let setPress = this.state.setPress;
         let mapvalue = this.state.mapvalue;
         var wordList = this.state.wordList
         let result = this.state.result
+        var numberOfWords = this.state.numberOfWords
+        var numberOfFirstLetter = this.state.numberOfFirstLetter
+        var numberOfMainLetter = this.state.numberOfMainLetter
+        var numberOfLastLetter = this.state.numberOfLastLetter
+        var resultWordList = this.state.resultWordList
+        var tempstring = this.state.tempstring
         switch (event.which) {
             case 81:
-                setPress["q"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "S";
+                setPress["q"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "S-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 87:
-                setPress["w"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "K";
+                setPress["w"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "K-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 69:
-                setPress["e"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "R";
+                setPress["e"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "R-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 82:
-                setPress["r"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "N";
+                setPress["r"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "N-";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 84:
-                setPress["t"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "H";
+                setPress["t"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-H";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 85:
-                setPress["u"] = { backgroundColor: "red" };
-                mapvalue = "";
+                setPress["u"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "*"
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 73:
-                setPress["i"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "W";
+                setPress["i"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-W";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 79:
-                setPress["o"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "J";
+                setPress["o"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-J";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 80:
-                setPress["p"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "N";
+                setPress["p"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-N";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 219:
-                setPress["["] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "T";
+                setPress["["] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-T";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 65:
-                setPress["a"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "T";
+                setPress["a"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "T-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 83:
-                setPress["s"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "P";
+                setPress["s"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "P-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 68:
-                setPress["d"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "H";
+                setPress["d"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "H-";
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 70:
-                setPress["f"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "N";
+                setPress["f"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "N-";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 71:
-                setPress["g"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "S";
+                setPress["g"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-S";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 74:
-                setPress["j"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "I";
+                setPress["j"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-I";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 75:
-                setPress["k"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "Y";
+                setPress["k"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-Y";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 76:
-                setPress["l"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "J";
+                setPress["l"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-J";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 186:
-                setPress[";"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "G";
+                setPress[";"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-G";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 222:
-                setPress["'"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "K";
+                setPress["'"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-K";
+                numberOfLastLetter[numberOfWords] = numberOfLastLetter[numberOfWords] + 1
                 break;
             case 67:
-                setPress["c"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "U";
+                setPress["c"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-U";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 86:
-                setPress["v"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "O";
+                setPress["v"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-O";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 78:
-                setPress["n"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "E";
+                setPress["n"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-E";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 77:
-                setPress["m"] = { backgroundColor: "red" };
-                mapvalue = mapvalue + "A";
+                setPress["m"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = mapvalue + "-A";
+                numberOfMainLetter[numberOfWords] = numberOfMainLetter[numberOfWords] + 1
                 break;
             case 32:
-                setPress["space"] = { backgroundColor: "red" };
+                setPress["space"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + " ";
+                numberOfWords = numberOfWords + 1
+                numberOfMainLetter[numberOfWords] = 0
+                numberOfFirstLetter[numberOfWords] = 0
+                numberOfLastLetter[numberOfWords] = 0
+                result = result + resultWordList[resultWordList.length - 1] + " "
                 break;
             case 8:
-                setPress["backspace"] = { backgroundColor: "red" };
-                mapvalue = mapvalue.slice(0,mapvalue.length-1)
-                result=""
+                setPress["backspace"] = { backgroundColor: "red", color: "yellow" };
+                mapvalue = ""
+                numberOfWords = 0
+                numberOfMainLetter[numberOfWords] = 0
+                numberOfFirstLetter[numberOfWords] = 0
+                numberOfLastLetter[numberOfWords] = 0
+                result = ""
                 break;
             case 48:
-                setPress["num0"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num0"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 49:
-                setPress["num1"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num1"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 50:
-                setPress["num2"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num2"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 51:
-                setPress["num3"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num3"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 52:
-                setPress["num4"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num4"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 53:
-                setPress["num5"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num5"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 54:
-                setPress["num6"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num6"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 55:
-                setPress["num7"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num7"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 56:
-                setPress["num8"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num8"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
             case 57:
-                setPress["num9"] = { backgroundColor: "red" };
-                setPress["#"] = { backgroundColor: "red" };
+                setPress["num9"] = { backgroundColor: "red", color: "yellow" };
+                setPress["#"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "#"
+                numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
                 break;
-            default:    
+            default:
                 break;
         }
-        console.log(mapvalue)
-        if(mapvalue != this.state.value){
-        
-        wordList = mapvalue.split(" ")
-        var arrayWord = [];
-        for (let index = 0; index < wordList.length; index++) {
-            const element = wordList[index];
-            if(dictionary[element] !== undefined){
-                arrayWord.push(dictionary[element])
-                console.log("defined")
-            }else{
-                result = ""
-                console.log("undefined")
+
+        if (mapvalue != this.state.value) {
+            wordList = mapvalue.split(" ")
+            resultWordList = []
+            for (let index = 0; index < wordList.length; index++) {
+                tempstring = ""
+                const element = wordList[index];
+                if (element[0] == "#") {
+                    var firstletter = numberOfFirstLetter[numberOfWords] > 0 ? element.slice(0, element.length) : ""
+                } else {
+                    var firstletter = numberOfFirstLetter[numberOfWords] > 0 ? element.slice(0, numberOfFirstLetter[numberOfWords] * 2) : ""
+                }
+
+                var mainletter = numberOfMainLetter[numberOfWords] > 0 ? element.slice(numberOfFirstLetter[numberOfWords] * 2, element.length - numberOfLastLetter[numberOfWords] * 2) : ""
+                var lastletter = numberOfLastLetter[numberOfWords] > 0 ? element.slice(element.length - numberOfLastLetter[numberOfWords] * 2, element.length) : ""
+                if (dictionary[firstletter] !== undefined) {
+                    tempstring = tempstring + dictionary[firstletter]
+                }
+                if (dictionary[mainletter] !== undefined) {
+                    tempstring = tempstring + dictionary[mainletter]
+                }
+                if (dictionary[lastletter] !== undefined) {
+                    tempstring = tempstring + dictionary[lastletter]
+                }
+                resultWordList.push(tempstring)
             }
         }
-        for (let index = 0; index < arrayWord.length; index++) {
-            const element = arrayWord[index];
-            result=result +" "+element            
-        }
-        }
-        console.log(result)
         this.setState({
             setPress: setPress,
             mapvalue: mapvalue,
-            wordList:wordList,
-            result:result
+            wordList: wordList,
+            result: result,
+            numberOfWords: numberOfWords,
+            numberOfFirstLetter: numberOfFirstLetter,
+            numberOfMainLetter: numberOfMainLetter,
+            numberOfLastLetter: numberOfLastLetter,
+            resultWordList: resultWordList,
+            tempstring: tempstring
         });
     };
     handleUnpressKey = (event) => {
@@ -280,76 +338,76 @@ class Keyboard extends Component {
         let mapvalue = this.state.mapvalue;
         switch (event.which) {
             case 81:
-                setPress["q"] = { backgroundColor: "black" };
+                setPress["q"] = { backgroundColor: "#fccacb", color: "black" };
                 break;
             case 87:
-                setPress["w"] = { backgroundColor: "black" };
+                setPress["w"] = { backgroundColor: "#fcd7a2", color: "black" };
                 break;
             case 69:
-                setPress["e"] = { backgroundColor: "black" };
+                setPress["e"] = { backgroundColor: "#f8f8a2", color: "black" };
                 break;
             case 82:
-                setPress["r"] = { backgroundColor: "black" };
+                setPress["r"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 84:
-                setPress["t"] = { backgroundColor: "black" };
+                setPress["t"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 85:
-                setPress["u"] = { backgroundColor: "black" };
+                setPress["u"] = { backgroundColor: "#ffcc00", color: "black" };
                 break;
             case 73:
-                setPress["i"] = { backgroundColor: "black" };
+                setPress["i"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 79:
-                setPress["o"] = { backgroundColor: "black" };
+                setPress["o"] = { backgroundColor: "#f8f8a2", color: "black" };
                 break;
             case 80:
-                setPress["p"] = { backgroundColor: "black" };
+                setPress["p"] = { backgroundColor: "#fcd7a2", color: "black" };
                 break;
             case 219:
-                setPress["["] = { backgroundColor: "black" };
+                setPress["["] = { backgroundColor: "#fccacb", color: "black" };
                 break;
             case 65:
-                setPress["a"] = { backgroundColor: "black" };
+                setPress["a"] = { backgroundColor: "#fccacb", color: "black" };
                 break;
             case 83:
-                setPress["s"] = { backgroundColor: "black" };
+                setPress["s"] = { backgroundColor: "#fcd7a2", color: "black" };
                 break;
             case 68:
-                setPress["d"] = { backgroundColor: "black" };
+                setPress["d"] = { backgroundColor: "#f8f8a2", color: "black" };
                 break;
             case 70:
-                setPress["f"] = { backgroundColor: "black" };
+                setPress["f"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 71:
-                setPress["g"] = { backgroundColor: "black" };
+                setPress["g"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 74:
-                setPress["j"] = { backgroundColor: "black" };
+                setPress["j"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 75:
-                setPress["k"] = { backgroundColor: "black" };
+                setPress["k"] = { backgroundColor: "#b3f9a3", color: "black" };
                 break;
             case 76:
-                setPress["l"] = { backgroundColor: "black" };
+                setPress["l"] = { backgroundColor: "#f8f8a2", color: "black" };
                 break;
             case 186:
-                setPress[";"] = { backgroundColor: "black" };
+                setPress[";"] = { backgroundColor: "#fcd7a2", color: "black" };
                 break;
             case 222:
-                setPress["'"] = { backgroundColor: "black" };
+                setPress["'"] = { backgroundColor: "#fccacb", color: "black" };
                 break;
             case 67:
-                setPress["c"] = { backgroundColor: "black" };
+                setPress["c"] = { backgroundColor: "#bacffa", color: "black" };
                 break;
             case 86:
-                setPress["v"] = { backgroundColor: "black" };
+                setPress["v"] = { backgroundColor: "#bacffa", color: "black" };
                 break;
             case 78:
-                setPress["n"] = { backgroundColor: "black" };
+                setPress["n"] = { backgroundColor: "#bacffa", color: "black" };
                 break;
             case 77:
-                setPress["m"] = { backgroundColor: "black" };
+                setPress["m"] = { backgroundColor: "#bacffa", color: "black" };
                 break;
             case 32:
                 setPress["space"] = { backgroundColor: "black" };
@@ -358,47 +416,46 @@ class Keyboard extends Component {
                 setPress["backspace"] = { backgroundColor: "black" };
                 break;
             case 48:
-                setPress["num0"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num0"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 49:
-                setPress["num1"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num1"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 50:
-                setPress["num2"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num2"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 51:
-                setPress["num3"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num3"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 52:
-                setPress["num4"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num4"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 53:
-                setPress["num5"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num5"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 54:
-                setPress["num6"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num6"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 55:
-                setPress["num7"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num7"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 56:
-                setPress["num8"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num8"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
             case 57:
-                setPress["num9"] = { backgroundColor: "black" };
-                setPress["#"] = { backgroundColor: "black" };
+                setPress["num9"] = { backgroundColor: "#71787d", color: "black" };
+                setPress["#"] = { backgroundColor: "#71787d", color: "black" };
                 break;
         }
-        console.log(mapvalue)
         this.setState({
             setPress: setPress,
             mapvalue: mapvalue,
@@ -407,32 +464,30 @@ class Keyboard extends Component {
     render() {
         return (
             <div>
-                {/* <CRow>
-                    <CCol xs="8">
-                        <CCard>
-                            <CLabel> Result </CLabel>
-                            <p>{dictionary[this.state.mapvalue] ? dictionary[this.state.mapvalue] : "..."}</p>
-                        </CCard>
+                <CRow style={{ textAlign: "center" }}>
+                    <CCol sm="2">
+                        <CLabel> Kết quả gõ: </CLabel>
                     </CCol>
-                    <CCol xs="4">
-                        <CLabel> Đặt con trỏ vào đây để gõ</CLabel>
-                        <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey}  value={this.state.mapvalue}/>
+                    <CCol sm="8">
+                        <p>
+                            {this.state.result ? this.state.result : ""}
+                        </p>
                     </CCol>
-                </CRow> */}
+                </CRow>
                 <CRow>
                     <CCol sm="12">
                         <CContainer>
-                        <CInput 
-                            type="text"
-                            id="inputSteno"
-                            style={{ textAlign: "center" }}
-                            autoFocus="true"
-                            onKeyDown={this.handlePressKey}
-                            onKeyUp={this.handleUnpressKey}
-                            value={this.state.mapvalue}
-                            placeholder = "Nơi để gõ"
-                            onChange = {this.props.onChangeParent != undefined ? this.props.onChangeParent : ""}
-                        />
+                            <CInput
+                                type="text"
+                                id="inputSteno"
+                                style={{ textAlign: "center" }}
+                                autoFocus="true"
+                                onKeyDownCapture={this.handlePressKey}
+                                onKeyUp={this.handleUnpressKey}
+                                value={this.state.mapvalue}
+                                placeholder="Nơi để gõ"
+                                onChange={this.props.onChangeParent != undefined ? this.props.onChangeParent : ""}
+                            />
                         </CContainer>
                         <br />
                         <br />
@@ -452,10 +507,10 @@ class Keyboard extends Component {
                         </CCard>
                     </CCol> */}
                 </CRow>
-                    {" "}
-                    
-                
-                        
+                {" "}
+
+
+
                 {/* banphim */}
                 <CRow>
                     <CCol
@@ -533,36 +588,41 @@ class Keyboard extends Component {
                                     id="stdKeyQ"
                                     style={this.state.setPress["q"]}
                                 >
-                                    Q
-                </div>
+                                    <span class="upper" >S</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>Q</span>
+                                </div>
                                 <div
                                     class="stdKey code87"
                                     id="stdKeyW"
                                     style={this.state.setPress["w"]}
                                 >
-                                    W
-                </div>
+                                    <span class="upper" >K</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>W</span>
+                                </div>
                                 <div
                                     class="stdKey code69"
                                     id="stdKeyE"
                                     style={this.state.setPress["e"]}
                                 >
-                                    E
-                </div>
+                                    <span class="upper" >R</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>E</span>
+                                </div>
                                 <div
                                     class="stdKey code82"
                                     id="stdKeyR"
                                     style={this.state.setPress["r"]}
                                 >
-                                    R
-                </div>
+                                    <span class="upper" >N</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>R</span>
+                                </div>
                                 <div
                                     class="stdKey code84"
                                     id="stdKeyT"
                                     style={this.state.setPress["t"]}
                                 >
-                                    T
-                </div>
+                                    <span class="upper" >H</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>T</span>
+                                </div>
                                 <div class="stdKey code89" id="stdKeyY">
                                     Y
                 </div>
@@ -571,36 +631,40 @@ class Keyboard extends Component {
                                     id="stdKeyU"
                                     style={this.state.setPress["u"]}
                                 >
-                                    U
-                </div>
+                                    <span class="upper" >*</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>U</span>
+                                </div>
                                 <div
                                     class="stdKey code73"
                                     id="stdKeyI"
                                     style={this.state.setPress["i"]}
                                 >
-                                    I
-                </div>
+                                    <span class="upper" >W</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>I</span>
+                                </div>
                                 <div
                                     class="stdKey code79"
                                     id="stdKeyO"
                                     style={this.state.setPress["o"]}
                                 >
-                                    O
-                </div>
+                                    <span class="upper" >J</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>O</span>
+                                </div>
                                 <div
                                     class="stdKey code80"
                                     id="stdKeyP"
                                     style={this.state.setPress["p"]}
                                 >
-                                    P
-                </div>
+                                    <span class="upper" >N</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>P</span>
+                                </div>
                                 <div
                                     class="stdKey code219"
                                     id="stdKeyOpenBracket"
                                     style={this.state.setPress["["]}
                                 >
-                                    <span class="upper">{"{"}</span>
-                                    <span class="lower">[</span>
+                                    <span class="upper" >T</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>[</span>
                                 </div>
                                 <div class="stdKey code221" id="stdKeyCloseBracket">
                                     <span class="upper">{"}"}</span>
@@ -620,36 +684,41 @@ class Keyboard extends Component {
                                     id="stdKeyA"
                                     style={this.state.setPress["a"]}
                                 >
-                                    A
-                </div>
+                                    <span class="upper" >T</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>A</span>
+                                </div>
                                 <div
                                     class="stdKey code83"
                                     id="stdKeyS"
                                     style={this.state.setPress["s"]}
                                 >
-                                    S
-                </div>
+                                    <span class="upper" >P</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>S</span>
+                                </div>
                                 <div
                                     class="stdKey code68"
                                     id="stdKeyD"
                                     style={this.state.setPress["d"]}
                                 >
-                                    D
-                </div>
+                                    <span class="upper" >H</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>D</span>
+                                </div>
                                 <div
                                     class="stdKey code70"
                                     id="stdKeyF"
                                     style={this.state.setPress["f"]}
                                 >
-                                    F
-                </div>
+                                    <span class="upper" >N</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>F</span>
+                                </div>
                                 <div
                                     class="stdKey code71"
                                     id="stdKeyG"
                                     style={this.state.setPress["g"]}
                                 >
-                                    G
-                </div>
+                                    <span class="upper" >S</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>G</span>
+                                </div>
                                 <div class="stdKey code72" id="stdKeyH">
                                     H
                 </div>
@@ -658,37 +727,40 @@ class Keyboard extends Component {
                                     id="stdKeyJ"
                                     style={this.state.setPress["j"]}
                                 >
-                                    J
-                </div>
+                                    <span class="upper" >I</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>J</span>
+                                </div>
                                 <div
                                     class="stdKey code75"
                                     id="stdKeyK"
                                     style={this.state.setPress["k"]}
                                 >
-                                    K
-                </div>
+                                    <span class="upper" >Y</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>K</span>
+                                </div>
                                 <div
                                     class="stdKey code76"
                                     id="stdKeyL"
                                     style={this.state.setPress["l"]}
                                 >
-                                    L
-                </div>
+                                    <span class="upper" >J</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>L</span>
+                                </div>
                                 <div
                                     class="stdKey code59 code186"
                                     id="stdKeySemicolon"
                                     style={this.state.setPress[";"]}
                                 >
-                                    <span class="upper">:</span>
-                                    <span class="lower">;</span>
+                                    <span class="upper" >G</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>;</span>
                                 </div>
                                 <div
                                     class="stdKey code222"
                                     id="stdKeySingleQuote"
                                     style={this.state.setPress["'"]}
                                 >
-                                    <span class="upper">"</span>
-                                    <span class="lower">'</span>
+                                    <span class="upper" >K</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>'</span>
                                 </div>
                                 <div class="stdKey code13" id="stdKeyEnter">
                                     Enter
@@ -709,15 +781,17 @@ class Keyboard extends Component {
                                     id="stdKeyC"
                                     style={this.state.setPress["c"]}
                                 >
-                                    C
-                </div>
+                                    <span class="upper" >U</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>C</span>
+                                </div>
                                 <div
                                     class="stdKey code86"
                                     id="stdKeyV"
                                     style={this.state.setPress["v"]}
                                 >
-                                    V
-                </div>
+                                    <span class="upper" >O</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>V</span>
+                                </div>
                                 <div class="stdKey code66" id="stdKeyB">
                                     B
                 </div>
@@ -726,15 +800,17 @@ class Keyboard extends Component {
                                     id="stdKeyN"
                                     style={this.state.setPress["n"]}
                                 >
-                                    N
-                </div>
+                                    <span class="upper" >E</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>N</span>
+                                </div>
                                 <div
                                     class="stdKey code77"
                                     id="stdKeyM"
                                     style={this.state.setPress["m"]}
                                 >
-                                    M
-                </div>
+                                    <span class="upper" >A</span>
+                                    <span class="lower-left" style={{ color: "#6b6b47" }}>M</span>
+                                </div>
                                 <div class="stdKey code188" id="stdKeyComma">
                                     <span class="upper">&lt;</span>
                                     <span class="lower">,</span>
