@@ -15,6 +15,7 @@ import {
   CContainer,
   CCardTitle,
   CLink,
+  CWidgetProgress,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import ApexCharts from "apexcharts";
@@ -73,7 +74,7 @@ const Star = (props) => {
       <CCardTitle style={{ marginRight: "10px" }}>Điểm số: </CCardTitle>
       <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
       <CIcon size={"xl"} name={"cil-star"} className="text-warning" />
-      <CIcon size={"xl"} name={"cil-star"} arn/>
+      <CIcon size={"xl"} name={"cil-star"} arn />
       <CIcon size={"xl"} name={"cil-star"} />
       <CIcon size={"xl"} name={"cil-star"} />
     </CRow>
@@ -156,126 +157,171 @@ class Dashboard extends React.Component {
   }
   render() {
     return (
-      <CContainer fluid>
+      <>
         <CRow>
-          <CCol sm="8">
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Đánh giá kết quả học gõ tốc ký</CCardTitle>
-              </CCardHeader>
+          <CCol xs="12" sm="6" lg="3">
+            <CWidgetProgress
+              color="success"
+              header="Bài học"
+              text="20/40 bài"
+              // footer="Lorem ipsum dolor sit amet enim."
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CWidgetProgress
+              color="info"
+              header="12.124"
+              text="<h5>Lorem ipsum...</h5>"
+              footer="Lorem ipsum dolor sit amet enim."
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CWidgetProgress
+              color="warning"
+              header="$98.111,00"
+              text="Lorem ipsum..."
+              footer="Lorem ipsum dolor sit amet enim."
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CWidgetProgress
+              header="2 TB"
+              text="Lorem ipsum..."
+              footer="Lorem ipsum dolor sit amet enim."
+            >
+              <CProgress
+                color="danger"
+                animated
+                size="xs"
+                className="my-3"
+                value={75}
+              />
+            </CWidgetProgress>
+          </CCol>
+        </CRow>
+        <CContainer fluid>
+          <CRow>
+            <CCol sm="8">
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle>Đánh giá kết quả học gõ tốc ký</CCardTitle>
+                </CCardHeader>
 
-              <CCardBody>
-                <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type="area"
-                  height={400}
-                />
-              </CCardBody>
-            </CCard>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Đánh giá quá trình học gõ tốc ký</CCardTitle>
-              </CCardHeader>
+                <CCardBody>
+                  <Chart
+                    options={this.state.options}
+                    series={this.state.series}
+                    type="area"
+                    height={400}
+                  />
+                </CCardBody>
+              </CCard>
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle>Đánh giá quá trình học gõ tốc ký</CCardTitle>
+                </CCardHeader>
 
-              <CCardBody>
-                <LearnResult></LearnResult>
-                <LearnResult></LearnResult>
-                <LearnResult></LearnResult>
-                <LearnResult></LearnResult>
-              </CCardBody>
-            </CCard>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Điểm của bạn trong Thi đấu gõ tốc ký</CCardTitle>
-              </CCardHeader>
+                <CCardBody>
+                  <LearnResult></LearnResult>
+                  <LearnResult></LearnResult>
+                  <LearnResult></LearnResult>
+                  <LearnResult></LearnResult>
+                </CCardBody>
+              </CCard>
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle>Điểm của bạn trong Thi đấu gõ tốc ký</CCardTitle>
+                </CCardHeader>
 
-              <CCardBody>
-                {/* <LearnResult></LearnResult>
+                <CCardBody>
+                  {/* <LearnResult></LearnResult>
                 <LearnResult></LearnResult>
                 <LearnResult></LearnResult>
                 <LearnResult></LearnResult> */}
-                {/* <ChartRating/> */}
-                {/* <Chart
+                  {/* <ChartRating/> */}
+                  {/* <Chart
                   options={this.state.options}
                   series={this.state.series}
                   type="area"
                   height={400}
                 /> */}
-                {/* <ChartWord></ChartWord> */}
-                <YourSoccer />
-              </CCardBody>
-            </CCard>
-          </CCol>
-          <CCol sm="4">
-            {/* <ChartWord />
+                  {/* <ChartWord></ChartWord> */}
+                  <YourSoccer />
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol sm="4">
+              {/* <ChartWord />
               <ChartSpeed />
               <ChartRating /> */}
-            <CCard>
-              <CCardHeader>
-                <CCardTitle color="success">Các bài đã học gần đây</CCardTitle>
-              </CCardHeader>
-              <CCardBody>
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <CContainer>
-                  <CLink>Xem thêm</CLink>
-                </CContainer>
-              </CCardBody>
-              <CCardFooter></CCardFooter>
-            </CCard>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Các bài học tiếp theo</CCardTitle>
-              </CCardHeader>
-              <CCardBody>
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <LessonShort
-                  text="Bài 1: Học các phím tay trái"
-                  linkLearn=""
-                  linkPractice=""
-                />
-                <CContainer>
-                  <CLink>Xem thêm</CLink>
-                </CContainer>
-              </CCardBody>
-              <CCardFooter></CCardFooter>
-            </CCard>
-          </CCol>
-        </CRow>
-      </CContainer>
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle color="success">
+                    Các bài đã học gần đây
+                  </CCardTitle>
+                </CCardHeader>
+                <CCardBody>
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <CContainer>
+                    <CLink>Xem thêm</CLink>
+                  </CContainer>
+                </CCardBody>
+                <CCardFooter></CCardFooter>
+              </CCard>
+              <CCard>
+                <CCardHeader>
+                  <CCardTitle>Các bài học tiếp theo</CCardTitle>
+                </CCardHeader>
+                <CCardBody>
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <LessonShort
+                    text="Bài 1: Học các phím tay trái"
+                    linkLearn=""
+                    linkPractice=""
+                  />
+                  <CContainer>
+                    <CLink>Xem thêm</CLink>
+                  </CContainer>
+                </CCardBody>
+                <CCardFooter></CCardFooter>
+              </CCard>
+            </CCol>
+          </CRow>
+        </CContainer>
+      </>
     );
   }
 }

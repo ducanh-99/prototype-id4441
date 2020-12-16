@@ -36,6 +36,8 @@ const Rank = React.lazy(() => import("./views/fight/Rank"));
 
 const Watch = React.lazy(() => import("./views/watch/Watch"));
 const Home = React.lazy(() => import("./views/dashboard/Dashboard"));
+
+const soanThao = React.lazy(() => import("./views/soanthao/soanthao"))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', exact: true, name: 'Trang chủ', component: Home },
@@ -66,6 +68,8 @@ const routes = [
   { path: '/learn/word/lessonWord1', exact: true, name: 'Bài học từ 1', component: learnWord },
   //practice
   { path: '/practice/key', exact: true, name: 'Bài luyện tập phím', component: practiceKeys },
+
+  { path: '/soan-thao', exact: true, name: 'Soạn thảo', component: soanThao },
 ];
 
 export default routes;

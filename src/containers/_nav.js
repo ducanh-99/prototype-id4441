@@ -63,6 +63,12 @@ export default [
   },
   {
     _tag: "CSidebarNavItem",
+    name: "Soạn thảo",
+    to: "/soan-thao",
+    icon: "cil-pencil",
+  },
+  {
+    _tag: "CSidebarNavItem",
     name: "Xem bộ từ điển",
     to: "/watch",
     icon: "cil-puzzle",
@@ -78,6 +84,12 @@ export default [
     name: "Thi đấu",
     to: "/fight",
     icon: "cil-star",
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Liên hệ",
+    to: "/contact",
+    icon: "cil-cursor",
   },
   // {
   //   _tag: 'CSidebarNavTitle',

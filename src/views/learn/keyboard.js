@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "src/scss/_custom.scss";
-import { CCard, CCardBody, CCol, CLabel, CRow } from "@coreui/react";
+import { CCard, CCardBody, CCol, CContainer, CInput, CLabel, CRow } from "@coreui/react";
 const dictionary = {
     RHNAK: "mạnh",
     S: "s",
@@ -419,39 +419,42 @@ class Keyboard extends Component {
                         <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey}  value={this.state.mapvalue}/>
                     </CCol>
                 </CRow> */}
-                <CCol style={{ textAlign: "center" }}>
+                <CRow>
+                    <CCol sm="12">
+                        <CContainer>
+                        <CInput 
+                            type="text"
+                            id="inputSteno"
+                            style={{ textAlign: "center" }}
+                            autoFocus="true"
+                            onKeyDown={this.handlePressKey}
+                            onKeyUp={this.handleUnpressKey}
+                            value={this.state.mapvalue}
+                            placeholder = "Nơi để gõ"
+                        />
+                        </CContainer>
+                        <br />
+                        <br />
+                    </CCol>
+                    {/* <CCol sm="6">
+                        <CCard style= {{ height: "35px"}}>
+                            <CRow style={{ textAlign: "center" }}>
+                                <CCol sm="2">
+                                    <CLabel> Kết quả gõ: </CLabel>
+                                </CCol>
+                                <CCol sm="8">
+                                    <p>
+                                        {this.state.result?this.state.result:""}
+                                    </p>
+                                </CCol>
+                            </CRow>
+                        </CCard>
+                    </CCol> */}
+                </CRow>
                     {" "}
-                    <CCard>
-                        <CRow style={{ textAlign: "center" }}>
-                            <CCol sm="2">
-                                <CLabel> Kết quả gõ: </CLabel>
-                            </CCol>
-                            <CCol sm="8">
-                                <p>
-                                    {this.state.result?this.state.result:""}
-                                </p>
-                            </CCol>
-                        </CRow>
-                    </CCard>
-                </CCol>
-                <CCol style={{ textAlign: "center" }}>
-                    <CRow>
-                        <CCol sm="2">
-                            <CLabel> Đặt con trỏ vào ô để gõ</CLabel>
-                        </CCol>
-                        <CCol sm="8">
-                            <input style={{ width: "20px" }}
-                                type="text"
-                                id="inputSteno"
-                                style={{ textAlign: "center" }}
-                                autoFocus="true"
-                                onKeyDown={this.handlePressKey}
-                                onKeyUp={this.handleUnpressKey}
-                                value={this.state.mapvalue}
-                            />
-                        </CCol>
-                    </CRow>
-                </CCol>
+                    
+                
+                        
                 {/* banphim */}
                 <CRow>
                     <CCol
