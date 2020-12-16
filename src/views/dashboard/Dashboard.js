@@ -16,16 +16,16 @@ import {
   CCardTitle,
   CLink,
   CWidgetProgress,
+  CCardText,
+  CLabel,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import ApexCharts from "apexcharts";
-import ApexChart from "./chart";
-import ReactApexChart from "apexcharts";
 import Chart from "react-apexcharts";
 import YourSoccer from "../fight/YourSoccer";
 const ChartWord = React.lazy(() => import("./chartWord"));
 const ChartSpeed = React.lazy(() => import("./chartSpeed"));
 const ChartRating = React.lazy(() => import("./chartRating"));
+const Step = React.lazy(() => import("./step"));
 
 const Progress = (props) => {
   return (
@@ -109,6 +109,28 @@ const LessonShort = (props) => {
   );
 };
 
+const CardWidget = (props) => {
+  return (
+    <CCard
+      accentColor={props.color}
+      style={{ height: "150px", alignItems: "center" }}
+    >
+      <CCardBody style={{ textAlign: "center" }}>
+        <CCardText>{props.header}</CCardText>
+        <h1>
+          {props.content}{" "}
+          {props.custom == undefined ? (
+            <CIcon style={{ color: "green" }} name={props.cil} />
+          ) : (
+            ""
+          )}
+        </h1>
+        <h6 style={{ color: "red" }}>{props.custom}</h6>
+      </CCardBody>
+    </CCard>
+  );
+};
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -160,46 +182,60 @@ class Dashboard extends React.Component {
       <>
         <CRow>
           <CCol xs="12" sm="6" lg="3">
-            <CWidgetProgress
+            {/* <CWidgetProgress
               color="success"
               header="Bài học"
               text="20/40 bài"
               // footer="Lorem ipsum dolor sit amet enim."
-            />
-          </CCol>
-          <CCol xs="12" sm="6" lg="3">
-            <CWidgetProgress
-              color="info"
-              header="12.124"
-              text="<h5>Lorem ipsum...</h5>"
-              footer="Lorem ipsum dolor sit amet enim."
-            />
-          </CCol>
-          <CCol xs="12" sm="6" lg="3">
-            <CWidgetProgress
-              color="warning"
-              header="$98.111,00"
-              text="Lorem ipsum..."
-              footer="Lorem ipsum dolor sit amet enim."
-            />
-          </CCol>
-          <CCol xs="12" sm="6" lg="3">
-            <CWidgetProgress
-              header="2 TB"
-              text="Lorem ipsum..."
-              footer="Lorem ipsum dolor sit amet enim."
+            /> */}
+            {/* <CCard
+              accentColor="success"
+              style={{ height: "150px", alignItems: "center" }}
             >
-              <CProgress
-                color="danger"
-                animated
-                size="xs"
-                className="my-3"
-                value={75}
-              />
-            </CWidgetProgress>
+              <CCardBody style={{ textAlign: "center" }}>
+                <CCardText>Số bài đã học trong ngày</CCardText>
+                <h1>10 bài</h1>
+              </CCardBody>
+            </CCard> */}
+            <CardWidget
+              color="success"
+              header="Số bài đã học trong ngày"
+              content="10 bài"
+              cil="cil-arrow-top"
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CardWidget
+              color="info"
+              header="Tốc độ gõ trung bình trong ngày"
+              content="47 từ/phút"
+              cil="cil-arrow-top"
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CardWidget
+              color="warning"
+              header="Số lượng từ tốc ký gõ trong ngày"
+              content="2048 từ"
+              cil="cil-arrow-top"
+            />
+          </CCol>
+          <CCol xs="12" sm="6" lg="3">
+            <CardWidget
+              color="danger"
+              header="Thời gian sử dụng"
+              content="2 tiếng"
+              custom="Bạn nên nghỉ ngơi sớm"
+            />
           </CCol>
         </CRow>
         <CContainer fluid>
+          <CCard>
+            <CCardHeader>Lộ trình học tập</CCardHeader>
+            <CCardBody>
+              <Step />
+            </CCardBody>
+          </CCard>
           <CRow>
             <CCol sm="8">
               <CCard>
@@ -267,17 +303,17 @@ class Dashboard extends React.Component {
                     linkPractice=""
                   />
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 2: Học các phím tay phải"
                     linkLearn=""
                     linkPractice=""
                   />
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 2: Học các phím tay phải 2"
                     linkLearn=""
                     linkPractice=""
                   />
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 4: Học các gõ âm"
                     linkLearn=""
                     linkPractice=""
                   />
@@ -293,22 +329,17 @@ class Dashboard extends React.Component {
                 </CCardHeader>
                 <CCardBody>
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 1: Học các gõ âm chính"
                     linkLearn=""
                     linkPractice=""
                   />
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 2: Học quy tắc xóa"
                     linkLearn=""
                     linkPractice=""
                   />
                   <LessonShort
-                    text="Bài 1: Học các phím tay trái"
-                    linkLearn=""
-                    linkPractice=""
-                  />
-                  <LessonShort
-                    text="Bài 1: Học các phím tay trái"
+                    text="Bài 1: Học quy tắc gõ số"
                     linkLearn=""
                     linkPractice=""
                   />

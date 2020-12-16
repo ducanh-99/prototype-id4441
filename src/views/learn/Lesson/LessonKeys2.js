@@ -147,6 +147,7 @@ class LessonLeys2 extends Component {
   }
 
   onChangeParent = () => {
+    console.log("parent")
     let index = this.state.index;
     index += 1;
     this.setState({ index });
