@@ -71,6 +71,7 @@ const Lesson = (props) => {
         ) : (
           <Progress text={props.progress} progress="warning" />
         )}
+        {/* <Progress /> */}
         <Star />
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
@@ -102,30 +103,16 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học gõ các từ đơn giản"
-                progress="40"
-                link="/#/learn/word/lessonWord1"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 2: Học gõ các từ trung bình"
-                progress="40"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 3: Học gõ các từ khó"
+                text="Bài 0: Giới thiệu quy tắc xóa"
                 progress="100"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 4: Học gõ các từ rất khó"
-                progress="0"
-                link="/learn/word#/learn/sound"
+                text="Bài 1: Thực hành quy tắc xóa"
+                progress="40"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
           </CRow>
@@ -136,21 +123,20 @@ const Nav = () => {
   );
 };
 
-function ListWords() {
+function LearnDelete() {
   return (
     <>
       <CContainer>
         <CCard>
           <CCardHeader>
-            {" "}
             <CRow>
               <CCol sm="8">
-                <CCardTitle>Học gõ từ tốc ký</CCardTitle>
-                <h5>
-                  Học gõ từ tốc ký giúp bạn biết cách ghép âm tiếng Việt để gõ
-                  tốc ký
-                </h5>
-
+                <CCardTitle>Học quy tắc xóa</CCardTitle>
+                <CCardText>
+                  <h5>
+                    Xóa trong bàn phím tốc ký khác so với cách gõ thông thường
+                  </h5>
+                </CCardText>
                 <CRow>
                   <CCol sm="4">
                     <CCardText>
@@ -159,8 +145,8 @@ function ListWords() {
                     <CCardText>- Số lượng bài học </CCardText>
                   </CCol>
                   <CCol sm="4">
-                    <CCardText>20 giờ</CCardText>
-                    <CCardText>4 bài học</CCardText>
+                    <CCardText>20 phút</CCardText>
+                    <CCardText>2 bài học</CCardText>
                   </CCol>
                 </CRow>
               </CCol>
@@ -183,4 +169,4 @@ function ListWords() {
   );
 }
 
-export default ListWords;
+export default LearnDelete;

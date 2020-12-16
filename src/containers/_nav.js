@@ -30,6 +30,21 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
+        name: "Học quy tắc gõ số",
+        to: "/learn/number",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học quy tắc xóa",
+        to: "/learn/delete",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Học quy tắc gõ ký tự đặc biệt",
+        to: "/learn/special",
+      },
+      {
+        _tag: "CSidebarNavItem",
         name: "Học gõ từ",
         to: "/learn/word",
       },
@@ -38,12 +53,6 @@ export default [
         name: "Học gõ câu",
         to: "/learn/sentences",
       },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Từ của bạn",
-        to: "/learn/your_word",
-        icon: "cil-home"
-      }
     ],
   },
   {
@@ -54,15 +63,33 @@ export default [
   },
   {
     _tag: "CSidebarNavItem",
+    name: "Soạn thảo",
+    to: "/soan-thao",
+    icon: "cil-pencil",
+  },
+  {
+    _tag: "CSidebarNavItem",
     name: "Xem bộ từ điển",
     to: "/watch",
     icon: "cil-puzzle",
   },
   {
     _tag: "CSidebarNavItem",
+    name: "Từ của bạn",
+    to: "/learn/your_word",
+    icon: "cil-home",
+  },
+  {
+    _tag: "CSidebarNavItem",
     name: "Thi đấu",
     to: "/fight",
     icon: "cil-star",
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Liên hệ",
+    to: "/contact",
+    icon: "cil-cursor",
   },
   // {
   //   _tag: 'CSidebarNavTitle',

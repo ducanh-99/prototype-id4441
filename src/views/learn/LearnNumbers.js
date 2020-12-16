@@ -29,7 +29,7 @@ const pie = {
   labels: ["Hoàn thành", "Chưa hoàn thành"],
   datasets: [
     {
-      data: [300, 100],
+      data: [200, 100],
       backgroundColor: ["#36A2EB", "#FFCE56"],
       hoverBackgroundColor: ["#36A2EB", "#FFCE56"],
     },
@@ -71,6 +71,7 @@ const Lesson = (props) => {
         ) : (
           <Progress text={props.progress} progress="warning" />
         )}
+        {/* <Progress /> */}
         <Star />
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
@@ -102,30 +103,16 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học gõ các từ đơn giản"
-                progress="40"
-                link="/#/learn/word/lessonWord1"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 2: Học gõ các từ trung bình"
-                progress="40"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 3: Học gõ các từ khó"
+                text="Bài 0: Giới thiệu các gõ số"
                 progress="100"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 4: Học gõ các từ rất khó"
-                progress="0"
-                link="/learn/word#/learn/sound"
+                text="Bài 1: Thực hành quy tắc gõ số"
+                progress="40"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
           </CRow>
@@ -136,21 +123,20 @@ const Nav = () => {
   );
 };
 
-function ListWords() {
+function LearnNumbers() {
   return (
     <>
       <CContainer>
         <CCard>
           <CCardHeader>
-            {" "}
             <CRow>
               <CCol sm="8">
-                <CCardTitle>Học gõ từ tốc ký</CCardTitle>
+                <CCardTitle>Học gõ phím tốc ký</CCardTitle>
                 <h5>
-                  Học gõ từ tốc ký giúp bạn biết cách ghép âm tiếng Việt để gõ
-                  tốc ký
+                  Học gõ phím tốc ký giúp bạn làm quen với bàn phím tốc ký tiếng
+                  Việt để có thể gõ được tốc ký Tiếng Việt
                 </h5>
-
+                <br />
                 <CRow>
                   <CCol sm="4">
                     <CCardText>
@@ -159,8 +145,8 @@ function ListWords() {
                     <CCardText>- Số lượng bài học </CCardText>
                   </CCol>
                   <CCol sm="4">
-                    <CCardText>20 giờ</CCardText>
-                    <CCardText>4 bài học</CCardText>
+                    <h6>20 phút</h6>
+                    <CCardText>2 bài học</CCardText>
                   </CCol>
                 </CRow>
               </CCol>
@@ -176,11 +162,10 @@ function ListWords() {
           <CCardBody>
             <Nav />
           </CCardBody>
-          <CCardFooter></CCardFooter>
         </CCard>
       </CContainer>
     </>
   );
 }
 
-export default ListWords;
+export default LearnNumbers;

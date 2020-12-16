@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "src/scss/_custom.scss";
-import { CCard, CCardBody, CCol, CLabel, CRow } from "@coreui/react";
+import { CCard, CCardBody, CCol, CContainer, CInput, CLabel, CRow } from "@coreui/react";
 const dictionary = {
     "S-P-R--S-A": "vá", SPEWG: "dương", HU: "hoa", "T-R--A-J": "trai", TPNETK: "đẹp",
     //amdau
@@ -72,12 +72,12 @@ class Keyboard extends Component {
             mapvalue: "",
             wordList: [],
             result: "",
-            resultWordList:[],
+            resultWordList: [],
             numberOfWords: 0,
             numberOfFirstLetter: [0],
             numberOfMainLetter: [0],
             numberOfLastLetter: [0],
-            tempstring:""
+            tempstring: ""
         };
     }
     handlePressKey = (event) => {
@@ -219,16 +219,16 @@ class Keyboard extends Component {
                 numberOfMainLetter[numberOfWords] = 0
                 numberOfFirstLetter[numberOfWords] = 0
                 numberOfLastLetter[numberOfWords] = 0
-                result=result+resultWordList[resultWordList.length-1] +" "
+                result = result + resultWordList[resultWordList.length - 1] + " "
                 break;
             case 8:
                 setPress["backspace"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = ""
-                numberOfWords =  0
+                numberOfWords = 0
                 numberOfMainLetter[numberOfWords] = 0
                 numberOfFirstLetter[numberOfWords] = 0
                 numberOfLastLetter[numberOfWords] = 0
-                result= ""
+                result = ""
                 break;
             case 48:
                 setPress["num0"] = { backgroundColor: "red", color: "yellow" };
@@ -296,26 +296,26 @@ class Keyboard extends Component {
 
         if (mapvalue != this.state.value) {
             wordList = mapvalue.split(" ")
-            resultWordList=[]
-            for (let index = 0; index < wordList.length; index++) {   
-                tempstring = ""             
+            resultWordList = []
+            for (let index = 0; index < wordList.length; index++) {
+                tempstring = ""
                 const element = wordList[index];
-                if(element[0] =="#"){
-                    var firstletter = numberOfFirstLetter[numberOfWords]>0?element.slice(0,element.length):""
-                }else{
-                    var firstletter = numberOfFirstLetter[numberOfWords]>0?element.slice(0,numberOfFirstLetter[numberOfWords]*2):""
+                if (element[0] == "#") {
+                    var firstletter = numberOfFirstLetter[numberOfWords] > 0 ? element.slice(0, element.length) : ""
+                } else {
+                    var firstletter = numberOfFirstLetter[numberOfWords] > 0 ? element.slice(0, numberOfFirstLetter[numberOfWords] * 2) : ""
                 }
-                
-                var mainletter = numberOfMainLetter[numberOfWords]>0?element.slice(numberOfFirstLetter[numberOfWords]*2,element.length-numberOfLastLetter[numberOfWords]*2):""
-                var lastletter = numberOfLastLetter[numberOfWords]>0?element.slice(element.length-numberOfLastLetter[numberOfWords]*2,element.length):""    
+
+                var mainletter = numberOfMainLetter[numberOfWords] > 0 ? element.slice(numberOfFirstLetter[numberOfWords] * 2, element.length - numberOfLastLetter[numberOfWords] * 2) : ""
+                var lastletter = numberOfLastLetter[numberOfWords] > 0 ? element.slice(element.length - numberOfLastLetter[numberOfWords] * 2, element.length) : ""
                 if (dictionary[firstletter] !== undefined) {
-                    tempstring= tempstring+dictionary[firstletter]
+                    tempstring = tempstring + dictionary[firstletter]
                 }
                 if (dictionary[mainletter] !== undefined) {
-                    tempstring= tempstring+dictionary[mainletter]
+                    tempstring = tempstring + dictionary[mainletter]
                 }
                 if (dictionary[lastletter] !== undefined) {
-                    tempstring= tempstring+dictionary[lastletter]
+                    tempstring = tempstring + dictionary[lastletter]
                 }
                 resultWordList.push(tempstring)
             }
@@ -329,8 +329,8 @@ class Keyboard extends Component {
             numberOfFirstLetter: numberOfFirstLetter,
             numberOfMainLetter: numberOfMainLetter,
             numberOfLastLetter: numberOfLastLetter,
-            resultWordList:resultWordList,
-            tempstring:tempstring
+            resultWordList: resultWordList,
+            tempstring: tempstring
         });
     };
     handleUnpressKey = (event) => {
@@ -464,49 +464,53 @@ class Keyboard extends Component {
     render() {
         return (
             <div>
-                {/* <CRow>
-                    <CCol xs="8">
-                        <CCard>
-                            <CLabel> Result </CLabel>
-                            <p>{dictionary[this.state.mapvalue] ? dictionary[this.state.mapvalue] : "..."}</p>
-                        </CCard>
+                <CRow style={{ textAlign: "center" }}>
+                    <CCol sm="2">
+                        <CLabel> Kết quả gõ: </CLabel>
                     </CCol>
-                    <CCol xs="4">
-                        <CLabel> Đặt con trỏ vào đây để gõ</CLabel>
-                        <input type='text' id="inputSteno" style={{ textAlign: "center" }} autoFocus="true" onKeyDown={this.handlePressKey} onKeyUp={this.handleUnpressKey}  value={this.state.mapvalue}/>
+                    <CCol sm="8">
+                        <p>
+                            {this.state.result ? this.state.result : ""}
+                        </p>
                     </CCol>
-                </CRow> */}
-                <CCol style={{ textAlign: "center" }}>
-                    {" "}
-                    <CCard>
-                        <CRow style={{ textAlign: "center" }}>
-                            <CCol sm="2">
-                                <CLabel> Kết quả gõ: </CLabel>
-                            </CCol>
-                            <CCol sm="8">
-                                    {this.state.result ? this.state.result : ""}
-                            </CCol>
-                        </CRow>
-                    </CCard>
-                </CCol>
-                <CCol style={{ textAlign: "center" }}>
-                    <CRow>
-                        <CCol sm="2">
-                            <CLabel> Đặt con trỏ vào ô để gõ</CLabel>
-                        </CCol>
-                        <CCol sm="8">
-                            <input style={{ width: "20px" }}
+                </CRow>
+                <CRow>
+                    <CCol sm="12">
+                        <CContainer>
+                            <CInput
                                 type="text"
                                 id="inputSteno"
                                 style={{ textAlign: "center" }}
                                 autoFocus="true"
-                                onKeyDown={this.handlePressKey}
+                                onKeyDownCapture={this.handlePressKey}
                                 onKeyUp={this.handleUnpressKey}
                                 value={this.state.mapvalue}
+                                placeholder="Nơi để gõ"
+                                onChange={this.props.onChangeParent != undefined ? this.props.onChangeParent : ""}
                             />
-                        </CCol>
-                    </CRow>
-                </CCol>
+                        </CContainer>
+                        <br />
+                        <br />
+                    </CCol>
+                    {/* <CCol sm="6">
+                        <CCard style= {{ height: "35px"}}>
+                            <CRow style={{ textAlign: "center" }}>
+                                <CCol sm="2">
+                                    <CLabel> Kết quả gõ: </CLabel>
+                                </CCol>
+                                <CCol sm="8">
+                                    <p>
+                                        {this.state.result?this.state.result:""}
+                                    </p>
+                                </CCol>
+                            </CRow>
+                        </CCard>
+                    </CCol> */}
+                </CRow>
+                {" "}
+
+
+
                 {/* banphim */}
                 <CRow>
                     <CCol

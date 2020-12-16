@@ -5,12 +5,14 @@ import {
   CCardBody,
   CCardFooter,
   CCardHeader,
+  CCardText,
   CCardTitle,
   CCol,
   CContainer,
   CImg,
   CInput,
   CLabel,
+  CLink,
   CModal,
   CModalBody,
   CModalFooter,
@@ -72,11 +74,11 @@ const Progress = (props) => {
   );
 };
 function sweetAlert() {
-    swal({
-      title: "Thành công!",
-      text: "Điểm của bạn: 50\nThời gian: 10s\n Tốc độ gõ: 10 từ/phút ",
-      icon: "success",
-    });
+  swal({
+    title: "Thành công!",
+    text: "Điểm của bạn: 50\nThời gian: 10s\n Tốc độ gõ: 10 từ/phút ",
+    icon: "success",
+  });
 }
 
 const Modal = (props) => {
@@ -88,35 +90,14 @@ const Modal = (props) => {
 
   return (
     <CContainer>
-      <CButton onClick={toggle} color="info">
-        Kết thúc bài học
-      </CButton>
-      <CModal show={modal} onClose={toggle} size="xl" >
+      <CModal show={modal} onClose={toggle} size="xl">
         <CModalHeader closeButton>Đánh giá: Gõ từ sau bằng tốc ký</CModalHeader>
         <CModalBody style={{ textAlign: "center" }}>
-          {/* <CRow>
-            <CCol sm="5">
-              <CLabel>Từ tiếng Việt muốn thêm</CLabel>
-              <CSelect id="vnInput" onChange={onchangeSelect()}>
-                <option>Chọn từ tiếng Việt</option>
-                <option value="H-U">hoa</option>
-                <option value="ST*-YN">xuân</option>
-                <option value="SP-EWG">dương</option>
-              </CSelect>
-            </CCol>
-            <CCol sm="5">
-              <CLabel>Từ tốc ký tương ứng</CLabel>
-              <CInput disabled="true" id="stenoOutput"></CInput>
-            </CCol>
-          </CRow> */}
-          {/* <CRow style={{ textAlign: "center" }}>
-            <CCardTitle>hoa</CCardTitle>
-          </CRow> */}
           <CRow>
             <CCol sm="3">
               <CountdownTime time="10"></CountdownTime>
             </CCol>
-            <CCol >
+            <CCol>
               <CAlert color="primary">P</CAlert>
             </CCol>
           </CRow>
@@ -124,7 +105,7 @@ const Modal = (props) => {
           <CCol>
             {/* <CInput></CInput>
              */}
-             <Keyboard></Keyboard>
+            <Keyboard></Keyboard>
           </CCol>
         </CModalBody>
         <CModalFooter>
@@ -140,56 +121,151 @@ const Modal = (props) => {
   );
 };
 class LessonLeys2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0,
+      index: 0,
+      finish: false,
+    };
+  }
+
+  toggle = () => {
+    this.setState((state) => ({
+      finish: !state.finish,
+    }));
+    this.refresh()
+  };
+
+  refresh = () => {
+    this.setState((state) => ({
+      value: 0,
+    }));
+    this.setState((state) => ({
+      index: 0,
+    }));
+  }
+
+  onChangeParent = () => {
+    console.log("parent")
+    let index = this.state.index;
+    index += 1;
+    this.setState({ index });
+    let value = this.state.value;
+    value += 25;
+    this.setState({ value });
+    console.log(value);
+
+    if (value === 100) {
+      this.toggle();
+    }
+  };
+
   render() {
     return (
-      <CContainer>
-        <CCard>
-          <CCardHeader>
+      <>
+        <CModal show={this.state.finish}>
+          <CModalHeader>Đánh giá bài học của bạn</CModalHeader>
+          <CModalBody>
             <CRow>
-              <CCol sm="10">
-                {" "}
-                <h5 style={{ color: "#321fdb" }}>
-                  Bài 2: Học các phím tay trái P2: Bài học sẽ học các phím: S,
-                  T, K, P, R, H
-                </h5>
+              <CCol sm="8">
+                <h6> Độ chính xác: </h6>
+                <h6> Thời gian: </h6>
+                <h6> Tốc độ: </h6>
               </CCol>
-              <CCol sm="2">
-                <Modal></Modal>
+              <CCol sm="4">
+                <h6>94%</h6>
+                <h6>0:20s</h6>
+                <h6>45 từ/phút</h6>
               </CCol>
             </CRow>
-          </CCardHeader>
-          <CCardBody>
-            {/* <h2 style={{ textAlign: "center" }}> S </h2> */}
-            <CAlert
-              id="alertWord"
-              color="info"
-              style={{ textAlign: "center", marginInline: "0px" }}
-            >
-              <h2 style={{ textAlign: "center" }} steno="s" qwerty="q">
-                {" "}
-                {key[3].steno}{" "}
-              </h2>
-            </CAlert>
-            <CContainer>
-              <CRow>
-                <CCol sm="3">
-                  <StopWatch></StopWatch>
-                </CCol>
-                <CCol sm="6"></CCol>
-                <CCol sm="2">
-                  <CCard>
-                    <CCardBody>
-                      {/* <CLabel>Số lần gõ: 4</CLabel>
-                      <CLabel>Số lần gõ đúng: 8</CLabel> */}
-                      <CLabel>Độ chính xác:</CLabel>
-                      <Progress text="50" progress="warning"></Progress>
-                    </CCardBody>
-                  </CCard>
-                  {/* <h4 style={{ textAlign: "center" }}></h4> */}
-                </CCol>
-              </CRow>
-            </CContainer>
-            {/* <CInput
+          </CModalBody>
+          <CModalFooter>
+            <CLink to="/learn/keys">
+              <CButton color="primary">Bài giảng tiếp theo</CButton>{" "}
+            </CLink>
+            <CButton color="secondary" onClick={this.toggle}>
+              Học lại
+            </CButton>
+          </CModalFooter>
+        </CModal>
+        <CRow>
+          <CCol sm="1">
+            <StopWatch></StopWatch>
+          </CCol>
+          <CCol sm="11">
+            <CCard>
+              <CCardHeader>
+                <CRow>
+                  <CCol sm="12">
+                    {" "}
+                    <h5 style={{ color: "#321fdb" }}>
+                      Bài 2: Học các phím tay trái P2: Bài học sẽ học các phím:
+                      S, T, K, P, R, H
+                    </h5>
+                    <br />
+                    <CContainer>
+                      <CProgress value={this.state.value} />
+                    </CContainer>
+                  </CCol>
+                </CRow>
+              </CCardHeader>
+              <CCardBody>
+                <CCardTitle>
+                  <div className="card-header-actions">
+                    <CButton color="primary" onClick={this.onChangeParent}>
+                      bỏ qua
+                    </CButton>
+                  </div>
+                </CCardTitle>
+
+                {/* <h2 style={{ textAlign: "center" }}> S </h2> */}
+                {/* <CAlert
+                  id="alertWord"
+                  color="info"
+                  style={{ textAlign: "center", marginInline: "0px" }}
+                >
+                  <h2 style={{ textAlign: "center" }} steno="s" qwerty="q">
+                    {" "}
+                    {key[3].steno}{" "}
+                  </h2>
+                </CAlert> */}
+                <CRow>
+                  <CCol sm="6">
+                    <CCard>
+                      <CCardHeader>Phím gõ tốc ký</CCardHeader>
+                      <CCardBody>
+                        <CAlert
+                          id="alertWord"
+                          color="info"
+                          style={{ textAlign: "center", marginInline: "0px" }}
+                        >
+                          <h2 style={{ textAlign: "center" }}>
+                            {key[this.state.index].steno}
+                          </h2>
+                        </CAlert>
+                      </CCardBody>
+                    </CCard>
+                  </CCol>
+                  <CCol sm="6">
+                    <CCard>
+                      <CCardHeader>Phím qwerty tương ứng</CCardHeader>
+                      <CCardBody>
+                        <CAlert
+                          id="alertWord"
+                          color="info"
+                          style={{ textAlign: "center", marginInline: "0px" }}
+                        >
+                          <h2 style={{ textAlign: "center" }}>
+                            {key[this.state.index].qwerty}
+                          </h2>
+                        </CAlert>
+                      </CCardBody>
+                    </CCard>
+                  </CCol>
+                </CRow>
+                <br />
+                {/* <CInput
               id="word" 
               onKeyPress={function changeWord() {
                 $("#word").on("keydown", function () {
@@ -198,14 +274,18 @@ class LessonLeys2 extends Component {
                 });
               }}
             ></CInput> */}
-            <KeyboardSteno></KeyboardSteno>
-          </CCardBody>
-          <CCardFooter>
-            {/* <CButton color="primary"> Kết thúc bài học</CButton> */}
-            {/* <Modal></Modal> */}
-          </CCardFooter>
-        </CCard>
-      </CContainer>
+                <KeyboardSteno
+                  onChangeParent={this.onChangeParent}
+                ></KeyboardSteno>
+              </CCardBody>
+              <CCardFooter>
+                {/* <CButton color="primary"> Kết thúc bài học</CButton> */}
+                {/* <Modal></Modal> */}
+              </CCardFooter>
+            </CCard>
+          </CCol>
+        </CRow>
+      </>
     );
   }
 }

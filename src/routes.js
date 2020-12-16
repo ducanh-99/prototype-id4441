@@ -1,5 +1,6 @@
 
 import React from 'react';
+import LearnNumbers from './views/learn/LearnNumbers';
 import ListSentences from './views/learn/ListSentences';
 
 
@@ -10,6 +11,9 @@ const learnWord = React.lazy(()=> import('./views/learn/LearnWord'));
 const learnSentences = React.lazy(()=> import('./views/learn/LearnSentences'));
 const learnSound = React.lazy(()=> import('./views/learn/LearnSound'));
 const learnKeys = React.lazy(()=> import('./views/learn/LearnKeys'));
+const learnNumbers = React.lazy(() => import('./views/learn/LearnNumbers'))
+const learnDelete= React.lazy(() => import('./views/learn/delete/LearnDelete'))
+const learnSpecial = React.lazy(() => import('./views/learn/LearnSpecial'))
 
 const listKeys = React.lazy(() => import('./views/learn/ListKeys'))
 
@@ -32,6 +36,8 @@ const Rank = React.lazy(() => import("./views/fight/Rank"));
 
 const Watch = React.lazy(() => import("./views/watch/Watch"));
 const Home = React.lazy(() => import("./views/dashboard/Dashboard"));
+
+const soanThao = React.lazy(() => import("./views/soanthao/soanthao"))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', exact: true, name: 'Trang chủ', component: Home },
@@ -53,12 +59,17 @@ const routes = [
   { path: '/learn/sentences', exact: true, name: 'Học gõ câu', component: listSentences },
   { path: '/learn/sound', exact: true, name: 'Học gõ âm', component: listSounds },
   { path: '/learn/keys', exact: true, name: 'Học gõ phím', component: listKeys },
+  { path: '/learn/number', exact: true, name: 'Học quy tắc gõ số', component: learnNumbers },
+  { path: '/learn/delete', exact: true, name: 'Học quy tắc xóa', component: learnDelete },
+  { path: '/learn/special', exact: true, name: 'Học quy tắc gõ ký tự đặc biệt', component: learnSpecial },
 
   { path: '/learn/keys/lesson1', exact: true, name: 'Bài 1', component: lesson1 },
   { path: '/learn/keys/lessonKeys2', exact: true, name: 'Bài học phím 2', component: lessonKeys2 },
   { path: '/learn/word/lessonWord1', exact: true, name: 'Bài học từ 1', component: learnWord },
   //practice
   { path: '/practice/key', exact: true, name: 'Bài luyện tập phím', component: practiceKeys },
+
+  { path: '/soan-thao', exact: true, name: 'Soạn thảo', component: soanThao },
 ];
 
 export default routes;

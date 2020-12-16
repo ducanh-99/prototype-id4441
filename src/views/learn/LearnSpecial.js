@@ -71,6 +71,7 @@ const Lesson = (props) => {
         ) : (
           <Progress text={props.progress} progress="warning" />
         )}
+        {/* <Progress /> */}
         <Star />
         <CCardTitle>Thời gian học: 00:10:00</CCardTitle>
       </CCardHeader>
@@ -102,28 +103,42 @@ const Nav = () => {
           <CRow>
             <CCol sm="4">
               <Lesson
-                text="Bài 1: Học gõ các từ đơn giản"
-                progress="40"
-                link="/#/learn/word/lessonWord1"
+                text="Bài 0: Giới thiệu bàn phím tốc ký"
+                progress="100"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 2: Học gõ các từ trung bình"
+                text="Bài 1: Học các phím tay trái"
                 progress="40"
-                link="/learn/word#/learn/sound"
+                link="/#/learn/keys/lesson1"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 3: Học gõ các từ khó"
+                text="Bài 2: Học các phím tay trái P2"
+                progress="40"
+                link="/#/learn/keys/lessonKeys2"
+              />
+            </CCol>
+            <CCol sm="4">
+              <Lesson
+                text="Bài 3: Học các phím tay phải"
                 progress="100"
                 link="/learn/word#/learn/sound"
               />
             </CCol>
             <CCol sm="4">
               <Lesson
-                text="Bài 4: Học gõ các từ rất khó"
+                text="Bài 4: Học các phím tay phải P2"
+                progress="0"
+                link="/learn/word#/learn/sound"
+              />
+            </CCol>
+            <CCol sm="4">
+              <Lesson
+                text="Bài 5: Học trật tự các phím"
                 progress="0"
                 link="/learn/word#/learn/sound"
               />
@@ -136,21 +151,20 @@ const Nav = () => {
   );
 };
 
-function ListWords() {
+function LearnSpecial() {
   return (
     <>
       <CContainer>
         <CCard>
           <CCardHeader>
-            {" "}
             <CRow>
               <CCol sm="8">
-                <CCardTitle>Học gõ từ tốc ký</CCardTitle>
-                <h5>
-                  Học gõ từ tốc ký giúp bạn biết cách ghép âm tiếng Việt để gõ
-                  tốc ký
-                </h5>
-
+                <CCardTitle>Học gõ ký tự đặc biệt</CCardTitle>
+                <CCardText>
+                    <h5>
+                        Học gõ ký tự đặc biệt giúp bạn nắm vững kiến thức học gõ ký tự đặc biệt như ^, @,.. trong tốc ký
+                    </h5>
+                </CCardText>
                 <CRow>
                   <CCol sm="4">
                     <CCardText>
@@ -159,8 +173,8 @@ function ListWords() {
                     <CCardText>- Số lượng bài học </CCardText>
                   </CCol>
                   <CCol sm="4">
-                    <CCardText>20 giờ</CCardText>
-                    <CCardText>4 bài học</CCardText>
+                    <CCardText>10 giờ</CCardText>
+                    <CCardText>5 bài học</CCardText>
                   </CCol>
                 </CRow>
               </CCol>
@@ -183,4 +197,4 @@ function ListWords() {
   );
 }
 
-export default ListWords;
+export default LearnSpecial;

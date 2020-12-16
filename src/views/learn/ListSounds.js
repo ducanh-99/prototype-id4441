@@ -121,40 +121,12 @@ const Nav = () => {
                 link="/learn/word#/learn/sound"
               />
             </CCol>
-            <CCol sm="4">
-              <Lesson
-                text="Bài 4: Học gõ âm xóa + số"
-                progress="0"
-                link="/learn/word#/learn/sound"
-              />
-            </CCol>
           </CRow>
         </CTabPane>
         <CTabPane data-tab="purpose">
-          <CRow>
-            <CCol sm="8">
-              <CCardTitle>Học gõ âm tốc ký</CCardTitle>
-              <CCardText>
-                Học gõ âm tốc ký giúp bạn gõ được các âm cơ bản trong tiếng Việt
-                để gõ tốc ký
-              </CCardText>
-              <CRow>
-                <CCol sm="4">
-                  <CCardText>
-                    <i class="cis-timer"></i>- Thời gian học tập:
-                  </CCardText>
-                  <CCardText>- Số lượng bài học </CCardText>
-                </CCol>
-                <CCol sm="4">
-                  <CCardText>20 giờ</CCardText>
-                  <CCardText>4 bài học</CCardText>
-                </CCol>
-              </CRow>
-            </CCol>
-            <CCol sm="4">
-              <CChart type="pie" datasets={pie.datasets} labels={pie.labels} />
-            </CCol>
-          </CRow>
+          <br />
+          <br />
+          Một bài giới thiệu ngắn
         </CTabPane>
       </CTabContent>
     </CTabs>
@@ -166,7 +138,36 @@ function ListSounds() {
     <>
       <CContainer>
         <CCard>
-          <CCardHeader>Học gõ âm</CCardHeader>
+          <CCardHeader>
+            <CRow>
+              <CCol sm="8">
+                <CCardTitle>Học gõ âm tốc ký</CCardTitle>
+                <CCardText>
+                  Học gõ âm tốc ký giúp bạn gõ được các âm cơ bản trong tiếng
+                  Việt để gõ tốc ký
+                </CCardText>
+                <CRow>
+                  <CCol sm="4">
+                    <CCardText>
+                      <i class="cis-timer"></i>- Thời gian học tập:
+                    </CCardText>
+                    <CCardText>- Số lượng bài học </CCardText>
+                  </CCol>
+                  <CCol sm="4">
+                    <CCardText>20 giờ</CCardText>
+                    <CCardText>4 bài học</CCardText>
+                  </CCol>
+                </CRow>
+              </CCol>
+              <CCol sm="4">
+                <CChart
+                  type="pie"
+                  datasets={pie.datasets}
+                  labels={pie.labels}
+                />
+              </CCol>
+            </CRow>
+          </CCardHeader>
           <CCardBody>
             <Nav />
           </CCardBody>
