@@ -152,11 +152,11 @@ class LessonLeys2 extends Component {
     index += 1;
     this.setState({ index });
     let value = this.state.value;
-    value += 25;
+    value += 100/6;
     this.setState({ value });
     console.log(value);
 
-    if (value === 100) {
+    if (index == 6) {
       this.toggle();
     }
   };
@@ -274,9 +274,9 @@ class LessonLeys2 extends Component {
                 });
               }}
             ></CInput> */}
-                <KeyboardSteno
-                  onChangeParent={this.onChangeParent}
-                ></KeyboardSteno>
+                <Keyboard
+                  onChangeParent={this.onChangeParent} keyLesson={key[this.state.index].qwerty}
+                />
               </CCardBody>
               <CCardFooter>
                 {/* <CButton color="primary"> Kết thúc bài học</CButton> */}

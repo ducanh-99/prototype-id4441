@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "src/scss/_custom.scss";
-import { CCard, CCardBody, CCol, CContainer, CInput, CLabel, CRow } from "@coreui/react";
+import { CCard, CCardBody, CCol, CContainer, CInput, CLabel, CRow, CTextarea } from "@coreui/react";
+import { TheSidebar } from "src/containers";
 const dictionary = {
     "S-P-R--S-A": "vá", SPEWG: "dương", HU: "hoa", "T-R--A-J": "trai", TPNETK: "đẹp",
     //amdau
@@ -30,7 +31,7 @@ class Keyboard extends Component {
         super(props);
         this.state = {
             setPress: {
-                q: { backgroundColor: "#fccacb", color: "black" },
+                q: { backgroundColor: "#fccacb", color: "black" ,border:true },
                 w: { backgroundColor: "#fcd7a2", color: "black" },
                 e: { backgroundColor: "#f8f8a2", color: "black" },
                 r: { backgroundColor: "#b3f9a3", color: "black" },
@@ -77,8 +78,34 @@ class Keyboard extends Component {
             numberOfFirstLetter: [0],
             numberOfMainLetter: [0],
             numberOfLastLetter: [0],
-            tempstring: ""
+            tempstring: "",
+            keyLesson: "",
+            checkKey:"",
         };
+    }
+    componentDidMount =() =>{
+        var keyLesson = this.state.keyLesson
+        var setPress = this.state.setPress
+        keyLesson = this.props.keyLesson
+        setPress[keyLesson]={ backgroundColor: "#6b6b47", color: "white"  }
+        this.setState({
+            keyLesson:keyLesson,
+            setPress:setPress
+        })
+        console.log(keyLesson)
+    }
+    componentDidUpdate (prevProps) {
+        if(this.props.keyLesson !== prevProps.keyLesson){
+            var keyLesson = this.state.keyLesson
+            var setPress = this.state.setPress
+            keyLesson = this.props.keyLesson
+            setPress[keyLesson]={ backgroundColor: "#6b6b47", color: "white" }
+            this.setState({
+                keyLesson:keyLesson,
+                setPress:setPress
+            })
+            console.log("update")
+        }
     }
     handlePressKey = (event) => {
         let setPress = this.state.setPress;
@@ -91,11 +118,13 @@ class Keyboard extends Component {
         var numberOfLastLetter = this.state.numberOfLastLetter
         var resultWordList = this.state.resultWordList
         var tempstring = this.state.tempstring
+        var checkKey=this.state.checkKey
         switch (event.which) {
             case 81:
                 setPress["q"] = { backgroundColor: "red", color: "yellow" };
                 mapvalue = mapvalue + "S-";
                 numberOfFirstLetter[numberOfWords] = numberOfFirstLetter[numberOfWords] + 1
+                checkKey="q"
                 break;
             case 87:
                 setPress["w"] = { backgroundColor: "red", color: "yellow" };
@@ -330,7 +359,8 @@ class Keyboard extends Component {
             numberOfMainLetter: numberOfMainLetter,
             numberOfLastLetter: numberOfLastLetter,
             resultWordList: resultWordList,
-            tempstring: tempstring
+            tempstring: tempstring,
+            checkKey:checkKey
         });
     };
     handleUnpressKey = (event) => {
@@ -462,11 +492,25 @@ class Keyboard extends Component {
         });
     };
     render() {
+        
         return (
             <div>
+                {this.props.soanthao != undefined?
+                <div>
+                    <label>Soạn thảo </label>
+                <CTextarea type="text"
+                                id="inputSteno"
+                                style={{ textAlign: "left" }}
+                                autoFocus="true"
+                                onKeyDownCapture={this.handlePressKey}
+                                onKeyUp={this.handleUnpressKey}
+                                value={this.state.result}
+                                placeholder="Nơi để gõ"></CTextarea>
+                </div>
+                :<div>
                 <CRow style={{ textAlign: "center" }}>
                     <CCol sm="2">
-                        <CLabel> Kết quả gõ: </CLabel>
+                    <CLabel> Kết quả gõ: </CLabel>
                     </CCol>
                     <CCol sm="8">
                         <p>
@@ -492,25 +536,10 @@ class Keyboard extends Component {
                         <br />
                         <br />
                     </CCol>
-                    {/* <CCol sm="6">
-                        <CCard style= {{ height: "35px"}}>
-                            <CRow style={{ textAlign: "center" }}>
-                                <CCol sm="2">
-                                    <CLabel> Kết quả gõ: </CLabel>
-                                </CCol>
-                                <CCol sm="8">
-                                    <p>
-                                        {this.state.result?this.state.result:""}
-                                    </p>
-                                </CCol>
-                            </CRow>
-                        </CCard>
-                    </CCol> */}
                 </CRow>
-                {" "}
-
-
-
+                </div>
+                }
+                
                 {/* banphim */}
                 <CRow>
                     <CCol
