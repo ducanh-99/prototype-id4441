@@ -431,6 +431,7 @@ class Keyboard extends Component {
                             onKeyUp={this.handleUnpressKey}
                             value={this.state.mapvalue}
                             placeholder = "Nơi để gõ"
+                            onChange = {this.props.onChangeParent != undefined ? this.props.onChangeParent : ""}
                         />
                         </CContainer>
                         <br />
