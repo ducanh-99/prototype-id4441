@@ -28,7 +28,7 @@ const TheSidebar = () => {
     >
       <CSidebarBrand className="d-md-down-none" to="/">
         {/* Logo */}
-        <h6>Day la Logo</h6>
+        <div><img src={'http://lh3.googleusercontent.com/proxy/_fQ8tIM0fvS4OeWx885P4EwvgpYyc5oys70VLkHJtUfnznXonCrJEscbkVR8TD9bHOi0tVoT9Nxktfuw7-rxGHMDEYA'} width="50px" height="50px" alt="boohoo" className="img-responsive"/></div>
       </CSidebarBrand>
       <CSidebarNav>
 
