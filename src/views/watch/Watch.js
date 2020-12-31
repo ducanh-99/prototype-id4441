@@ -38,7 +38,7 @@ const fields = [
   { key: "steno", label: "Tốc ký", _style: { width: "30%" } },
   {
     key: "action",
-    label: "Hành động",
+    label: "Thêm vào từ của bạn",
     sorter: false,
     filter: false,
     _style: { width: "20%" },
